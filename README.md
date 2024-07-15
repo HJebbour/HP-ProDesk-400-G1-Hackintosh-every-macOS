@@ -1,7 +1,7 @@
 # Running every Intel-based macOS releases (from 10.4 to 14) on HP ProDesk 400 G1 (Haswell)
 
 OpenCore-based EFI for HP Z640 (Haswell-E)
-<img align="right" src="./Docs/HP-ProDesk-400-G1.png" alt="HP ProDesk 400 G1" width="460">
+<img align="right" src="./Docs/HP-ProDesk-400-G1-MT.png" alt="HP ProDesk 400 G1" width="460">
 
 **Status: Fully Working | Stable**
 
