@@ -26,11 +26,21 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 [![macOS](https://img.shields.io/badge/Mac%20OS%20X-Leopard%2010.5.8-c17a99.svg)](https://web.archive.org/web/20090528055219/http://www.apple.com/macosx/)
 [![macOS](https://img.shields.io/badge/Mac%20OS%20X-Tiger%2010.4.11-68a4cb.svg)](https://web.archive.org/web/20060728031552/http://www.apple.com/macosx/)
 
-**Table of Contents**
+# Introduction
 
-
-**Introduction**
 I was inspired to create this project when I was preparing macOS installers (Mac OS X 10.4 to macOS 14) in an external hard drive and I wanted to test those installers if they are working properly, I tried the recent macOS releases on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports down to OS X El Capitan 10.11. I had an older machine (Core 2 Quad Kentsfield) but I only managed to run down to OS X Mountain Lion. I still wanted to test older Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel macOS releases in a single computer, then I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here the real fun starts, I needed to build a hackintosh that can run every Intel macOS releases from Mac OS X Tiger 10.4.11 to macOS Sonoma 14.5 with **ONE** EFI folder that runs all Intel macOS releases on the same computer.
+
+**DISCLAIMER:**
+As you embark on your Hackintosh journey you are encouraged to **READ** the entire README and [Dortania](https://dortania.github.io/getting-started/) guides before you start.
+
+This HP ProDesk 400 G1 Hackintosh project aims to be an all-in-one maintained hub for Opencore-based hackintoshes on the HP ProDesk G1 family. In short, this HP ProDesk 400 G1 Hackintosh is very stable and can be used as daily driver. I fully recommend this project to anyone looking for an old Mac Pro alternative.
+
+You can find a wealth of knowledge on [Reddit](https://www.reddit.com/r/hackintosh/), [TonyMacX86](https://www.tonymacx86.com) or [Google](https://www.google.com).
+
+Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
+
+**I am not responsible for any damages you may cause.**
+
 
 **Features**
 
@@ -89,44 +99,39 @@ These are relevant components on my machine which may differ from yours, keep th
 
 
 **Processor**
+
 The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. Although it needs a custom kernel in Mac OS X Tiger 10.4.11, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
 
+
 **Graphic Card**
+
 This is the tricky part. I needed a GPU that is natively compatible with Tiger and can be patched with OCLP in Sonoma. I checked Dortania GPU Buyers Guide both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/).
 
 For AMD, I found that the HD 2000 Series are supported natively from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposed supported macOS versions, it turns out legacy AMD GPUs are a hit or a miss even if they are officially supported by Apple, unlike Nvidia legacy should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
 
 So, I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High SIerra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but apparently this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. Indeed after using this GPU with `NVinject.kext`, DeviceProperties patching, and OCLP, it worked with all Intel macOS releases.
 
+
 **Storage**
+
 The first issue with storage is that AHCI cause a kernel panic with Mac OS X Tiger, so I had to disable AppleAHCIPort and install Tiger on a USB flash drive.
 The second issue, it is a weird one! 1/2 times OS X Mountain Lion doesn't detect my 2TB SSD and thus I got stuck at "Waiting for root device", I installed Mountain Lion on a 128 GB SSD.
 The other macOS releases can be installed on any SATA SSD without any issues.
 
+
 **Ethernet**
+
 It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all macOS versions. I had to use three different versions of the kext, [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard, [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard through macOS High Sierra while forcing IONetworkingFamily for Mac OS X Tiger through Mountain Lion, and finally [RealtekRTL8111 v2.4.2](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/tag/2.4.2) for macOS Mojave and later.
 
+
 **Audio**
+
 - The onboard Realtek ALC221 audio doesn't work on Mac OS X Leopard and Tiger. Consider using a USB DAC headset/speaker for audio funcionality.
 - The onboard audio is working on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
 - The onboard audio is working on OS X Mountain Lion and later using AppleALC with layout-id 11.
 
 This project was created from scratch using the [Dortania](https://dortania.github.io/getting-started/) guide specifically for the HP Z640, but should work on the Z440 and Z480 with a few [adjustments](https://github.com/HJebbour/Z640-Hackintosh/tree/main#pre-installation).
 
-**DISCLAIMER:**
-As you embark on your Hackintosh journey you are encouraged to **READ** the entire README and [Dortania](https://dortania.github.io/getting-started/) guides before you start.
-
-This Z640 Hackintosh project aims to be an all-in-one maintained hub for Opencore-based hackintoshes on the HP Zx40 family. In short, this Z640-Hackintosh is very stable and is currently my daily driver. I fully recommend this project to anyone looking for an old Mac Pro alternative.
-
-This OpenCore-EFI should work as is with macOS Catalina, Big Sur, Monterey, Ventura, Sonoma and Sequoia (DP1).
-
-You can find a wealth of knowledge on [Reddit](https://www.reddit.com/r/hackintosh/), [TonyMacX86](https://www.tonymacx86.com) or [Google](https://www.google.com).
-
-**Important:** In order to upgrade to macOS 14.4+ the value of `Misc -> Security -> SecureBootModel` must be set to `Disabled` in config.plist until the upgrade completely finishes.
-
-Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
-
-**I am not responsible for any damages you may cause.**
 
 ## Summary
 
@@ -196,7 +201,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 </details>  
 
-## Introduction
+## Contents
 
 <details> 
 <summary><strong>THIS IS NOT A GUIDE!</strong></summary>
