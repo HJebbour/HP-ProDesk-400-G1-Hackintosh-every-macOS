@@ -26,7 +26,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 [![macOS](https://img.shields.io/badge/Mac%20OS%20X-Leopard%2010.5.8-c17a99.svg)](https://web.archive.org/web/20090528055219/http://www.apple.com/macosx/)
 [![macOS](https://img.shields.io/badge/Mac%20OS%20X-Tiger%2010.4.11-68a4cb.svg)](https://web.archive.org/web/20060728031552/http://www.apple.com/macosx/)
 
-# Introduction
+## Introduction
 
 I was inspired to create this project when I was preparing macOS installers (Mac OS X 10.4 to macOS 14) in an external hard drive and I wanted to test those installers if they are working properly, I tried the recent macOS releases on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports down to OS X El Capitan 10.11. I had an older machine (Core 2 Quad Kentsfield) but I only managed to run down to OS X Mountain Lion. I still wanted to test older Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel macOS releases in a single computer, then I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here the real fun starts, I needed to build a hackintosh that can run every Intel macOS releases from Mac OS X Tiger 10.4.11 to macOS Sonoma 14.5 with **ONE** EFI folder that runs all Intel macOS releases on the same computer.
 
@@ -40,62 +40,6 @@ You can find a wealth of knowledge on [Reddit](https://www.reddit.com/r/hackinto
 Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
 
 **I am not responsible for any damages you may cause.**
-
-
-**Features**
-
-- Same hardware configuration: No need to swap GPU cards, Ethernet cards.
-- Same BIOS configuration: No need to change BIOS configuration to run a specific macOS version.
-- Same connectors: No need to switch video output, LAN, USB to run a specific macOS version.
-- Same bootloader: No need to use different bootloader like Chameleon or Clover for older macOS versions. OpenCore covers all Intel macOS releases.
-- Same config.plist: No need to have multiple config.plist to run specific macOS versions.
-
-**Hardware**
-These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
-
-| Category  | Component                                       |
-| --------- | ----------------------------------------------- |
-| Processor | Intel Core i7-4770 (3.40 GHz) |
-| Graphic Card | NVIDIA Quadro FX 5600 1536 MB (G80) |
-| Storage | 2TB SATA SSD, 128GB SATA SSD, and 32GB USB flash drive |
-| Memory | 8 GB 1600 MHz DDR3 |
-| Ethernet | Realtek RTL8151GH-CG |
-| Audio | Realtek ALC221 |
-| Bluetooth | CSR8510 A10 4.0 |
-| BIOS | 2.56 Rev.A (30/04/2019) |
-
-**Hardware Compatibility List**
-
-| macOS | i7-4770 | AHCI SATA SSD | Quadro FX 5600 | RTL8151GH-CG | ALC221 | CSR8510 A10 4.0 |
-| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
-| Sonoma | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
-| Ventura | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
-| Monterey | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
-| Big Sur | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
-| Catalina | ✅ | ✅ | 4️⃣ | ✅ | ✅ | ✅ |
-| Mojave | ✅ | ✅ | 3️⃣ | ✅ | ✅ | ✅ |
-| High Sierra | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Sierra | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| El Capitan | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Yosemite | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Mavericks | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Mountain Lion | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Lion | 1️⃣ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Snow Leopard | 1️⃣ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Leopard | ✅ | ✅ | ✅ | ✅ | 6️⃣ | ✅ |
-| Tiger | ✅ | 2️⃣ | ✅ | ✅ | 6️⃣ | ✅ |
-
-1️⃣ Spoof CPUID to Nehalem (`0x0106A2`)
-
-2️⃣ Install Mac OS X Tiger on a USB drive
-
-3️⃣ Install [Old NVIDIA macOS Mojave](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave?tab=readme-ov-file) from [chris1111](https://github.com/chris1111)
-
-4️⃣ Install [Legacy Video Patch](https://github.com/chris1111/Legacy-Video-patch) from [chris1111](https://github.com/chris1111)
-
-5️⃣ Instal [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)
-
-6️⃣ Use a USB DAC headset/speaker
 
 
 **Processor**
@@ -135,9 +79,189 @@ This project was created from scratch using the [Dortania](https://dortania.gith
 
 ## Summary
 
+<details>
+<summary><strong>Features</strong></summary>
+</br>
+
+- Same **hardware** configuration: No need to swap GPU cards, Ethernet cards.
+- Same **BIOS** configuration: No need to change BIOS configuration to run a specific macOS version.
+- Same **connectors**: No need to switch video output, LAN, USB to run a specific macOS version.
+- Same **bootloader**: No need to use different bootloader like Chameleon or Clover for older macOS versions. OpenCore covers all Intel macOS releases.
+- Same **config.plist**: No need to have multiple config.plist to run specific macOS versions.
+
+</details>
+
+
+<details>
+<summary><strong>Hardware</strong></summary>
+</br>
+
+### HP ProDesk 400 G1
+These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
+
+| Category  | Component                                       |
+| --------- | ----------------------------------------------- |
+| Processor | Intel Core i7-4770 (3.40 GHz) |
+| Graphic Card | NVIDIA Quadro FX 5600 1536 MB (G80) |
+| Storage | 2TB SATA SSD, 128GB SATA SSD, and 32GB USB flash drive |
+| Memory | 8 GB 1600 MHz DDR3 |
+| Ethernet | Realtek RTL8151GH-CG |
+| Audio | Realtek ALC221 |
+| Bluetooth | CSR8510 A10 4.0 |
+| BIOS | 2.56 Rev.A (30/04/2019) |
+
+</details>
+
+
+<details>
+<summary><strong>HCL</strong></summary>
+</br>
+
+| macOS | i7-4770 | AHCI SATA SSD | Quadro FX 5600 | RTL8151GH-CG | ALC221 | CSR8510 A10 4.0 |
+| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+| Sonoma | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
+| Ventura | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
+| Monterey | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
+| Big Sur | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
+| Catalina | ✅ | ✅ | 4️⃣ | ✅ | ✅ | ✅ |
+| Mojave | ✅ | ✅ | 3️⃣ | ✅ | ✅ | ✅ |
+| High Sierra | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Sierra | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| El Capitan | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Yosemite | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mavericks | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mountain Lion | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Lion | 1️⃣ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Snow Leopard | 1️⃣ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Leopard | ✅ | ✅ | ✅ | ✅ | 6️⃣ | ✅ |
+| Tiger | ✅ | 2️⃣ | ✅ | ✅ | 6️⃣ | ✅ |
+
+1️⃣ Spoof CPUID to Nehalem (`0x0106A2`)
+
+2️⃣ Install Mac OS X Tiger on a USB drive
+
+3️⃣ Install [Old NVIDIA macOS Mojave](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave?tab=readme-ov-file) from [chris1111](https://github.com/chris1111)
+
+4️⃣ Install [Legacy Video Patch](https://github.com/chris1111/Legacy-Video-patch) from [chris1111](https://github.com/chris1111)
+
+5️⃣ Install [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)
+
+6️⃣ Use a USB DAC headset/speaker
+
+</details>
+
+
+## Contents
+
+<details> 
+<summary><strong>This is not a Guide!</strong></summary>
+</br>
+
+This is not a guide. It shoud only be used as a reference. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
+
+I understand that some may simply add the OC and Boot folders to their EFI folder. For clarity the EFI partition needs a folder called EFI that contains the Boot and OC folder.
+
+```EFI
+EFI (drive)
+	EFI
+	├── BOOT
+	├── OC
+```
+
+It should work and your HP Z640 should boot and work fine. **You will at minimum need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the Dortania guide. Best of luck.
+
+> **NOTE** if you simply wish to copy my EFI please do the following:
+>
+>1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacPro7,1 or iMacPro1,1)
+>2. Ensure the value of `showpicker` is  `true` in the config.plist file to provide the opencore menu when booting. 
+>3. Prepare your install [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
+>4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [SSD](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
+>5. [Install](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) - You'll need to select Escape to get the boot menu options and **boot from the USB each time the computer restarts** until you've copied the EFI folder onto the hard drive. You may also need to select the correct boot option during install.
+
+</details>  
+
+<details> 
+<summary><strong>This is a Guide!</strong></summary>
+</br>
+
+**The one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
+
+</details>  
+
+
+<details>
+
+<summary><strong>Software</strong></summary>
+<br>
+
+| Component      | Version |
+| -------------- | ------- |
+| OpenCore | 1.0.0 |
+| macOS Sonoma | 14.5 |
+| Windows 11 | 23H2 |
+| Ubuntu | 22.04.4 LTS |
+| Fedora | 40 |
+| ESXi | 8 |
+| Proxmox | 8.2 |
+
+</details>
+
+<details>
+<summary><strong>ACPI</strong></summary>
+<br>
+
+| Component              |
+| ---------------------- |
+| SSDT-EC |
+| SSDT-PLUG |
+| SSDT-RTC0-RANGE |
+| SSDT-UNC |
+| SSDT-HPET |
+| SSDT-USBX |
+
+</details>
+
+<details>
+<summary><strong>Kext</strong></summary>
+<br>
+
+| Kext                   | Version |
+| ---------------------- | ------- |
+| Lilu | 1.6.7 |
+| VirtualSMC | 1.3.2 |
+| AppleALC | 1.9.0 |
+| IntelMausi | 1.0.7 |
+| NVMeFix | 1.1.1 |
+| Innie | 1.3.1 |
+| SMCProcessor | 1.3.2 |
+| SMCSuperIO | 1.3.2 |
+| RestrictEvents | 1.1.3 |
+| AMFIPass | 1.4.0 |
+| WhateverGreen | 1.6.6 |
+| USBMap | - |
+| RTCMemoryFixup | 1.0.7 |
+| IOSkywalkFamily | - |
+| IO80211FamilyLegacy | - |
+
+</details>
+
+<details><summary><strong>UEFI Drivers</strong></summary>
+<br>
+
+|     Driver      | Version           |
+| --------------- | ----------------- |
+| OpenRuntime.efi | OpenCorePkg 1.0.0 |
+| OpenCanopy.efi | OpenCorePkg 1.0.0 |
+| OpenHfsPlus.efi | OpenCorePkg 1.0.0 |
+| AudioDxe.efi | OpenCorePkg 1.0.0 |
+| ResetNvramEntry.efi | OpenCorePkg 1.0.0 |
+| ToggleSipEntry.efi | OpenCorePkg 1.0.0 |
+
+</details>
+
 <details>  
 
-<summary><strong>WORKING ✅</strong></summary>
+<summary><strong>Working ✅</strong></summary>
 <br>
 
 > ### Video and Audio
@@ -190,7 +314,7 @@ This project was created from scratch using the [Dortania](https://dortania.gith
 </details>  
 
 <details>  
-<summary><strong>NOT WORKING ❌</strong></summary>
+<summary><strong>Not Working ❌</strong></summary>
 <br>
 
 | Feature                              | Status | Dependency          | Remarks                      |
@@ -199,137 +323,10 @@ This project was created from scratch using the [Dortania](https://dortania.gith
 | Continuity Camera | ❌ | - | Cannot work on this machine as the there's no iGPU |
 | FireVault 2 | ❌ | - | Cannot work when SecureBootModel is Disabled for OCLP |
 
-</details>  
-
-## Contents
-
-<details> 
-<summary><strong>THIS IS NOT A GUIDE!</strong></summary>
-</br>
-
-This is not a guide. It shoud only be used as a reference. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
-
-I understand that some may simply add the OC and Boot folders to their EFI folder. For clarity the EFI partition needs a folder called EFI that contains the Boot and OC folder.
-
-```EFI
-EFI (drive)
-	EFI
-	├── BOOT
-	├── OC
-```
-
-It should work and your HP Z640 should boot and work fine. **You will at minimum need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the Dortania guide. Best of luck.
-
-> **NOTE** if you simply wish to copy my EFI please do the following:
->
->1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacPro7,1 or iMacPro1,1)
->2. Ensure the value of `showpicker` is  `true` in the config.plist file to provide the opencore menu when booting. 
->3. Prepare your install [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
->4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [SSD](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
->5. [Install](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) - You'll need to select Escape to get the boot menu options and **boot from the USB each time the computer restarts** until you've copied the EFI folder onto the hard drive. You may also need to select the correct boot option during install.
-
-</details>  
-
-<details> 
-<summary><strong>THIS IS A GUIDE!</strong></summary>
-</br>
-
-**The one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
-
-</details>  
-
-<details>
-<summary><strong>HARDWARE</strong></summary>
-
-### HP Z640 (Haswell-E)
-
-These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
-
-| Category  | Component                                       | Note                                                         |
-| --------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| CPU | Intel Xeon E5-2699 v3 18-core (2,30 GHz) | - |
-| GPU | AMD Radeon RX 580 8 GB | - |
-| SSD | WDC PC SN720 SDAQNTW-512G-1001 | Using PCIe to M.2 adapter |
-| Memory | 72 GB 2133 MHz DDR4 | - |
-| Wi-Fi & BT | Fenvi T919 (Broadcom) | - |
-| BIOS | M60 v02.61 23/03/2023 | Latest version to this date |
-
-Refer to [HP Z640 Specs](https://support.hp.com/us-en/document/c04496994) for possible stock configurations.
-
-</details>  
-
-<details>
-
-<summary><strong>SOFTWARE</strong></summary>
-<br>
-
-| Component      | Version |
-| -------------- | ------- |
-| OpenCore | 1.0.0 |
-| macOS Sonoma | 14.5 |
-| Windows 11 | 23H2 |
-| Ubuntu | 22.04.4 LTS |
-| Fedora | 40 |
-| ESXi | 8 |
-| Proxmox | 8.2 |
-
 </details>
 
 <details>
-<summary><strong>ACPI</strong></summary>
-<br>
-
-| Component              |
-| ---------------------- |
-| SSDT-EC |
-| SSDT-PLUG |
-| SSDT-RTC0-RANGE |
-| SSDT-UNC |
-| SSDT-HPET |
-| SSDT-USBX |
-
-</details>
-
-<details>
-<summary><strong>KEXT</strong></summary>
-<br>
-
-| Kext                   | Version |
-| ---------------------- | ------- |
-| Lilu | 1.6.7 |
-| VirtualSMC | 1.3.2 |
-| AppleALC | 1.9.0 |
-| IntelMausi | 1.0.7 |
-| NVMeFix | 1.1.1 |
-| Innie | 1.3.1 |
-| SMCProcessor | 1.3.2 |
-| SMCSuperIO | 1.3.2 |
-| RestrictEvents | 1.1.3 |
-| AMFIPass | 1.4.0 |
-| WhateverGreen | 1.6.6 |
-| USBMap | - |
-| RTCMemoryFixup | 1.0.7 |
-| IOSkywalkFamily | - |
-| IO80211FamilyLegacy | - |
-
-</details>
-
-<details><summary><strong>UEFI DRIVERS</strong></summary>
-<br>
-
-|     Driver      | Version           |
-| --------------- | ----------------- |
-| OpenRuntime.efi | OpenCorePkg 1.0.0 |
-| OpenCanopy.efi | OpenCorePkg 1.0.0 |
-| OpenHfsPlus.efi | OpenCorePkg 1.0.0 |
-| AudioDxe.efi | OpenCorePkg 1.0.0 |
-| ResetNvramEntry.efi | OpenCorePkg 1.0.0 |
-| ToggleSipEntry.efi | OpenCorePkg 1.0.0 |
-
-</details>
-
-<details>
-<summary><strong>OTHER REPOSITORIES</strong></summary>
+<summary><strong>Other Repositories</strong></summary>
 <br>
 
 - Zx40-Hackintosh repositories:
@@ -343,7 +340,7 @@ Refer to [HP Z640 Specs](https://support.hp.com/us-en/document/c04496994) for po
 </details>  
 
 <details> 
-<summary><strong>CREDITS</strong></summary>
+<summary><strong>Credits</strong></summary>
 
 ### Credit to all these great people whom I don't know but have made my hackintosh dreams a reality:
 
@@ -358,7 +355,7 @@ Refer to [HP Z640 Specs](https://support.hp.com/us-en/document/c04496994) for po
 
 </details>
 
-<details><summary><strong>SCREENSHOTS</strong></summary>
+<details><summary><strong>Screenshots</strong></summary>
     <br>
     <p float="left">
         <img src="./Docs/HP-Z640-macOS-Sonoma-14.5.png" alt="Neofetch & About This Mac" width="1000">
@@ -369,7 +366,7 @@ Refer to [HP Z640 Specs](https://support.hp.com/us-en/document/c04496994) for po
 
 ## Pre-Installation
 
-<details><summary><strong>UEFI SETTINGS</strong></summary>
+<details><summary><strong>UEFI Settings</strong></summary>
 <br>
 
 **Security**
@@ -395,55 +392,6 @@ Refer to [HP Z640 Specs](https://support.hp.com/us-en/document/c04496994) for po
 
 </details>
 
-<details><summary><strong>ADJUSTMENTS</strong></summary>
-<br>
-
-**Broadwell-E**
-
-To enable support for Xeon v4 CPUs, you must change the following values in `Kernel -> Emulate` under your config.plist file:
-
-- **Cpuid1Data: D4060300 00000000 00000000 00000000**
-  - Fake CPUID entry
-- **Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000**
-  - Mask for fake CPUID
-
-**Haswell-E**
-
-To enable support for Xeon v3 CPUs, you must change the following values in `Kernel -> Emulate` under your config.plist file (Already configured in the included EFI folder):
-
-- **Cpuid1Data: C3060300 00000000 00000000 00000000**
-  - Fake CPUID entry
-- **Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000**
-  - Mask for fake CPUID
-
-**Z840 Support**
-
-- **2nd LAN port must be disabled in BIOS for Z840 workstations**
-- **Add the following kexts to enable SAS controller**
-  - AstekFusion2Family.kext
-  - AstekFusion2Adapter.kext
-
-</details>
-
-<details><summary><strong>KEYBOARD LAYOUT</strong></summary>
-<br>
-
-Either add as a `String` or as a `Data` (HEX Data [ProperTree](https://github.com/corpnewt/ProperTree))
-
-Format is lang-COUNTRY:keyboard
-
-🇺🇸 | [0] en_US - U.S --> en-US:0 --> (656e2d55 533a30 in HEX)
-
-| Key           | Type   | Value   |
-| ------------- | ------ | ------- |
-| prev-lang:kbd | String | en-US:0 |
-
-
-Pick your keyboard layout here:
-
-[AppleKeyboardLayouts.txt](https://github.com/acidanthera/OpenCorePkg/blob/master/Utilities/AppleKeyboardLayouts/AppleKeyboardLayouts.txt)
-
-</details>
 
 ## Post-Installation
 
