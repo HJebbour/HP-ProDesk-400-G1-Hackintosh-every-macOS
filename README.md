@@ -30,6 +30,8 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 
 I was inspired to create this project when I was preparing macOS installers (Mac OS X 10.4 to macOS 14) in an external hard drive and I wanted to test those installers if they are working properly, I tried the recent macOS releases on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports down to OS X El Capitan 10.11. I had an older machine (Core 2 Quad Kentsfield) but I only managed to run down to OS X Mountain Lion. I still wanted to test older Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel macOS releases in a single computer, then I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here the real fun starts, I needed to build a hackintosh that can run every Intel macOS releases from Mac OS X Tiger 10.4.11 to macOS Sonoma 14.5 with **ONE** EFI folder that runs all Intel macOS releases on the same computer.
 
+This project was created from scratch using the [Dortania](https://dortania.github.io/getting-started/) guide specifically for the HP ProDesk 400 G1.
+
 **DISCLAIMER:**
 As you embark on your Hackintosh journey you are encouraged to **READ** the entire README and [Dortania](https://dortania.github.io/getting-started/) guides before you start.
 
@@ -73,8 +75,6 @@ It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all
 - The onboard Realtek ALC221 audio doesn't work on Mac OS X Leopard and Tiger. Consider using a USB DAC headset/speaker for audio funcionality.
 - The onboard audio is working on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
 - The onboard audio is working on OS X Mountain Lion and later using AppleALC with layout-id 11.
-
-This project was created from scratch using the [Dortania](https://dortania.github.io/getting-started/) guide specifically for the HP Z640, but should work on the Z440 and Z480 with a few [adjustments](https://github.com/HJebbour/Z640-Hackintosh/tree/main#pre-installation).
 
 
 ## Summary
@@ -168,15 +168,15 @@ EFI (drive)
 	├── OC
 ```
 
-It should work and your HP Z640 should boot and work fine. **You will at minimum need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the Dortania guide. Best of luck.
+It should work and your HP ProDesk 400 G1 should boot and work fine. **You will at minimum need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the [Dortania](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html) guide. Best of luck.
 
 > **NOTE** if you simply wish to copy my EFI please do the following:
 >
->1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacPro7,1 or iMacPro1,1)
+>1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use specific SMBIOS depending on which macOS you want to install, see below for more info)
 >2. Ensure the value of `showpicker` is  `true` in the config.plist file to provide the opencore menu when booting. 
 >3. Prepare your install [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
 >4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [SSD](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
->5. [Install](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) - You'll need to select Escape to get the boot menu options and **boot from the USB each time the computer restarts** until you've copied the EFI folder onto the hard drive. You may also need to select the correct boot option during install.
+>5. [Install](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) - You'll need to select F9 to get the boot menu options and **boot from the USB each time the computer restarts** until you've copied the EFI folder onto the hard drive. You may also need to select the correct boot option during install.
 
 </details>  
 
@@ -198,13 +198,24 @@ It should work and your HP Z640 should boot and work fine. **You will at minimum
 | -------------- | ------- |
 | OpenCore | 1.0.0 |
 | macOS Sonoma | 14.5 |
-| Windows 11 | 23H2 |
-| Ubuntu | 22.04.4 LTS |
-| Fedora | 40 |
-| ESXi | 8 |
-| Proxmox | 8.2 |
+| macOS Ventura | 14.5 |
+| macOS Monterey | 14.5 |
+| macOS Big Sur | 14.5 |
+| macOS Catalina | 14.5 |
+| macOS Mojave | 14.5 |
+| macOS High Sierra | 14.5 |
+| macOS Sierra | 14.5 |
+| OS X El Capitan | 14.5 |
+| OS X Yosemite | 14.5 |
+| OS X Mavericks | 14.5 |
+| OS X Mountaion Lion | 14.5 |
+| Mac OS X Lion | 14.5 |
+| Mac OS X Snow Leopard | 14.5 |
+| Mac OS X Leopard | 14.5 |
+| Mac OS X Tiger | 14.5 |
 
 </details>
+
 
 <details>
 <summary><strong>ACPI</strong></summary>
