@@ -233,23 +233,24 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 <summary><strong>Kext</strong></summary>
 <br>
 
-| Kext                   | Version |
-| ---------------------- | ------- |
-| Lilu | 1.6.7 |
-| VirtualSMC | 1.3.2 |
-| AppleALC | 1.9.0 |
-| IntelMausi | 1.0.7 |
-| NVMeFix | 1.1.1 |
-| Innie | 1.3.1 |
-| SMCProcessor | 1.3.2 |
-| SMCSuperIO | 1.3.2 |
-| RestrictEvents | 1.1.3 |
-| AMFIPass | 1.4.0 |
-| WhateverGreen | 1.6.6 |
-| USBMap | - |
-| RTCMemoryFixup | 1.0.7 |
-| IOSkywalkFamily | - |
-| IO80211FamilyLegacy | - |
+| Kext                   | Version | Remarks |
+| ---------------------- | ------- | ------- |
+| Lilu | 1.6.7 | Used for arbitrary kext, library, and program patching on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
+| VirtualSMC | 1.3.2 | Used to emulate Apple SMC in the kernel on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
+| FakeSMC-32 | 2.5 | Used to emulate Apple SMC on Mac OS X Tiger and Leopard (32-bit only kernels) |
+| NVinject | 0.0.10c | Used to enable graphics acceleration on Mac OS X Tiger |
+| WhateverGreen | 1.6.6 | Used to patch GPU on Mac OS X Snow Leopard and later |
+| VoodooHDA-FAT | - | Used to enable onboard audio on Mac OS X Snow Leopard and Lion |
+| AppleALC | 1.9.0 | Used to enable onboard audio on OS X Mountain Lion and later |
+| RealtekR1000 | 1.0.4 | Used to enable ethernet on Mac OS X Tiger and Leopard |
+| RealtekRTL8111-SL | 1.2.3 | Used to enable ethernet on Mac OS X Snow Leopard through macOS High Sierra |
+| RealtekRTL8111 | 2.4.2 | Used to enable ethernet on macOS Mojave and later |
+| USBMap | - | Used to map USB ports on all macOS releases |
+| BlueToolFixup | 2.6.8 | Used to enable USB Bluetooth dongle support on macOS Monterey and later |
+| AMFIPass | 1.4.0 | Used to enable OpenCore Legacy Patcher on macOS Big Sur and later |
+| SMCSuperIO | 1.3.2 | Used to monitor fan speed on Mac OS X Snow Leopard and later |
+| SMCProcessor | 1.3.2 | Used to monitor Intel CPU temperature on Mac OS X Lion and later |
+| RestrictEvents | 1.1.3 | Used to patch various functions on macOS Big Sur and later |
 
 </details>
 
@@ -259,9 +260,10 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 |     Driver      | Version           |
 | --------------- | ----------------- |
 | OpenRuntime.efi | OpenCorePkg 1.0.0 |
+| AudioDxe.efi | OpenCorePkg 1.0.0 |
 | OpenCanopy.efi | OpenCorePkg 1.0.0 |
 | OpenHfsPlus.efi | OpenCorePkg 1.0.0 |
-| AudioDxe.efi | OpenCorePkg 1.0.0 |
+| OpenPartitionDxe.efi | OpenCorePkg 1.0.0 |
 | ResetNvramEntry.efi | OpenCorePkg 1.0.0 |
 | ToggleSipEntry.efi | OpenCorePkg 1.0.0 |
 
