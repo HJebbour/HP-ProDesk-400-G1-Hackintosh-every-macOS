@@ -66,6 +66,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. Although it needs a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
 
+</br>
 
 ### Graphic Card
 
@@ -79,6 +80,7 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 
 **Please note that legacy GPUs needs CSM/Legacy Boot turned on in the BIOS settings, otherwise you will have a blank screen when you boot the computer.**
 
+</br>
 
 ### Storage
 
@@ -86,6 +88,7 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 - The second issue, it is a weird one! 1/2 times OS X Mountain Lion doesn't detect my 2TB SSD and thus I got stuck at "Waiting for root device", I installed Mountain Lion on a 128 GB SSD.
 - The other macOS releases can be installed on any SATA SSD without any issues.
 
+</br>
 
 ### Ethernet
 
@@ -94,6 +97,7 @@ It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all
 - [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard up to macOS High Sierra while forcing `IONetworkingFamily` for Mac OS X Snow Leopard up to Mountain Lion.
 - [RealtekRTL8111 v2.4.2](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/tag/2.4.2) for macOS Mojave and later.
 
+</br>
 
 ### Audio
 
@@ -102,6 +106,7 @@ On-board audio Realtek ALC221:
 - Working on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
 - Working on OS X Mountain Lion and later using `AppleALC` with layout-id 11.
 
+</br>
 
 ### Bluetooth
 
@@ -109,6 +114,7 @@ CSR8510 A10 4.0 USB dongle:
 - Works natively on Mac OS X Tiger until macOS Big Sur.
 - `BlueToolFixup.kext` is required on macOS Monterey and later.
 
+</br>
 
 ## Summary
 
@@ -120,6 +126,7 @@ CSR8510 A10 4.0 USB dongle:
 - Same **bootloader**: No need to use different bootloader like Chameleon or Clover for older macOS versions. OpenCore covers all Intel macOS releases.
 - Same **config.plist**: No need to have multiple config.plist to run specific macOS versions.
 
+</br>
 
 ### Hardware
 
@@ -137,6 +144,7 @@ These are relevant components on my machine which may differ from yours, keep th
 | Bluetooth | CSR8510 A10 4.0 |
 | BIOS | 2.56 Rev.A (30/04/2019) |
 
+</br>
 
 ### HCL
 
@@ -171,6 +179,7 @@ These are relevant components on my machine which may differ from yours, keep th
 
 6️⃣ Use a USB DAC headset/speaker
 
+</br>
 
 ## Contents
 
@@ -197,11 +206,13 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 >4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [SSD](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
 >5. [Install](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) - You'll need to select F9 to get the boot menu options and **boot from the USB each time the computer restarts** until you've copied the EFI folder onto the hard drive. You may also need to select the correct boot option during install.
 
+</br>
 
 ### This is a Guide!
 
 **If you have a slightly different computer you should follow the one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
 
+</br>
 
 ### Software
 
@@ -226,6 +237,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | Mac OS X Leopard | 10.5.8 (9L31a) |
 | Mac OS X Tiger | 10.4.11 (8S2167) |
 
+</br>
 
 ### ACPI
 <br>
@@ -236,6 +248,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | SSDT-PLUG | Allows for native CPU power management |
 | SSDT-HPET | Used for resolving IRQ conflicts (Fixing Audio issue with AppleALC) |
 
+</br>
 
 ### Kext
 
@@ -258,6 +271,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | SMCProcessor | 1.3.2 | Used to monitor Intel CPU temperature on Mac OS X Lion and later |
 | RestrictEvents | 1.1.3 | Used to patch various functions on macOS Big Sur and later |
 
+</br>
 
 ### UEFI Drivers
 
@@ -271,6 +285,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | ResetNvramEntry.efi | OpenCorePkg 1.0.0 | Allow to reset NVRAM from boot picker |
 | ToggleSipEntry.efi | OpenCorePkg 1.0.0 | Allow to toggle SIP from boot picker |
 
+</br>
 
 ### Working ✅
 
@@ -303,11 +318,13 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | Multiple Boot | ✅ | - | macOS, Windows, and Linux distributions (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
 | Boot chime | ✅ | - | Working like a charme |
 
+</br>
 
 ### Not Working ❌
 
 **Everything is working!**
 
+</br>
 
 ### Other Repositories
 
@@ -322,6 +339,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
   - [chris1111/macOS-Package-HP-Prodesk-600-G1](https://github.com/chris1111/macOS-Package-HP-Prodesk-600-G1)
   - [1alessandro1/HP-Prodesk-600-G1-SFF-macOS](https://github.com/1alessandro1/HP-Prodesk-600-G1-SFF-macOS)
 
+</br>
 
 ### Credits
 
@@ -335,6 +353,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
 - And every other contributor
 
+</br>
 
 ### Screenshot
 
@@ -344,9 +363,9 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 	<img src="./Docs/HP-Z640-macOS-Sequoia-15-DP1.png" alt="Experimental support of macOS Sequoia" width="1000">
     </p>
 
+</br>
 
 ## Pre-Installation
-
 
 ### UEFI Settings
 
@@ -371,9 +390,9 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 - **Performance Options**
   - `Intel Hyper-Threading Technology` **Enable**
 
+</br>
 
 ## Post-Installation
-
 
 ### OpenCore Installation
 
