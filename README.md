@@ -26,6 +26,12 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 [![macOS](https://img.shields.io/badge/Mac%20OS%20X-Leopard%2010.5.8-c17a99.svg)](https://web.archive.org/web/20090528055219/http://www.apple.com/macosx/)
 [![macOS](https://img.shields.io/badge/Mac%20OS%20X-Tiger%2010.4.11-68a4cb.svg)](https://web.archive.org/web/20060728031552/http://www.apple.com/macosx/)
 
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Build](#build)
+
 ## Introduction
 
 I was inspired to create this project when I was preparing macOS installers (from Mac OS X Tiger 10.4 to macOS Sonoma 14) in an external hard drive and I wanted to test those installers if they are working properly, I tried the recent macOS releases on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports down to OS X El Capitan 10.11. I had an older machine (Core 2 Quad Kentsfield) but I only managed to run down to OS X Mountain Lion. I still wanted to test older Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel macOS releases in a single computer, it motivates me to do the same because I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here the real fun starts, I needed to build a hackintosh that can run every Intel macOS releases from Mac OS X Tiger 10.4.10 to macOS Sonoma 14.5 with **ONE** EFI folder that runs all Intel macOS releases on the same computer.
@@ -58,6 +64,8 @@ For AMD, I found that the HD 2000 Series are supported natively from 10.4 to 10.
 
 So, I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. Indeed after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all Intel macOS releases.
 
+The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are the best suited for this kind of hackintosh, GeForce 8800 GTS 320/640 and Quadro FX 5600 are known to be working.
+
 **Please note that legacy GPUs needs CSM/Legacy Boot turned on in the BIOS settings, otherwise you will have a blank screen when you boot the computer.**
 
 
@@ -71,24 +79,24 @@ So, I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard t
 ### Ethernet
 
 It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all macOS versions. I had to use three different kexts:
-- [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard.
-- [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard up to macOS High Sierra while forcing `IONetworkingFamily` for Mac OS X Tiger up to Mountain Lion
+- [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard while forcing `IONetworkingFamily`.
+- [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard up to macOS High Sierra while forcing `IONetworkingFamily` for Mac OS X Snow Leopard up to Mountain Lion.
 - [RealtekRTL8111 v2.4.2](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/tag/2.4.2) for macOS Mojave and later.
 
 
 ### Audio
 
 On-board audio Realtek ALC221:
-- Not working! Consider using a USB DAC headset/speaker for audio funcionality for Mac OS X Leopard and Tiger.
-- Works on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
-- Works on OS X Mountain Lion and later using `AppleALC` with layout-id 11.
+- Not working on Mac OS X Leopard and Tiger! Consider using a USB DAC headset/speaker for audio funcionality.
+- Working on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
+- Working on OS X Mountain Lion and later using `AppleALC` with layout-id 11.
 
 
 ### Bluetooth
 
 CSR8510 A10 4.0 USB dongle:
 - Works natively on Mac OS X Tiger until macOS Big Sur.
-- `BlueToolFixup.kext` is needed on macOS Monterey and later.
+- `BlueToolFixup.kext` is required on macOS Monterey and later.
 
 
 ## Summary
@@ -235,11 +243,11 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 <summary><strong>ACPI</strong></summary>
 <br>
 
-| Component              |
-| ---------------------- |
-| SSDT-EC |
-| SSDT-PLUG |
-| SSDT-HPET |
+| Component              | Description            |
+| ---------------------- | ---------------------- |
+| SSDT-EC | Fixes the embedded controller |
+| SSDT-PLUG | Allows for native CPU power management |
+| SSDT-HPET | Used for resolving IRQ conflicts (Fixing Audio issue with AppleALC) |
 
 </details>
 
