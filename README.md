@@ -31,6 +31,13 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 
 - [Introduction](#introduction)
 - [Build](#build)
+	- [Processor](#processor)
+	- [Graphic Card](#graphic-card)
+	- [Storage](#storage)
+	- [Ethernet](#ethernet)
+	- [Audio](#audio)
+	- [Bluetooth](#bluetooth)
+- [Summary](#summary)
 
 ## Introduction
 
