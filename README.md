@@ -94,7 +94,6 @@ It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all
 
 <details>
 <summary><strong>Hardware</strong></summary>
-</br>
 
 ### HP ProDesk 400 G1
 These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
@@ -197,22 +196,23 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | Component      | Version |
 | -------------- | ------- |
 | OpenCore | 1.0.0 |
-| macOS Sonoma | 14.5 |
-| macOS Ventura | 14.5 |
-| macOS Monterey | 14.5 |
-| macOS Big Sur | 14.5 |
-| macOS Catalina | 14.5 |
-| macOS Mojave | 14.5 |
-| macOS High Sierra | 14.5 |
-| macOS Sierra | 14.5 |
-| OS X El Capitan | 14.5 |
-| OS X Yosemite | 14.5 |
-| OS X Mavericks | 14.5 |
-| OS X Mountaion Lion | 14.5 |
-| Mac OS X Lion | 14.5 |
-| Mac OS X Snow Leopard | 14.5 |
-| Mac OS X Leopard | 14.5 |
-| Mac OS X Tiger | 14.5 |
+| OpenCore Legacy Patcher | 1.5.0 |
+| macOS Sonoma | 14.5 (23F79) |
+| macOS Ventura | 13.6.7 (22G720) |
+| macOS Monterey | 12.7.5 (21H1222) |
+| macOS Big Sur | 11.7.10 (20G1427) |
+| macOS Catalina | 10.15.7 (19H15) |
+| macOS Mojave | 10.14.6 (18G103) |
+| macOS High Sierra | 10.13.6 (17G66) |
+| macOS Sierra | 10.12.6 (16G29) |
+| OS X El Capitan | 10.11.6 (15G31) |
+| OS X Yosemite | 10.10.5 (14F27) |
+| OS X Mavericks | 10.9.5 (13F34) |
+| OS X Mountaion Lion | 10.8.5 (12F37) |
+| Mac OS X Lion | 10.7.5 (11G63) |
+| Mac OS X Snow Leopard | 10.6.8 (10K549) |
+| Mac OS X Leopard | 10.5.8 (9L31a) |
+| Mac OS X Tiger | 10.4.11 (8S2167) |
 
 </details>
 
@@ -225,10 +225,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | ---------------------- |
 | SSDT-EC |
 | SSDT-PLUG |
-| SSDT-RTC0-RANGE |
-| SSDT-UNC |
 | SSDT-HPET |
-| SSDT-USBX |
 
 </details>
 
