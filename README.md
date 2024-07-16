@@ -38,6 +38,10 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	- [Audio](#audio)
 	- [Bluetooth](#bluetooth)
 - [Summary](#summary)
+	- [Features](#features)
+	- [Hardware](#hardware)
+	- [HCL](#hcl)
+- [Contents](#contents)
 
 ## Introduction
 
@@ -108,9 +112,7 @@ CSR8510 A10 4.0 USB dongle:
 
 ## Summary
 
-<details>
-<summary><strong>Features</strong></summary>
-</br>
+### Features
 
 - Same **hardware** configuration: No need to swap GPU cards, Ethernet cards.
 - Same **BIOS** configuration: No need to change BIOS configuration to run a specific macOS version.
@@ -118,13 +120,10 @@ CSR8510 A10 4.0 USB dongle:
 - Same **bootloader**: No need to use different bootloader like Chameleon or Clover for older macOS versions. OpenCore covers all Intel macOS releases.
 - Same **config.plist**: No need to have multiple config.plist to run specific macOS versions.
 
-</details>
 
+### Hardware
 
-<details>
-<summary><strong>Hardware</strong></summary>
-
-### HP ProDesk 400 G1
+#### HP ProDesk 400 G1
 These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
 
 | Category  | Component                                       |
@@ -138,12 +137,8 @@ These are relevant components on my machine which may differ from yours, keep th
 | Bluetooth | CSR8510 A10 4.0 |
 | BIOS | 2.56 Rev.A (30/04/2019) |
 
-</details>
 
-
-<details>
-<summary><strong>HCL</strong></summary>
-</br>
+### HCL
 
 | macOS | i7-4770 | AHCI SATA SSD | Quadro FX 5600 | RTL8151GH-CG | ALC221 | CSR8510 A10 4.0 |
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
@@ -176,16 +171,12 @@ These are relevant components on my machine which may differ from yours, keep th
 
 6️⃣ Use a USB DAC headset/speaker
 
-</details>
-
 
 ## Contents
 
-<details> 
-<summary><strong>This is not a Guide!</strong></summary>
-</br>
+### This is not a Guide!
 
-This is not a guide. It shoud only be used as a reference. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
+This is not a guide. It shoud only be used as a reference or if you have the exact same machine. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
 
 I understand that some may simply add the OC and Boot folders to their EFI folder. For clarity the EFI partition needs a folder called EFI that contains the Boot and OC folder.
 
@@ -206,21 +197,13 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 >4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [SSD](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
 >5. [Install](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) - You'll need to select F9 to get the boot menu options and **boot from the USB each time the computer restarts** until you've copied the EFI folder onto the hard drive. You may also need to select the correct boot option during install.
 
-</details>  
 
-<details> 
-<summary><strong>This is a Guide!</strong></summary>
-</br>
+### This is a Guide!
 
-**The one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
-
-</details>  
+**If you have a slightly different computer you should follow the one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
 
 
-<details>
-
-<summary><strong>Software</strong></summary>
-<br>
+### Software
 
 | Component      | Version |
 | -------------- | ------- |
@@ -243,11 +226,8 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | Mac OS X Leopard | 10.5.8 (9L31a) |
 | Mac OS X Tiger | 10.4.11 (8S2167) |
 
-</details>
 
-
-<details>
-<summary><strong>ACPI</strong></summary>
+### ACPI
 <br>
 
 | Component              | Description            |
@@ -256,11 +236,8 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | SSDT-PLUG | Allows for native CPU power management |
 | SSDT-HPET | Used for resolving IRQ conflicts (Fixing Audio issue with AppleALC) |
 
-</details>
 
-<details>
-<summary><strong>Kext</strong></summary>
-<br>
+### Kext
 
 | Kext                   | Version | Description |
 | ---------------------- | ------- | ------- |
@@ -281,10 +258,8 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | SMCProcessor | 1.3.2 | Used to monitor Intel CPU temperature on Mac OS X Lion and later |
 | RestrictEvents | 1.1.3 | Used to patch various functions on macOS Big Sur and later |
 
-</details>
 
-<details><summary><strong>UEFI Drivers</strong></summary>
-<br>
+### UEFI Drivers
 
 |     Driver      | Version           | Description       |
 | --------------- | ----------------- | ----------------- |
@@ -296,14 +271,10 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | ResetNvramEntry.efi | OpenCorePkg 1.0.0 | Allow to reset NVRAM from boot picker |
 | ToggleSipEntry.efi | OpenCorePkg 1.0.0 | Allow to toggle SIP from boot picker |
 
-</details>
 
-<details>  
+### Working ✅
 
-<summary><strong>Working ✅</strong></summary>
-<br>
-
-> ### Video and Audio
+> #### Video and Audio
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Full Graphics Accleration (QE/CI) | ✅ | `NVinject.kext`, `WhateverGreen.kext`, and NVIDIA legacy patching `NVCAP` | NVIDIA Quadro FX 5600 is natively supported on Mac OS X Tiger up to macOS High Sierra, and needs patchers with macOS Mojave and later |
@@ -313,56 +284,48 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | Automatic Headphone Output Switching | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
 | DRM | ✅ | dGPU | - |
 
-> ### Power Management
+> #### Power Management
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | CPU Power Management | ✅ | `SSDT-PLUG.aml` | Not working on Mac OS X Tiger and Leopard |
 | Sleep / Wake | ✅ | - | Not working on Mac OS X Tiger and Leopard |
 
-> ### Connectivity
+> #### Connectivity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Bluetooth | ✅ | `BlueToolFixup.kext` | CSR 4.0 Bluetooth USB dongle is natively supported on Mac OS X Tiger until macOS Big Sur, `BlueToolFixup.kext` is needed on macOS Monterey and later |
 | Ethernet | ✅ | `RealtekR1000.kext`, `RealtekRTL8111-SL.kext`, and `RealtekRTL8111.kext` | - |
 | USB 2.0 / USB 3.0 | ✅ | `USBMap.kext` | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
 
-> ### Miscellaneous
+> #### Miscellaneous
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Multiple Boot | ✅ | - | macOS, Windows, and Linux distributions (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
 | Boot chime | ✅ | - | Working like a charme |
 
-</details>  
 
-<details>  
-<summary><strong>Not Working ❌</strong></summary>
-<br>
+### Not Working ❌
 
 **Everything is working!**
 
-</details>
 
-<details>
-<summary><strong>Other Repositories</strong></summary>
-<br>
+### Other Repositories
 
-- Haswell-Hackintosh-every-macOS repository:
+- **Haswell-Hackintosh-every-macOS repository:**
   - [b00t0x/MSI-Z97M-Hackintosh-every-macOS](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS)
 	
-- HP-ProDesk-400-G1-Hackintosh repositories:
+- **HP-ProDesk-400-G1-Hackintosh repositories:**
   - [puuska/Hackintosh-HP-Prodesk-400-G1](https://github.com/puuska/Hackintosh-HP-Prodesk-400-G1)
   - [SvenMb/OpenCore_HP400G1_Desktop_Mini](https://github.com/SvenMb/OpenCore_HP400G1_Desktop_Mini)
  
-HP-ProDesk-600-G1-Hackintosh repositories:
+- **HP-ProDesk-600-G1-Hackintosh repositories:**
   - [chris1111/macOS-Package-HP-Prodesk-600-G1](https://github.com/chris1111/macOS-Package-HP-Prodesk-600-G1)
   - [1alessandro1/HP-Prodesk-600-G1-SFF-macOS](https://github.com/1alessandro1/HP-Prodesk-600-G1-SFF-macOS)
 
-</details>  
 
-<details> 
-<summary><strong>Credits</strong></summary>
+### Credits
 
-### Credit to all these great people whom I don't know but have made my hackintosh dreams a reality:
+#### Credit to all these great people whom I don't know but have made my hackintosh dreams a reality:
 
 - The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
 - [Apple](http://apple.com) for macOS
@@ -372,21 +335,20 @@ HP-ProDesk-600-G1-Hackintosh repositories:
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
 - And every other contributor
 
-</details>
 
-<details><summary><strong>Screenshots</strong></summary>
-    <br>
+### Screenshot
+
     <p float="left">
         <img src="./Docs/HP-Z640-macOS-Sonoma-14.5.png" alt="Neofetch & About This Mac" width="1000">
 	<img src="./Docs/OpenCore-Boot-Picker.png" alt="Multiboot: Windows 11, Ubuntu, Fedora, ESXi, Proxmox, and macOS" width="1000">
 	<img src="./Docs/HP-Z640-macOS-Sequoia-15-DP1.png" alt="Experimental support of macOS Sequoia" width="1000">
     </p>
-</details> 
+
 
 ## Pre-Installation
 
-<details><summary><strong>UEFI Settings</strong></summary>
-<br>
+
+### UEFI Settings
 
 **Security**
 
@@ -409,13 +371,11 @@ HP-ProDesk-600-G1-Hackintosh repositories:
 - **Performance Options**
   - `Intel Hyper-Threading Technology` **Enable**
 
-</details>
-
 
 ## Post-Installation
 
-<details><summary><strong>OpenCore Installation</strong></summary>
-<br>
+
+### OpenCore Installation
 
 1. Move the entire EFI folder from the prepared USB (with your modifications) to the EFI partition on your hard drive or SSD.
 2. If you have a Broadcom wireless card (Wi-Fi & Bluetooth) use the [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases). The EFI folder is already prepared for OCLP.
