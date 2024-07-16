@@ -42,6 +42,25 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	- [Hardware](#hardware)
 	- [HCL](#hcl)
 - [Contents](#contents)
+	- [This is a Guide!](#this-is-a-guide)
+	- [This is not a Guide!](#this-is-not-a-guide)
+	- [Software](#software)
+	- [ACPI](#acpi)
+	- [Kext](#kext)
+	- [UEFI Drivers](#uefi-drivers)
+	- [Working](#working)
+	- [Not Working](#not-working)
+	- [Other Repositories](#other-repositories)
+	- [Credits](#credits)
+	- [Screenshots](#screenshots)
+- [Pre-Installation](#pre-installation)
+	- [UEFI Settings](#uefi-settings)
+	- 
+- [Post-Installation](#post-installation)
+	- [OpenCore Installation](#opencore-installation)
+	- 
+
+</br>
 
 ## Introduction
 
@@ -287,7 +306,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-### Working ✅
+### Working
 
 > #### Video and Audio
 | Feature                              | Status | Dependency          | Remarks                      |
@@ -320,7 +339,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-### Not Working ❌
+### Not Working
 
 **Everything is working!**
 
@@ -355,7 +374,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-### Screenshot
+### Screenshots
 
     <p float="left">
         <img src="./Docs/HP-Z640-macOS-Sonoma-14.5.png" alt="Neofetch & About This Mac" width="1000">
