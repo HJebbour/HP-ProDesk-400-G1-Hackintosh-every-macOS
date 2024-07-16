@@ -233,7 +233,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 <summary><strong>Kext</strong></summary>
 <br>
 
-| Kext                   | Version | Remarks |
+| Kext                   | Version | Description |
 | ---------------------- | ------- | ------- |
 | Lilu | 1.6.7 | Used for arbitrary kext, library, and program patching on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
 | VirtualSMC | 1.3.2 | Used to emulate Apple SMC in the kernel on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
@@ -257,15 +257,15 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 <details><summary><strong>UEFI Drivers</strong></summary>
 <br>
 
-|     Driver      | Version           |
-| --------------- | ----------------- |
-| OpenRuntime.efi | OpenCorePkg 1.0.0 |
-| AudioDxe.efi | OpenCorePkg 1.0.0 |
-| OpenCanopy.efi | OpenCorePkg 1.0.0 |
-| OpenHfsPlus.efi | OpenCorePkg 1.0.0 |
-| OpenPartitionDxe.efi | OpenCorePkg 1.0.0 |
-| ResetNvramEntry.efi | OpenCorePkg 1.0.0 |
-| ToggleSipEntry.efi | OpenCorePkg 1.0.0 |
+|     Driver      | Version           | Description       |
+| --------------- | ----------------- | ----------------- |
+| OpenRuntime.efi | OpenCorePkg 1.0.0 | Essentiel to patch boot.efi for NVRAM fixes |
+| AudioDxe.efi | OpenCorePkg 1.0.0 | Enable Boot Chime |
+| OpenCanopy.efi | OpenCorePkg 1.0.0 | Enable graphical boot picker |
+| OpenHfsPlus.efi | OpenCorePkg 1.0.0 | Required to see HFS volumes (macOS Installers and Recovery partitions |
+| OpenPartitionDxe.efi | OpenCorePkg 1.0.0 | Required to load OS X installers and recovery on OS X Mavericks and earlier |
+| ResetNvramEntry.efi | OpenCorePkg 1.0.0 | Allow to reset NVRAM from boot picker |
+| ToggleSipEntry.efi | OpenCorePkg 1.0.0 | Allow to toggle SIP from boot picker |
 
 </details>
 
@@ -277,42 +277,25 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 > ### Video and Audio
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Full Graphics Accleration (QE/CI) | ✅ | `WhateverGreen.kext` | AMD Radeon RX 580 is natively supported on macOS |
-| Audio Output (Front/Back) | ✅ | `AppleALC.kext` with Layout ID = 11 | - |
-| Audio Input (Front/Back) | ✅ | `AppleALC.kext` with Layout ID = 11 | - |
-| Internal Speaker | ✅ | `AppleALC.kext` with Layout ID = 11 | - |
-| Automatic Headphone Output Switching | ✅ | `AppleALC.kext` with Layout ID = 11 | - |
+| Full Graphics Accleration (QE/CI) | ✅ | `NVinject.kext`, `WhateverGreen.kext`, and NVIDIA legacy patching `NVCAP` | NVIDIA Quadro FX 5600 is natively supported on Mac OS X Tiger up to macOS High Sierra, and needs patchers with macOS Mojave and later |
+| Audio Output (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext` | Not working on Mac OS X Tiger and Leopard |
+| Audio Input (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
+| Internal Speaker | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
+| Automatic Headphone Output Switching | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
 | DRM | ✅ | dGPU | - |
 
 > ### Power Management
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| CPU Power Management | ✅ | `SSDT-PLUG.aml` | - |
-| NVMe Compatibility | ✅ | `NVMeFix.kext` & `Innie.kext` | Improves NVMe compatibility with non-Apple SSDs |
-| Sleep / Wake | ✅ | - | - |
+| CPU Power Management | ✅ | `SSDT-PLUG.aml` | Not working on Mac OS X Tiger and Leopard |
+| Sleep / Wake | ✅ | - | Not working on Mac OS X Tiger and Leopard |
 
 > ### Connectivity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Wi-Fi | ✅ | `OpenCore Legacy Patcher` | Follow [this](https://www.reddit.com/r/hackintosh/comments/170q5wu/enable_wifi_in_sonoma_with_fenvi_t919/) guide to properly enable Wi-Fi and Bluetooth with macOS Sonoma. Wi-Fi is natively supported on previous macOS versions, no need to use OCLP. |
-| Bluetooth | ✅ | `OpenCore Legacy Patcher` | Follow [this](https://www.reddit.com/r/hackintosh/comments/170q5wu/enable_wifi_in_sonoma_with_fenvi_t919/) guide to properly enable Wi-Fi and Bluetooth with macOS Sonoma. Bluetooth is natively supported on previous macOS versions, no need to use OCLP. |
-| Ethernet | ✅ | `IntelMausi.kext` | - |
+| Bluetooth | ✅ | `BlueToolFixup.kext` | CSR 4.0 Bluetooth USB dongle is natively supported on Mac OS X Tiger until macOS Big Sur, `BlueToolFixup.kext` is needed on macOS Monterey and later |
+| Ethernet | ✅ | `RealtekR1000.kext`, `RealtekRTL8111-SL.kext`, and `RealtekRTL8111.kext` | - |
 | USB 2.0 / USB 3.0 | ✅ | `USBMap.kext` | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
-| USB Power Properties in macOS | ✅ | - | - |
-
-> ### macOS Continuity
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) | - |
-| AirDrop | ✅ | - | - |
-| Universal Control | ✅ | - | - |
-| Apple Watch Auto Unlock | ✅ | - | - |
-| Instant Hotspot | ✅ | - | - |
-| Continuity Markup and Sketch | ✅ | - | - |
-| Handoff | ✅ | - | - |
-| Universal Clipboard | ✅ | - | - |
-| SMS & Phone Call via iPhone | ✅ | - | - |
-| AirPlay to Mac | ✅ | - | - |
 
 > ### Miscellaneous
 | Feature                              | Status | Dependency          | Remarks                      |
@@ -320,18 +303,13 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | Multiple Boot | ✅ | - | macOS, Windows, and Linux distributions (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
 | Boot chime | ✅ | - | Working like a charme |
 
-
 </details>  
 
 <details>  
 <summary><strong>Not Working ❌</strong></summary>
 <br>
 
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Sidecar | ❌ | - | Cannot work on this machine as the there's no iGPU |
-| Continuity Camera | ❌ | - | Cannot work on this machine as the there's no iGPU |
-| FireVault 2 | ❌ | - | Cannot work when SecureBootModel is Disabled for OCLP |
+**Everything is working!**
 
 </details>
 
@@ -339,13 +317,16 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 <summary><strong>Other Repositories</strong></summary>
 <br>
 
-- Zx40-Hackintosh repositories:
-  - [BillDH2k/Hackintosh-HP-Z440-Z640-Z840-OpenCore](https://github.com/BillDH2k/Hackintosh-HP-Z440-Z640-Z840-OpenCore/tree/main)
-  - [DmitriyyyyS/HP-Z440](https://github.com/DmitriyyyyS/HP-Z440)
+- Haswell-Hackintosh-every-macOS repository:
+  - [b00t0x/MSI-Z97M-Hackintosh-every-macOS](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS)
 	
-- Zx20-Hackintosh repositories:
-  - [BillDH2k/Hackintosh-HP-Z420-Z620-Z820-OpenCore](https://github.com/BillDH2k/Hackintosh-HP-Z420-Z620-Z820-OpenCore)
-  - [sagaciouszu/OpenCore-HP-Z620](https://github.com/sagaciouszu/OpenCore-HP-Z620)
+- HP-ProDesk-400-G1-Hackintosh repositories:
+  - [puuska/Hackintosh-HP-Prodesk-400-G1](https://github.com/puuska/Hackintosh-HP-Prodesk-400-G1)
+  - [SvenMb/OpenCore_HP400G1_Desktop_Mini](https://github.com/SvenMb/OpenCore_HP400G1_Desktop_Mini)
+ 
+HP-ProDesk-600-G1-Hackintosh repositories:
+  - [chris1111/macOS-Package-HP-Prodesk-600-G1](https://github.com/chris1111/macOS-Package-HP-Prodesk-600-G1)
+  - [1alessandro1/HP-Prodesk-600-G1-SFF-macOS](https://github.com/1alessandro1/HP-Prodesk-600-G1-SFF-macOS)
 
 </details>  
 
@@ -355,11 +336,10 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 ### Credit to all these great people whom I don't know but have made my hackintosh dreams a reality:
 
 - The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
-- [ben9923](https://github.com/ben9923) for [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)
 - [Apple](http://apple.com) for macOS
 - [CorpNewt](https://github.com/corpnewt) for [USBMap](https://github.com/corpnewt/USBMap)
 - [headkaze](https://github.com/headkaze) for [Hackintool](https://github.com/headkaze/Hackintool)
-- [Mieze](https://github.com/Mieze) for [IntelMausiEthernet](https://github.com/Mieze/IntelMausiEthernet)
+- [Mieze](https://github.com/Mieze) for [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
 - And every other contributor
 
