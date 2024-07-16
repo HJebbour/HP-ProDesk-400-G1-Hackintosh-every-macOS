@@ -44,19 +44,19 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 - [Contents](#contents)
 	- [This is a Guide!](#this-is-a-guide)
 	- [This is not a Guide!](#this-is-not-a-guide)
+	- [Working](#working)
+	- [Not Working](#not-working)
 	- [Software](#software)
 	- [ACPI](#acpi)
 	- [Kext](#kext)
 	- [UEFI Drivers](#uefi-drivers)
-	- [Working](#working)
-	- [Not Working](#not-working)
+	- [config.plist](#configplist)
 	- [Other Repositories](#other-repositories)
 	- [Credits](#credits)
 	- [Screenshots](#screenshots)
-- [Pre-Installation](#pre-installation)
+- [Installation](#installation)
 	- [UEFI Settings](#uefi-settings)
-	- 
-- [Post-Installation](#post-installation)
+	- [macOS Installation](#macos-installation)
 	- [OpenCore Installation](#opencore-installation)
 	- 
 
@@ -91,13 +91,14 @@ The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac 
 
 This is the tricky part. I needed a GPU that is natively compatible with Tiger and can be patched with OCLP in Sonoma. I checked Dortania GPU Buyers Guide both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/).
 
-For AMD, I found that the HD 2000 Series are supported natively from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposed supported macOS versions, it turns out legacy AMD GPUs are a hit or a miss even if they are officially supported by Apple, unlike Nvidia legacy should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
+- For AMD, I found that the HD 2000 Series are supported natively from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposed supported macOS versions, it turns out legacy AMD GPUs are a hit or a miss even if they are officially supported by Apple, unlike Nvidia legacy should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
 
-So, I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. Indeed after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all Intel macOS releases.
-
+- I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. Indeed after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all Intel macOS releases.
 The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are the best suited for this kind of hackintosh, GeForce 8800 GTS 320/640 and Quadro FX 5600 are known to be working.
 
-**Please note that legacy GPUs needs CSM/Legacy Boot turned on in the BIOS settings, otherwise you will have a blank screen when you boot the computer.**
+- **Please note that legacy GPUs needs CSM/Legacy Boot turned on in the BIOS settings, otherwise you will have a blank screen when you boot the computer.**
+
+- If you don't want to buy an older GPU you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up-to macOS Monterey 12, and can be used on macOS Ventura and Sonoma with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine-ish without hardware acceleration.
 
 </br>
 
@@ -233,6 +234,45 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
+### Working
+
+> #### Video and Audio
+| Feature                              | Status | Dependency          | Remarks                      |
+| :----------------------------------- | ------ | ------------------- | ---------------------------- |
+| Full Graphics Accleration (QE/CI) | ✅ | `NVinject.kext`, `WhateverGreen.kext`, and NVIDIA legacy patching `NVCAP` | NVIDIA Quadro FX 5600 is natively supported on Mac OS X Tiger up to macOS High Sierra, and needs patchers with macOS Mojave and later |
+| Audio Output (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext` | Not working on Mac OS X Tiger and Leopard |
+| Audio Input (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
+| Internal Speaker | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
+| Automatic Headphone Output Switching | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
+| DRM | ✅ | dGPU | - |
+
+> #### Power Management
+| Feature                              | Status | Dependency          | Remarks                      |
+| :----------------------------------- | ------ | ------------------- | ---------------------------- |
+| CPU Power Management | ✅ | `SSDT-PLUG.aml` | Not working on Mac OS X Tiger and Leopard |
+| Sleep / Wake | ✅ | - | Not working on Mac OS X Tiger and Leopard |
+
+> #### Connectivity
+| Feature                              | Status | Dependency          | Remarks                      |
+| :----------------------------------- | ------ | ------------------- | ---------------------------- |
+| Bluetooth | ✅ | `BlueToolFixup.kext` | CSR 4.0 Bluetooth USB dongle is natively supported on Mac OS X Tiger until macOS Big Sur, `BlueToolFixup.kext` is needed on macOS Monterey and later |
+| Ethernet | ✅ | `RealtekR1000.kext`, `RealtekRTL8111-SL.kext`, and `RealtekRTL8111.kext` | - |
+| USB 2.0 / USB 3.0 | ✅ | `USBMap.kext` | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
+
+> #### Miscellaneous
+| Feature                              | Status | Dependency          | Remarks                      |
+| :----------------------------------- | ------ | ------------------- | ---------------------------- |
+| Multiple Boot | ✅ | - | macOS, Windows, and Linux distributions (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
+| Boot chime | ✅ | - | Working like a charme |
+
+</br>
+
+### Not Working
+
+**Everything is working!**
+
+</br>
+
 ### Software
 
 | Component      | Version |
@@ -306,42 +346,9 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-### Working
+### config.plist
 
-> #### Video and Audio
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Full Graphics Accleration (QE/CI) | ✅ | `NVinject.kext`, `WhateverGreen.kext`, and NVIDIA legacy patching `NVCAP` | NVIDIA Quadro FX 5600 is natively supported on Mac OS X Tiger up to macOS High Sierra, and needs patchers with macOS Mojave and later |
-| Audio Output (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext` | Not working on Mac OS X Tiger and Leopard |
-| Audio Input (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
-| Internal Speaker | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
-| Automatic Headphone Output Switching | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
-| DRM | ✅ | dGPU | - |
 
-> #### Power Management
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| CPU Power Management | ✅ | `SSDT-PLUG.aml` | Not working on Mac OS X Tiger and Leopard |
-| Sleep / Wake | ✅ | - | Not working on Mac OS X Tiger and Leopard |
-
-> #### Connectivity
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Bluetooth | ✅ | `BlueToolFixup.kext` | CSR 4.0 Bluetooth USB dongle is natively supported on Mac OS X Tiger until macOS Big Sur, `BlueToolFixup.kext` is needed on macOS Monterey and later |
-| Ethernet | ✅ | `RealtekR1000.kext`, `RealtekRTL8111-SL.kext`, and `RealtekRTL8111.kext` | - |
-| USB 2.0 / USB 3.0 | ✅ | `USBMap.kext` | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
-
-> #### Miscellaneous
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Multiple Boot | ✅ | - | macOS, Windows, and Linux distributions (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
-| Boot chime | ✅ | - | Working like a charme |
-
-</br>
-
-### Not Working
-
-**Everything is working!**
 
 </br>
 
@@ -384,7 +391,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-## Pre-Installation
+## Installation
 
 ### UEFI Settings
 
@@ -411,7 +418,11 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-## Post-Installation
+### macOS Installation
+
+
+
+</br>
 
 ### OpenCore Installation
 
