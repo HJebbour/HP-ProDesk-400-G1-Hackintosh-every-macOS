@@ -30,6 +30,10 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Summary](#summary)
+	- [Features](#features)
+	- [Hardware](#hardware)
+	- [HCL](#hcl)
 - [Build](#build)
 	- [Processor](#processor)
 	- [Graphic Card](#graphic-card)
@@ -37,16 +41,13 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	- [Ethernet](#ethernet)
 	- [Audio](#audio)
 	- [Bluetooth](#bluetooth)
-- [Summary](#summary)
-	- [Features](#features)
-	- [Hardware](#hardware)
-	- [HCL](#hcl)
 - [Contents](#contents)
 	- [This is a Guide!](#this-is-a-guide)
 	- [This is not a Guide!](#this-is-not-a-guide)
 	- [Working](#working)
 	- [Not Working](#not-working)
 	- [Software](#software)
+	- [Kernel](#kernel)
 	- [ACPI](#acpi)
 	- [Kext](#kext)
 	- [UEFI Drivers](#uefi-drivers)
@@ -78,61 +79,6 @@ You can find a wealth of knowledge on [Reddit](https://www.reddit.com/r/hackinto
 Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
 
 **I am not responsible for any damages you may cause.**
-
-## Build
-
-### Processor
-
-The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. Although it needs a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
-
-</br>
-
-### Graphic Card
-
-This is the tricky part. I needed a GPU that is natively compatible with Tiger and can be patched with OCLP in Sonoma. I checked Dortania GPU Buyers Guide both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/).
-
-- For AMD, I found that the HD 2000 Series are supported natively from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposed supported macOS versions, it turns out legacy AMD GPUs are a hit or a miss even if they are officially supported by Apple, unlike Nvidia legacy should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
-
-- I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. Indeed after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all Intel macOS releases.
-The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are the best suited for this kind of hackintosh, GeForce 8800 GTS 320/640 and Quadro FX 5600 are known to be working.
-
-- **Please note that legacy GPUs needs CSM/Legacy Boot turned on in the BIOS settings, otherwise you will have a blank screen when you boot the computer.**
-
-- If you don't want to buy an older GPU you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up-to macOS Monterey 12, and can be used on macOS Ventura and Sonoma with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine-ish without hardware acceleration.
-
-</br>
-
-### Storage
-
-- The first issue with storage is that AHCI causes a kernel panic with Mac OS X Tiger, so I had to disable `AppleAHCIPort` in the config.plist file and install Tiger on a USB flash drive.
-- The second issue, it is a weird one! 1/2 times OS X Mountain Lion doesn't detect my 2TB SSD and thus I got stuck at "Waiting for root device", I installed Mountain Lion on a 128 GB SSD.
-- The other macOS releases can be installed on any SATA SSD without any issues.
-
-</br>
-
-### Ethernet
-
-It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all macOS versions. I had to use three different kexts:
-- [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard while forcing `IONetworkingFamily`.
-- [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard up to macOS High Sierra while forcing `IONetworkingFamily` for Mac OS X Snow Leopard up to Mountain Lion.
-- [RealtekRTL8111 v2.4.2](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/tag/2.4.2) for macOS Mojave and later.
-
-</br>
-
-### Audio
-
-On-board audio Realtek ALC221:
-- Not working on Mac OS X Leopard and Tiger! Consider using a USB DAC headset/speaker for audio funcionality.
-- Working on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
-- Working on OS X Mountain Lion and later using `AppleALC` with layout-id 11.
-
-</br>
-
-### Bluetooth
-
-CSR8510 A10 4.0 USB dongle:
-- Works natively on Mac OS X Tiger until macOS Big Sur.
-- `BlueToolFixup.kext` is required on macOS Monterey and later.
 
 </br>
 
@@ -198,6 +144,63 @@ These are relevant components on my machine which may differ from yours, keep th
 5️⃣ Install [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)
 
 6️⃣ Use a USB DAC headset/speaker
+
+</br>
+
+## Build
+
+### Processor
+
+The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. Although it needs a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
+
+</br>
+
+### Graphic Card
+
+This is the tricky part. I needed a GPU that is natively compatible with Tiger and can be patched with OCLP in Sonoma. I checked Dortania GPU Buyers Guide both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/).
+
+- For AMD, I found that the HD 2000 Series are supported natively from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposed supported macOS versions, it turns out legacy AMD GPUs are a hit or a miss even if they are officially supported by Apple, unlike Nvidia legacy should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
+
+- I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. Indeed after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all Intel macOS releases.
+The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are the best suited for this kind of hackintosh, GeForce 8800 GTS 320/640 and Quadro FX 5600 are known to be working.
+
+- **Please note that legacy GPUs needs CSM/Legacy Boot turned on in the BIOS settings, otherwise you will have a blank screen when you boot the computer.**
+
+- If you don't want to buy an older GPU you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up-to macOS Monterey 12, and can be used on macOS Ventura and Sonoma with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine but without hardware acceleration (QE/CI).
+
+</br>
+
+### Storage
+
+- The first issue with storage is that AHCI causes a kernel panic with Mac OS X Tiger, so I had to disable `AppleAHCIPort` in the config.plist file and install Tiger on a USB flash drive.
+- The second issue, it is a weird one! 1/2 times OS X Mountain Lion doesn't detect my 2TB SSD and thus I got stuck at "Waiting for root device", I installed Mountain Lion on a 128 GB SSD.
+- The other macOS releases can be installed on any SATA SSD without any issues.
+
+</br>
+
+### Ethernet
+
+It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all macOS versions. I had to use three different kexts:
+- [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard while forcing `IONetworkingFamily`.
+- [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard up to macOS High Sierra while forcing `IONetworkingFamily` for Mac OS X Snow Leopard up to Mountain Lion.
+- [RealtekRTL8111 v2.4.2](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/tag/2.4.2) for macOS Mojave and later.
+
+</br>
+
+### Audio
+
+On-board audio Realtek ALC221:
+- Not working on Mac OS X Leopard and Tiger! Consider using a USB DAC headset/speaker for audio funcionality.
+- Working on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
+- Working on OS X Mountain Lion and later using `AppleALC` with layout-id 11.
+
+</br>
+
+### Bluetooth
+
+CSR8510 A10 4.0 USB dongle:
+- Works natively on Mac OS X Tiger until macOS Big Sur.
+- `BlueToolFixup.kext` is required on macOS Monterey and later.
 
 </br>
 
@@ -298,8 +301,15 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
+### Kernel
+
+Mac OS X Tiger cannot run on this computer with vanilla mach_kernel, it needs a custom kernel from the early hackintosh distros. I used [8.9.1 kernel SSE3 apr18]() custom kernel extracted from [XxX OS x86 10.4.11](https://archive.org/details/xxxosx8610point4point11rev2_202007)
+
+Then we need to copy it and replace it on the Mac OS X Tiger Installer, on the drive after installation, and after apply each update before rebooting, otherwise you can't boot Mac OS X Tiger.
+
+</br>
+
 ### ACPI
-<br>
 
 | Component              | Description            |
 | ---------------------- | ---------------------- |
@@ -340,7 +350,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 | AudioDxe.efi | OpenCorePkg 1.0.0 | Enable Boot Chime |
 | OpenCanopy.efi | OpenCorePkg 1.0.0 | Enable graphical boot picker |
 | OpenHfsPlus.efi | OpenCorePkg 1.0.0 | Required to see HFS volumes (macOS Installers and Recovery partitions |
-| OpenPartitionDxe.efi | OpenCorePkg 1.0.0 | Required to load OS X installers and recovery on OS X Mavericks and earlier |
+| OpenPartitionDxe.efi | OpenCorePkg 1.0.0 | Required to load installers and recovery on OS X Mavericks and earlier |
 | ResetNvramEntry.efi | OpenCorePkg 1.0.0 | Allow to reset NVRAM from boot picker |
 | ToggleSipEntry.efi | OpenCorePkg 1.0.0 | Allow to toggle SIP from boot picker |
 
@@ -348,7 +358,122 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 ### config.plist
 
+When creating the config.plist, there are several considerations for booting older macOS versions. The settings provided are specific to the HP ProDesk 400 G1 and may not be applicable your computer.
 
+<details> 
+<summary><strong>ACPI</strong></summary>
+
+#### Add
+`SSDT-EC.aml`
+
+`SSDT-PLUG.aml`
+
+`SSDT-HPET.aml`
+
+#### Patch
+These patches are generated when choosing SSDT-HPET patch with SSDTTime.
+
+| Find            | Replace         | Comment                 |
+| --------------- | --------------- | ----------------------- |
+| 0014275F 535441 | 00142758 535441 | HPET_STA to XSTA Rename |
+| 055F4352 53     | 05584352 53     | HPET_CRS to XCRS Rename |
+| 22040079 00     | 22000079 00     | IPIC IRQ 2 Patch        |
+| 22000179 00     | 22000079 00     | RTC IRQ 8 Patch         |
+| 22010079 00     | 22000079 00     | TIMR IRQ 0 Patch        |
+
+</details>
+
+<details> 
+<summary><strong>Booter</strong></summary>
+
+#### Patch
+Because `-no_compat_check` disables system updates, it is better to apply this [patch](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/432736eb98d7f8f69b5db229fcec861aceb356a4/payloads/Config/config.plist#L220-L267) from OpenCore Legacy Patcher.
+
+| Comment                  | Find                                                                                           | Replace                                                                                        |
+| ------------------------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Skip Board ID check      | 0050006C 00610074 0066006F 0072006D 00530075 00700070 006F0072 0074002E 0070006C 00690073 0074 | 002E002E 002E002E 002E002E 002E002E 002E002E 002E002E 002E002E 002E002E 002E002E 002E002E 002E |
+| Reroute HW_BID to OC_BID | 48005700 5F004200 49004400                                                                     | 4F004300 5F004200 49004400                                                                     |
+
+References:
+* https://github.com/5T33Z0/OC-Little-Translated/tree/main/09_Board-ID_VMM-Spoof
+* https://dortania.github.io/OpenCore-Legacy-Patcher/PATCHEXPLAIN.html#opencore-settings
+
+#### Quirks
+The following Quirks are active:
+
+`AllowRelocationBlock`: Required to boot Mac OS X Lion 10.7 and earlier when CSM/Legacy Boot is turned on in BIOS.
+
+`AvoidRuntimeDefrag`: Fixes UEFI runtime services like date, time, NVRAM, power control, etc.
+
+`EnableSafeModeSlide`: Enables slide variables to be used in safe mode, however this quirk is only applicable to UEFI platforms.
+
+`EnableWriteUnprotector`: Needed to remove write protection from CR0 register.
+
+`ProvideCustomSlide`: Used for Slide variable calculation.
+
+`RebuildAppleMemoryMap`: Required for Mac OS X Snow Leopard 10.6 and earlier.
+
+`SetupVirtualMap`: Fixes SetVirtualAddresses calls to virtual addresses.
+
+</details>
+
+<details> 
+<summary><strong>DeviceProperties</strong></summary>
+</br>
+Use your own patch if you have a different GPU using [this](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching) guide. However, this patch is not effective for Mac OS X Tiger 10.4, `NVinject.kext` is required.
+
+#### PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)
+
+| Key            | Value                                        | String   |
+| -------------- | -------------------------------------------- | -------- |
+| @0,compatible  | NVDA,NVMac                                   | `STRING` |
+| @0,device_type | display                                      | `STRING` |
+| @0,name        | NVDA,Display-A                               | `STRING` |
+| @1,compatible  | NVDA,NVMac                                   | `STRING` |
+| @1,device_type | display                                      | `STRING` |
+| @1,name        | NVDA,Display-B                               | `STRING` |
+| NVCAP          | 05000100 10000300 0C000000 0000000F 00000000 | `DATA`   |
+| VRAM,totalsize | 00000060                                     | `DATA`   |
+| device_type    | NVDA,Parent                                  | `STRING` |
+| model          | NVIDIA Quadro FX 5600                        | `STRING` |
+| rom-revision   | 1536.071010                                  | `STRING` |
+
+</details>
+
+### Kernel
+#### Add
+While Lilu.kext should work on 32-bit, it caused panic, so it's configured to load only in `x86_64` mode.
+
+#### Block
+Blocks kexts that panic in 10.4 and 10.5. This results in AHCI being unusable in 10.4, requiring the use of IDE mode.
+
+#### Force
+Force loads IONetworkingFamily.kext to make AtherosE2200Ethernet.kext working.
+
+#### Patch
+`DummyPowerManagement` is required only for 10.4 and 10.5. Instead of enabling it in `Emulate`, an equivalent patch is applied.
+
+For 10.12, a patch is applied to IONVMeFamily.kext instead of using HackrNVMeFamily.kext.
+
+#### Emulate
+Haswell is unsupported in 10.7 and earlier, so spoof Nehalem (`0x0106A2`) CPUID. Interestingly, using Nehalem's CPUID instead of Ivy Bridge or Sandy Bridge avoids the need for `DummyPowerManagement`.
+
+CPUID spoof is applied only for 10.6 and 10.7 because 10.4 and 10.5 don't need the spoof.
+
+#### Quirks
+`ProvideCurrentCpuInfo` is required for 10.4.
+
+### Misc
+#### Boot
+Not essential, but `PickerVariant` is set to `GoldenGate_16_9`. This adjustment is made because the 8800 GTS lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 display, so the icon aspect ratio is modified. If using a display that can show without stretching, switch to `GoldenGate`.
+
+### NVRAM
+#### Add
+For details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.com/acidanthera/RestrictEvents).
+
+### PlatformInfo
+#### Generic
+In [config_noserial.plist](../EFI/OC/config_noserial.plist), `SystemSerialNumber` is not set. Use tools like [OCAuxiliaryTools](https://github.com/ic005k/OCAuxiliaryTools) to configure it.
 
 </br>
 
