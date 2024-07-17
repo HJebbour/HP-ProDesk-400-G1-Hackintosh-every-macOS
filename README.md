@@ -441,7 +441,7 @@ Use your own patch if you have a different GPU using [this](https://dortania.git
 </details>
 
 <details> 
-<summary><strong>DeviceProperties</strong></summary>
+<summary><strong>Kernel</strong></summary>
 
 #### Add
 
