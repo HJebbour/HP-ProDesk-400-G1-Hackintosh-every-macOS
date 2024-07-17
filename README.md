@@ -445,9 +445,24 @@ Use your own patch if you have a different GPU using [this](https://dortania.git
 
 #### Add
 
-| Arch            | BundlePath         | MinKernel | MaxKernel |
-| --------------- | --------------- | ----------------------- | ----------------------- |
-| x86_64 | Lilu.kext | 10.0.0 |  |
+| Arch   | BundlePath             | MinKernel | MaxKernel |
+| ------ | ---------------------- | --------- | --------- |
+| x86_64 | Lilu.kext              | 10.0.0    |           |
+| x86_64 | VirtualSMC.kext        | 10.0.0    |           |
+| i386   | FakeSMC-32.kext        | 8.0.0     | 9.99.99   |
+| i386   | NVinject.kext          | 8.0.0     | 8.99.99   |
+| x86_64 | WhateverGreen.kext     | 10.0.0    |           |
+| x86_64 | VoodooHDA-FAT.kext     | 10.0.0    | 11.99.99  |
+| x86_64 | AppleALC.kext          | 12.0.0    |           |
+| i386   | RealtekR1000.kext      | 8.0.0     | 9.99.99   |
+| x86_64 | RealtekRTL8111-SL.kext | 10.0.0    | 17.99.99  |
+| x86_64 | RealtekRTL8111.kext    | 18.0.0    |           |
+| Any    | USBMap.kext            |           |           |
+| x86_64 | BlueToolFixup.kext     | 21.0.0    |           |
+| x86_64 | AMFIPass.kext          | 20.0.0    |           |
+| x86_64 | SMCProcessor.kext      | 11.0.0    |           |
+| x86_64 | SMCSuperIO.kext        | 10.0.0    |           |
+| x86_64 | RestrictEvents.kext    | 20.0.0    |           |
 
 #### Block
 Blocks kexts that panic in 10.4 and 10.5. This results in AHCI being unusable in 10.4, requiring the use of IDE mode.
