@@ -440,9 +440,14 @@ Use your own patch if you have a different GPU using [this](https://dortania.git
 
 </details>
 
-### Kernel
+<details> 
+<summary><strong>DeviceProperties</strong></summary>
+
 #### Add
-While Lilu.kext should work on 32-bit, it caused panic, so it's configured to load only in `x86_64` mode.
+
+| Arch            | BundlePath         | MinKernel | MaxKernel |
+| --------------- | --------------- | ----------------------- | ----------------------- |
+| x86_64 | Lilu.kext | 10.0.0 |  |
 
 #### Block
 Blocks kexts that panic in 10.4 and 10.5. This results in AHCI being unusable in 10.4, requiring the use of IDE mode.
@@ -462,6 +467,8 @@ CPUID spoof is applied only for 10.6 and 10.7 because 10.4 and 10.5 don't need t
 
 #### Quirks
 `ProvideCurrentCpuInfo` is required for 10.4.
+
+</details>
 
 ### Misc
 #### Boot
