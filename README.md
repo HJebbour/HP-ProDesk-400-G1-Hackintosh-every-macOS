@@ -513,9 +513,13 @@ The following Quirks are active:
 
 </details>
 
-### Misc
+<details> 
+<summary><strong>Misc</strong></summary>
+
 #### Boot
-Not essential, but `PickerVariant` is set to `GoldenGate_16_9`. This adjustment is made because the 8800 GTS lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 display, so the icon aspect ratio is modified. If using a display that can show without stretching, switch to `GoldenGate`.
+These parameters are not essential, just preferences, you can use my config as is. and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization. If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor ratio. This adjustment is made because the NVIDIA Quadro FX 5600 lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 or 16:10 display, so the icon aspect ratio is modified.
+
+</details>
 
 ### NVRAM
 #### Add
