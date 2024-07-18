@@ -168,6 +168,8 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 
 - If you don't want to buy an older GPU you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up-to macOS Monterey 12, and can be used on macOS Ventura and Sonoma with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine but without hardware acceleration (QE/CI).
 
+- **Fun fact:** If you install Mac OS X Tiger, Leopard, and/or Snow Leopard from another Mac OS X using "OSInstall.mpkg" you will get the welcome video intro without a compatible GPU (hardware acceleration).
+
 </br>
 
 ### Storage
@@ -444,6 +446,7 @@ Use your own patch if you have a different GPU using [this](https://dortania.git
 <summary><strong>Kernel</strong></summary>
 
 #### Add
+Adding Kexts with MinKernel and MaxKernel, and Arch type to allow booting all macOS releases from the same EFI folder. Please refer to the [Kernel Support Table](https://dortania.github.io/OpenCore-Install-Guide/config.plist/haswell.html#add-3).
 
 | Arch   | BundlePath             | MinKernel | MaxKernel |
 | ------ | ---------------------- | --------- | --------- |
@@ -465,23 +468,48 @@ Use your own patch if you have a different GPU using [this](https://dortania.git
 | x86_64 | RestrictEvents.kext    | 20.0.0    |           |
 
 #### Block
-Blocks kexts that panic in 10.4 and 10.5. This results in AHCI being unusable in 10.4, requiring the use of IDE mode.
+Blocking kexts to avoid kernel panic on Mac OS X Tiger 10.4 and Mac OS X Leopard 10.5. This results in AHCI being unusable in Mac OS X Tiger 10.4, requiring to install it on an USB drive.
+
+| Arch | Identifier                     | MinKernel | MaxKernel | Strategy  |
+| ---- | ------------------------------ | --------- | --------- | --------- |
+| i386 | com.apple.driver.AppleAHCIPort | 8.0.0     | 8.99.99   | Disable   |
+| i386 | com.apple.driver.EFIRuntime    | 8.0.0     | 9.99.99   | Disable   |
 
 #### Force
-Force loads IONetworkingFamily.kext to make AtherosE2200Ethernet.kext working.
+Force loading `IONetworkingFamily.kext` to allow Ethernet to work on OS X Mountain Lion and earlier.
+
+| Arch | BundlePath                                        | Identifier                         | ExecutablePath                    | PlistPath           | MinKernel | MaxKernel |
+| ---- | ------------------------------------------------- | ---------------------------------- | --------------------------------- | ------------------- | --------- | --------- |
+| Any  | System/Library/Extensions/IONetworkingFamily.kext | com.apple.iokit.IONetworkingFamily | Contents/MacOS/IONetworkingFamily | Contents/Info.plist | 8.0.0     | 12.99.99  |
 
 #### Patch
-`DummyPowerManagement` is required only for 10.4 and 10.5. Instead of enabling it in `Emulate`, an equivalent patch is applied.
+`DummyPowerManagement` is required for Mac OS X Snow Leopard 10.6.6 and earlier in order to avoid kernel panic. Instead of enabling it in `Emulate`, an equivalent patch is applied so we can only target 10.6.6 and earlier.
 
-For 10.12, a patch is applied to IONVMeFamily.kext instead of using HackrNVMeFamily.kext.
+| Arch | Identifier                                    | Base                                                 | Replace       | MinKernel | MaxKernel | Count |
+| ---- | --------------------------------------------- | ---------------------------------------------------- | ------------- | --------- | --------- | ----- |
+| Any  | com.apple.driver.AppleIntelCPUPowerManagement | __ZN28AppleIntelCPUPowerManagement5startEP9IOService | B8010000 00C3 | 8.0.0     | 10.6.99   | 1     |
 
 #### Emulate
-Haswell is unsupported in 10.7 and earlier, so spoof Nehalem (`0x0106A2`) CPUID. Interestingly, using Nehalem's CPUID instead of Ivy Bridge or Sandy Bridge avoids the need for `DummyPowerManagement`.
+Haswell is unsupported in Mac OS X Lion 10.7 and Mac OS X Snow Leopard 10.6, we need to spoof Nehalem (`0x0106A2`) CPUID. Interestingly, using Nehalem's CPUID instead of Ivy Bridge or Sandy Bridge avoids the need for `DummyPowerManagement`. CPUID spoofing is not needed in Mac OS X Tiger 10.4 and Leopard 10.5.
 
-CPUID spoof is applied only for 10.6 and 10.7 because 10.4 and 10.5 don't need the spoof.
+**Cpuid1Data:** `A2060100 00000000 00000000 00000000`
+
+**Cpuid1Mask:** `FFFFFFFF 00000000 00000000 00000000`
+
+**MinKernel:** 10.0.0
+
+**MaxKernel:** 11.99.99
 
 #### Quirks
-`ProvideCurrentCpuInfo` is required for 10.4.
+The following Quirks are active:
+
+`AppleXcpmCfgLock`: Disables PKG_CST_CONFIG_CONTROL (0xE2) MSR modification in XNU kernel (Required for 10.8 and later)
+
+`DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (Required for 11 and later)
+
+`PowerTimeoutKernelPanic`: Disables kernel panic on setPowerState timeout (10.15 and later)
+
+`ProvideCurrentCpuInfo`: Provides current CPU info to the kernel (Required for 10.4)
 
 </details>
 
