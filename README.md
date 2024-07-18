@@ -348,13 +348,13 @@ Then we need to copy it and replace it on the Mac OS X Tiger Installer, on the d
 
 |     Driver      | Version           | Description       |
 | --------------- | ----------------- | ----------------- |
-| OpenRuntime.efi | OpenCorePkg 1.0.0 | Essentiel to patch boot.efi for NVRAM fixes |
-| AudioDxe.efi | OpenCorePkg 1.0.0 | Enable Boot Chime |
-| OpenCanopy.efi | OpenCorePkg 1.0.0 | Enable graphical boot picker |
-| OpenHfsPlus.efi | OpenCorePkg 1.0.0 | Required to see HFS volumes (macOS Installers and Recovery partitions |
-| OpenPartitionDxe.efi | OpenCorePkg 1.0.0 | Required to load installers and recovery on OS X Mavericks and earlier |
-| ResetNvramEntry.efi | OpenCorePkg 1.0.0 | Allow to reset NVRAM from boot picker |
-| ToggleSipEntry.efi | OpenCorePkg 1.0.0 | Allow to toggle SIP from boot picker |
+| OpenRuntime | OpenCorePkg 1.0.0 | Essentiel to patch boot.efi for NVRAM fixes |
+| AudioDxe | OpenCorePkg 1.0.0 | Enable Boot Chime |
+| OpenCanopy | OpenCorePkg 1.0.0 | Enable graphical boot picker |
+| OpenHfsPlus | OpenCorePkg 1.0.0 | Required to see HFS volumes (macOS Installers and Recovery partitions |
+| OpenPartitionDxe | OpenCorePkg 1.0.0 | Required to load installers and recovery on OS X Mavericks and earlier |
+| ResetNvramEntry | OpenCorePkg 1.0.0 | Allow to reset NVRAM from boot picker |
+| ToggleSipEntry | OpenCorePkg 1.0.0 | Allow to toggle SIP from boot picker |
 
 </br>
 
