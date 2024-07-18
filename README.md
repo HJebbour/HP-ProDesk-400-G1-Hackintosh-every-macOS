@@ -546,13 +546,74 @@ For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.c
 
 </details>
 
-<details> 
+<details>
 <summary><strong>PlatformInfo</strong></summary>
 
 #### Generic
-The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS, we will discuss this further in the [Installation](#installation) section below.
+The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS, we will discuss this further in the [macOS Installation](#macos-installation) section below.
 
 **You need to generate your own Serial Number using [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**
+
+</details>
+
+<details> 
+<summary><strong>UEFI</strong></summary>
+
+#### APFS
+By default, OpenCore only loads APFS drivers from macOS Big Sur and newer. If you are booting macOS Catalina or earlier, you need to set a new minimum version/date as shown below. **Not setting this can result in OpenCore not finding your macOS partition!**
+
+**MinDate:** -1
+
+**MinVersion:** -1
+
+#### Audio
+The following settings with `AudioDxe.efi` driver enables the Boot-chime.
+
+**AudioDevice:** `PciRoot(0x0)/Pci(0x1B,0x0)`
+
+**PlayChime:** `Enabled`
+
+**AudioSupport:** `True`
+
+#### Drivers
+
+| Path                 | Enabled |
+| -------------------- | ------- |
+| OpenRuntime.efi      | True    |
+| AudioDxe.efi         | True    |
+| OpenCanopy.efi       | True    |
+| OpenHfsPlus.efi      | True    |
+| OpenPartitionDxe.efi | True    |
+| ResetNvramEntry.efi  | True    |
+| ToggleSipEntry.efi   | True    |
+
+**Connect Drivers:** `True`
+
+#### Input
+The following settings enables the usage of the Mouse and Keyboard in OpenCore boot picker.
+
+**KeyForgetThreshold:** 5
+
+**KeySupportMode:** `Auto`
+
+**PointerSupportMode:** `ASUS`
+
+**TimeResolution:** 50000
+
+**KeySupport:** `True`
+
+**PointerSupport:** `True`
+
+#### Quirks
+The following Quirks are active:
+
+`EnableVectorAcceleration`: Enable AVX vector acceleration of SHA-512 and SHA-384 hashing algorithms
+
+`IgnoreInvalidFlexRatio`: Some types of firmware (such as APTIO IV) may contain invalid values in the MSR_FLEX_RATIO (0x194) MSR register
+
+`RequestBootVarRouting`: This quirk requires OC_FIRMWARE_RUNTIME protocol implemented in OpenRuntime.efi. The quirk lets default boot entry preservation at times when the firmware deletes incompatible boot entries. In summary, this quirk is required to reliably use the Startup Disk preference pane in firmware that is not compatible with macOS boot entries by design
+
+`UnblockFsConnect`: Some types of firmware block partition handles by opening them in By Driver mode, resulting in an inability to install File System protocols (Required for HP motherboards)
 
 </details>
 
