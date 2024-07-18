@@ -519,17 +519,42 @@ The following Quirks are active:
 #### Boot
 These parameters are not essential, just preferences, you can use my config as is. and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization. If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor ratio. This adjustment is made because the NVIDIA Quadro FX 5600 lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 or 16:10 display, so the icon aspect ratio is modified.
 
+#### Debug
+All debug and logging settings are disabled.
+
+#### Security
+`SecureBootModel` needs to be disabled to allow the execution of OCLP.
+
 </details>
 
-### NVRAM
+<details> 
+<summary><strong>NVRAM</strong></summary>
+
 #### Add
-For details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.com/acidanthera/RestrictEvents).
+##### 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102
+| Key      | Value | Type   |
+| -------- | ----- | ------ |
+| revpatch | sbvmm | STRING |
 
-### PlatformInfo
+For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.com/acidanthera/RestrictEvents).
+
+##### 7C436110-AB2A-4BBB-A880-FE41995C9F82
+| Key               | Value    | Type |
+| ----------------- | -------- | ---- |
+| SystemAudioVolume | 46       | DATA |
+| csr-active-config | 03080000 | DATA |
+
+</details>
+
+<details> 
+<summary><strong>PlatformInfo</strong></summary>
+
 #### Generic
-In [config_noserial.plist](../EFI/OC/config_noserial.plist), `SystemSerialNumber` is not set. Use tools like [OCAuxiliaryTools](https://github.com/ic005k/OCAuxiliaryTools) to configure it.
+The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS, we will discuss this further in the [Installation](#installation) section below.
 
-</br>
+**You need to generate your own Serial Number using [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**
+
+</details>
 
 ### Other Repositories
 
