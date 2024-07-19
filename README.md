@@ -405,7 +405,7 @@ References:
 * https://dortania.github.io/OpenCore-Legacy-Patcher/PATCHEXPLAIN.html#opencore-settings
 
 #### Quirks
-The following Quirks are active:
+The following Quirks are used:
 
 - `AllowRelocationBlock`: Required to boot Mac OS X Lion 10.7 and earlier when CSM/Legacy Boot is turned on in BIOS.
 
@@ -448,7 +448,9 @@ Use your own patch if you have a different GPU using [this](https://dortania.git
 <summary><strong>Kernel</strong></summary>
 
 #### Add
-Adding Kexts with MinKernel and MaxKernel, and Arch type to allow booting all macOS releases from the same EFI folder. Please refer to the [Kernel Support Table](https://dortania.github.io/OpenCore-Install-Guide/config.plist/haswell.html#add-3).
+Adding Kexts with MinKernel and MaxKernel, and Arch type to allow booting all macOS releases from the same EFI folder.
+
+Please refer to the [Kernel Support Table](https://dortania.github.io/OpenCore-Install-Guide/config.plist/haswell.html#add-3).
 
 | Arch   | BundlePath             | MinKernel | MaxKernel |
 | ------ | ---------------------- | --------- | --------- |
@@ -478,7 +480,7 @@ Blocking kexts to avoid kernel panic on Mac OS X Tiger 10.4 and Mac OS X Leopard
 | i386 | com.apple.driver.EFIRuntime    | 8.0.0     | 9.99.99   | Disable   |
 
 #### Force
-Force loading `IONetworkingFamily.kext` to allow Ethernet to work on OS X Mountain Lion and earlier.
+Force loading `IONetworkingFamily.kext` to allow Ethernet to work on OS X Mountain Lion 10.8 and earlier.
 
 | Arch | BundlePath                                        | Identifier                         | ExecutablePath                    | PlistPath           | MinKernel | MaxKernel |
 | ---- | ------------------------------------------------- | ---------------------------------- | --------------------------------- | ------------------- | --------- | --------- |
@@ -503,7 +505,7 @@ Haswell is unsupported in Mac OS X Lion 10.7 and Mac OS X Snow Leopard 10.6, we 
 - MaxKernel: `11.99.99`
 
 #### Quirks
-The following Quirks are active:
+The following Quirks are used:
 
 - `DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (macOS Big Sur 11 and later)
 
@@ -515,7 +517,9 @@ The following Quirks are active:
 <summary><strong>Misc</strong></summary>
 
 #### Boot
-These parameters are not essential, just preferences, you can use my config as is, and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization. If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor ratio. This adjustment is made because the NVIDIA Quadro FX 5600 lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 or 16:10 display, so the icon aspect ratio is modified.
+These parameters are not essential, just preferences, you can use my config as is, and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization.
+
+If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor ratio. This adjustment is made because the NVIDIA Quadro FX 5600 lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 or 16:10 display, so the icon aspect ratio is modified.
 
 #### Debug
 All debug and logging settings are disabled.
@@ -539,7 +543,7 @@ This setting allows OTA update on macOS Big Sur 11.3 and later.
 For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.com/acidanthera/RestrictEvents).
 
 ##### 7C436110-AB2A-4BBB-A880-FE41995C9F82
-`SystemAudioVolume`: This setting set the volume of Boot-chime.
+`SystemAudioVolume`: Set the volume of Boot-chime.
 
 `csr-active-config`: Set the minimum SIP value required to allow the execution of OCLP's Root Patches.
 
@@ -609,7 +613,7 @@ The following settings enables the usage of the Mouse and Keyboard in OpenCore b
 - PointerSupport: `True`
 
 #### Quirks
-The following Quirks are active:
+The following Quirks are used:
 
 - `EnableVectorAcceleration`: Enable AVX vector acceleration of SHA-512 and SHA-384 hashing algorithms
 
