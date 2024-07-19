@@ -536,7 +536,8 @@ For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.c
 
 ##### 7C436110-AB2A-4BBB-A880-FE41995C9F82
 `SystemAudioVolume`: This setting set the volume of Boot-chime.
-`csr-active-config`: Here we set the minimum SIP value required to allow the execution of OCLP's Root Patches.
+
+`csr-active-config`: Set the minimum SIP value required to allow the execution of OCLP's Root Patches.
 
 | Key               | Value    | Type |
 | ----------------- | -------- | ---- |
