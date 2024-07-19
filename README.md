@@ -688,7 +688,7 @@ The following Quirks are used:
 </br>
 
 ### macOS Installation
-
+Each macOS Installer has its own 
 
 
 </br>
