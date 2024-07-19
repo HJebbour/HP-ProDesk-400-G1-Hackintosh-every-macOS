@@ -403,17 +403,17 @@ References:
 #### Quirks
 The following Quirks are active:
 
-`AllowRelocationBlock`: Required to boot Mac OS X Lion 10.7 and earlier when CSM/Legacy Boot is turned on in BIOS.
+- `AllowRelocationBlock`: Required to boot Mac OS X Lion 10.7 and earlier when CSM/Legacy Boot is turned on in BIOS.
 
-`AvoidRuntimeDefrag`: Fixes UEFI runtime services like date, time, NVRAM, power control, etc.
+- `AvoidRuntimeDefrag`: Fixes UEFI runtime services like date, time, NVRAM, power control, etc.
 
-`EnableSafeModeSlide`: Enables slide variables to be used in safe mode, however this quirk is only applicable to UEFI platforms.
+- `EnableSafeModeSlide`: Enables slide variables to be used in safe mode, however this quirk is only applicable to UEFI platforms.
 
-`EnableWriteUnprotector`: Needed to remove write protection from CR0 register.
+- `EnableWriteUnprotector`: Needed to remove write protection from CR0 register.
 
-`RebuildAppleMemoryMap`: Required for Mac OS X Snow Leopard 10.6 and earlier.
+- `RebuildAppleMemoryMap`: Required for Mac OS X Snow Leopard 10.6 and earlier.
 
-`SetupVirtualMap`: Fixes SetVirtualAddresses calls to virtual addresses.
+- `SetupVirtualMap`: Fixes SetVirtualAddresses calls to virtual addresses.
 
 </details>
 
@@ -490,20 +490,20 @@ Force loading `IONetworkingFamily.kext` to allow Ethernet to work on OS X Mounta
 #### Emulate
 Haswell is unsupported in Mac OS X Lion 10.7 and Mac OS X Snow Leopard 10.6, we need to spoof Nehalem (`0x0106A2`) CPUID. Interestingly, using Nehalem's CPUID instead of Ivy Bridge or Sandy Bridge avoids the need for `DummyPowerManagement`. CPUID spoofing is not needed in Mac OS X Tiger 10.4 and Leopard 10.5.
 
-Cpuid1Data: `A2060100 00000000 00000000 00000000`
+- Cpuid1Data: `A2060100 00000000 00000000 00000000`
 
-Cpuid1Mask: `FFFFFFFF 00000000 00000000 00000000`
+- Cpuid1Mask: `FFFFFFFF 00000000 00000000 00000000`
 
-MinKernel: `10.0.0`
+- MinKernel: `10.0.0`
 
-MaxKernel: `11.99.99`
+- MaxKernel: `11.99.99`
 
 #### Quirks
 The following Quirks are active:
 
-`DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (macOS Big Sur 11 and later)
+- `DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (macOS Big Sur 11 and later)
 
-`ProvideCurrentCpuInfo`: Provides current CPU info to the kernel (Required for Mac OS X Tiger 10.4)
+- `ProvideCurrentCpuInfo`: Provides current CPU info to the kernel (Required for Mac OS X Tiger 10.4)
 
 </details>
 
@@ -511,7 +511,7 @@ The following Quirks are active:
 <summary><strong>Misc</strong></summary>
 
 #### Boot
-These parameters are not essential, just preferences, you can use my config as is. and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization. If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor ratio. This adjustment is made because the NVIDIA Quadro FX 5600 lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 or 16:10 display, so the icon aspect ratio is modified.
+These parameters are not essential, just preferences, you can use my config as is, and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization. If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor ratio. This adjustment is made because the NVIDIA Quadro FX 5600 lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 or 16:10 display, so the icon aspect ratio is modified.
 
 #### Debug
 All debug and logging settings are disabled.
@@ -526,6 +526,8 @@ All debug and logging settings are disabled.
 
 #### Add
 ##### 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102
+This setting allows OTA update on macOS Big Sur 11.3 and later.
+
 | Key      | Value | Type   |
 | -------- | ----- | ------ |
 | revpatch | sbvmm | STRING |
@@ -533,6 +535,9 @@ All debug and logging settings are disabled.
 For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.com/acidanthera/RestrictEvents).
 
 ##### 7C436110-AB2A-4BBB-A880-FE41995C9F82
+`SystemAudioVolume`: This setting set the volume of Boot-chime.
+`csr-active-config`: Here we set the minimum SIP value required to allow the execution of OCLP's Root Patches.
+
 | Key               | Value    | Type |
 | ----------------- | -------- | ---- |
 | SystemAudioVolume | 46       | DATA |
@@ -544,7 +549,7 @@ For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.c
 <summary><strong>PlatformInfo</strong></summary>
 
 #### Generic
-The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS, we will discuss this further in the [macOS Installation](#macos-installation) section below.
+The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Although, some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS, we will discuss this further in the [macOS Installation](#macos-installation) section below.
 
 **You need to generate your own Serial Number using [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**
 
@@ -556,18 +561,18 @@ The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [p
 #### APFS
 By default, OpenCore only loads APFS drivers from macOS Big Sur and newer. If you are booting macOS Catalina or earlier, you need to set a new minimum version/date as shown below. **Not setting this can result in OpenCore not finding your macOS partition!**
 
-MinDate: `-1`
+- MinDate: `-1`
 
-MinVersion: `-1`
+- MinVersion: `-1`
 
 #### Audio
 The following settings with `AudioDxe.efi` driver enables the Boot-chime.
 
-AudioDevice: `PciRoot(0x0)/Pci(0x1B,0x0)`
+- AudioDevice: `PciRoot(0x0)/Pci(0x1B,0x0)`
 
-PlayChime: `Enabled`
+- PlayChime: `Enabled`
 
-AudioSupport: `True`
+- AudioSupport: `True`
 
 #### Drivers
 
@@ -581,29 +586,29 @@ AudioSupport: `True`
 | ResetNvramEntry.efi  | True    |
 | ToggleSipEntry.efi   | True    |
 
-Connect Drivers: `True`
+- Connect Drivers: `True`
 
 #### Input
 The following settings enables the usage of the Mouse and Keyboard in OpenCore boot picker.
 
-KeyForgetThreshold: `5`
+- KeyForgetThreshold: `5`
 
-KeySupportMode: `Auto`
+- KeySupportMode: `Auto`
 
-PointerSupportMode: `ASUS`
+- PointerSupportMode: `ASUS`
 
-TimeResolution: `50000
+- TimeResolution: `50000
 
-KeySupport: `True`
+- KeySupport: `True`
 
-PointerSupport: `True`
+- PointerSupport: `True`
 
 #### Quirks
 The following Quirks are active:
 
-`EnableVectorAcceleration`: Enable AVX vector acceleration of SHA-512 and SHA-384 hashing algorithms
+- `EnableVectorAcceleration`: Enable AVX vector acceleration of SHA-512 and SHA-384 hashing algorithms
 
-`RequestBootVarRouting`: This quirk requires OC_FIRMWARE_RUNTIME protocol implemented in OpenRuntime.efi. The quirk lets default boot entry preservation at times when the firmware deletes incompatible boot entries. In summary, this quirk is required to reliably use the Startup Disk preference pane in firmware that is not compatible with macOS boot entries by design
+- `RequestBootVarRouting`: This quirk requires OC_FIRMWARE_RUNTIME protocol implemented in OpenRuntime.efi. The quirk lets default boot entry preservation at times when the firmware deletes incompatible boot entries. In summary, this quirk is required to reliably use the Startup Disk preference pane in firmware that is not compatible with macOS boot entries by design
 
 </details>
 
