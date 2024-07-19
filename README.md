@@ -490,18 +490,18 @@ Force loading `IONetworkingFamily.kext` to allow Ethernet to work on OS X Mounta
 #### Emulate
 Haswell is unsupported in Mac OS X Lion 10.7 and Mac OS X Snow Leopard 10.6, we need to spoof Nehalem (`0x0106A2`) CPUID. Interestingly, using Nehalem's CPUID instead of Ivy Bridge or Sandy Bridge avoids the need for `DummyPowerManagement`. CPUID spoofing is not needed in Mac OS X Tiger 10.4 and Leopard 10.5.
 
-**Cpuid1Data:** `A2060100 00000000 00000000 00000000`
+Cpuid1Data: `A2060100 00000000 00000000 00000000`
 
-**Cpuid1Mask:** `FFFFFFFF 00000000 00000000 00000000`
+Cpuid1Mask: `FFFFFFFF 00000000 00000000 00000000`
 
-**MinKernel:** 10.0.0
+MinKernel: `10.0.0`
 
-**MaxKernel:** 11.99.99
+MaxKernel: `11.99.99`
 
 #### Quirks
 The following Quirks are active:
 
-`DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (macOS 11 and later)
+`DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (macOS Big Sur 11 and later)
 
 `ProvideCurrentCpuInfo`: Provides current CPU info to the kernel (Required for Mac OS X Tiger 10.4)
 
@@ -556,18 +556,18 @@ The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [p
 #### APFS
 By default, OpenCore only loads APFS drivers from macOS Big Sur and newer. If you are booting macOS Catalina or earlier, you need to set a new minimum version/date as shown below. **Not setting this can result in OpenCore not finding your macOS partition!**
 
-**MinDate:** -1
+MinDate: `-1`
 
-**MinVersion:** -1
+MinVersion: `-1`
 
 #### Audio
 The following settings with `AudioDxe.efi` driver enables the Boot-chime.
 
-**AudioDevice:** `PciRoot(0x0)/Pci(0x1B,0x0)`
+AudioDevice: `PciRoot(0x0)/Pci(0x1B,0x0)`
 
-**PlayChime:** `Enabled`
+PlayChime: `Enabled`
 
-**AudioSupport:** `True`
+AudioSupport: `True`
 
 #### Drivers
 
@@ -581,22 +581,22 @@ The following settings with `AudioDxe.efi` driver enables the Boot-chime.
 | ResetNvramEntry.efi  | True    |
 | ToggleSipEntry.efi   | True    |
 
-**Connect Drivers:** `True`
+Connect Drivers: `True`
 
 #### Input
 The following settings enables the usage of the Mouse and Keyboard in OpenCore boot picker.
 
-**KeyForgetThreshold:** 5
+KeyForgetThreshold: `5`
 
-**KeySupportMode:** `Auto`
+KeySupportMode: `Auto`
 
-**PointerSupportMode:** `ASUS`
+PointerSupportMode: `ASUS`
 
-**TimeResolution:** 50000
+TimeResolution: `50000
 
-**KeySupport:** `True`
+KeySupport: `True`
 
-**PointerSupport:** `True`
+PointerSupport: `True`
 
 #### Quirks
 The following Quirks are active:
