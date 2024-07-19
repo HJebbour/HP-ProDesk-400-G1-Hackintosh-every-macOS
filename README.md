@@ -411,8 +411,6 @@ The following Quirks are active:
 
 `EnableWriteUnprotector`: Needed to remove write protection from CR0 register.
 
-`ProvideCustomSlide`: Used for Slide variable calculation.
-
 `RebuildAppleMemoryMap`: Required for Mac OS X Snow Leopard 10.6 and earlier.
 
 `SetupVirtualMap`: Fixes SetVirtualAddresses calls to virtual addresses.
@@ -463,8 +461,8 @@ Adding Kexts with MinKernel and MaxKernel, and Arch type to allow booting all ma
 | Any    | USBMap.kext            |           |           |
 | x86_64 | BlueToolFixup.kext     | 21.0.0    |           |
 | x86_64 | AMFIPass.kext          | 20.0.0    |           |
-| x86_64 | SMCProcessor.kext      | 11.0.0    |           |
 | x86_64 | SMCSuperIO.kext        | 10.0.0    |           |
+| x86_64 | SMCProcessor.kext      | 11.0.0    |           |
 | x86_64 | RestrictEvents.kext    | 20.0.0    |           |
 
 #### Block
@@ -483,7 +481,7 @@ Force loading `IONetworkingFamily.kext` to allow Ethernet to work on OS X Mounta
 | Any  | System/Library/Extensions/IONetworkingFamily.kext | com.apple.iokit.IONetworkingFamily | Contents/MacOS/IONetworkingFamily | Contents/Info.plist | 8.0.0     | 12.99.99  |
 
 #### Patch
-`DummyPowerManagement` is required for Mac OS X Snow Leopard 10.6.6 and earlier in order to avoid kernel panic. Instead of enabling it in `Emulate`, an equivalent patch is applied so we can only target 10.6.6 and earlier.
+`DummyPowerManagement` is required for Mac OS X Snow Leopard 10.6.6 and earlier (10.6.7 and 10.6.8 doesn't need this patch) in order to avoid kernel panic. Instead of enabling it in `Emulate`, an equivalent patch is applied so we can only target 10.6.6 and earlier.
 
 | Arch | Identifier                                    | Base                                                 | Replace       | MinKernel | MaxKernel | Count |
 | ---- | --------------------------------------------- | ---------------------------------------------------- | ------------- | --------- | --------- | ----- |
@@ -503,13 +501,9 @@ Haswell is unsupported in Mac OS X Lion 10.7 and Mac OS X Snow Leopard 10.6, we 
 #### Quirks
 The following Quirks are active:
 
-`AppleXcpmCfgLock`: Disables PKG_CST_CONFIG_CONTROL (0xE2) MSR modification in XNU kernel (Required for 10.8 and later)
+`DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (macOS 11 and later)
 
-`DisableLinkeditJettison`: Allows Lilu and others to have more reliable performance without keepsyms=1. (Required for 11 and later)
-
-`PowerTimeoutKernelPanic`: Disables kernel panic on setPowerState timeout (10.15 and later)
-
-`ProvideCurrentCpuInfo`: Provides current CPU info to the kernel (Required for 10.4)
+`ProvideCurrentCpuInfo`: Provides current CPU info to the kernel (Required for Mac OS X Tiger 10.4)
 
 </details>
 
