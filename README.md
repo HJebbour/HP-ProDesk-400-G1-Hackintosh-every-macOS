@@ -603,11 +603,7 @@ The following Quirks are active:
 
 `EnableVectorAcceleration`: Enable AVX vector acceleration of SHA-512 and SHA-384 hashing algorithms
 
-`IgnoreInvalidFlexRatio`: Some types of firmware (such as APTIO IV) may contain invalid values in the MSR_FLEX_RATIO (0x194) MSR register
-
 `RequestBootVarRouting`: This quirk requires OC_FIRMWARE_RUNTIME protocol implemented in OpenRuntime.efi. The quirk lets default boot entry preservation at times when the firmware deletes incompatible boot entries. In summary, this quirk is required to reliably use the Startup Disk preference pane in firmware that is not compatible with macOS boot entries by design
-
-`UnblockFsConnect`: Some types of firmware block partition handles by opening them in By Driver mode, resulting in an inability to install File System protocols (Required for HP motherboards)
 
 </details>
 
@@ -615,11 +611,11 @@ The following Quirks are active:
 
 - **Haswell-Hackintosh-every-macOS repository:**
   - [b00t0x/MSI-Z97M-Hackintosh-every-macOS](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS)
-	
+
 - **HP-ProDesk-400-G1-Hackintosh repositories:**
   - [puuska/Hackintosh-HP-Prodesk-400-G1](https://github.com/puuska/Hackintosh-HP-Prodesk-400-G1)
   - [SvenMb/OpenCore_HP400G1_Desktop_Mini](https://github.com/SvenMb/OpenCore_HP400G1_Desktop_Mini)
- 
+
 - **HP-ProDesk-600-G1-Hackintosh repositories:**
   - [chris1111/macOS-Package-HP-Prodesk-600-G1](https://github.com/chris1111/macOS-Package-HP-Prodesk-600-G1)
   - [1alessandro1/HP-Prodesk-600-G1-SFF-macOS](https://github.com/1alessandro1/HP-Prodesk-600-G1-SFF-macOS)
