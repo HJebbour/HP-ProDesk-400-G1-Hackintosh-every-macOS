@@ -360,7 +360,9 @@ Then, we need to replace it with the vanilla `mach_kernel` found on Mac OS X Tig
 
 ### config.plist
 
-When creating the config.plist, there are several considerations for booting older macOS versions. The settings provided are specific to the HP ProDesk 400 G1 and may not be applicable your computer.
+The following `config.plist` has been optimized to boot every Intel-based macOS releases to this date without extra Quirks and patches. The settings provided are specific to the HP ProDesk 400 G1 and may not be applicable to your computer.
+
+Please refer to [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) and [OpenCore Reference Manual](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) to adjust your `config.plist`.
 
 <details> 
 <summary><strong>ACPI</strong></summary>
