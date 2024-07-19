@@ -419,7 +419,7 @@ The following Quirks are active:
 
 <details> 
 <summary><strong>DeviceProperties</strong></summary>
-</br>
+
 Use your own patch if you have a different GPU using [this](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching) guide. However, this patch is not effective for Mac OS X Tiger 10.4, `NVinject.kext` is required.
 
 #### PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)
