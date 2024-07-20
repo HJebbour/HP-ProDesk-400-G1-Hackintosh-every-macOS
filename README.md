@@ -711,11 +711,13 @@ Installation of Mac OS X Tiger 10.4.10 is a bit trickier, bellow you will find s
 
 - Restore `10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` and `asr` command because Disk Utility will likely not work:
 
-	- Use `imagescan`, this step munges some headers, and is required: `asr imagescan --source 10.4.10-8R4088-ACDT.dmg`
+	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.4.10-8R4088-ACDT.dmg`
 
 	- Then restore using `asr` command: `sudo asr restore --source 10.4.10-8R4088-ACDT.dmg --target /dev/disk6s2 --erase` (Replace "/dev/disk6s2" with your exact partition)
 
-- Copy the custom kernel 
+	- If the previous step fails, mount `10.4.10-8R4088-ACDT.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac OS X Install Disc 1 --target /dev/disk6s2 --erase`
+
+- Copy the custom kernel to the newly prepared USB installer
 
 
 
