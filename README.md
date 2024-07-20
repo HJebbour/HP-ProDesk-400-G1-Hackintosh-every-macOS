@@ -698,8 +698,23 @@ The installation will be chronological.
 
 Installation of Mac OS X Tiger 10.4.10 is a bit trickier, bellow you will find steps on how to proceed.
 
+**References:**
+
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- 
+
 #### Setting up the installer
 
-- Donwload [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from Acidanthera Image (No need to download other images, we can updates directly from Mac OS Tiger after installation).
+- Donwload [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS Tiger after installation from Apple Servers).
+
+- At least a 16 GB USB drive and HFS+ file system is required.
+
+- Restore `10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` and `asr` command because Disk Utility will likely not work:
+
+	- Use `imagescan`, this step munges some headers, and is required:`asr imagescan --source 10.4.10-8R4088-ACDT.dmg`
+- 
+
+
 
 </details>
+
