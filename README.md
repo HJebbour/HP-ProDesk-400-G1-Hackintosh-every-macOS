@@ -688,12 +688,18 @@ The following Quirks are used:
 </br>
 
 ### macOS Installation
-Each macOS Installer has its own 
+
+The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, other must be installed from Terminal to bypass the signature issue.
+
+In this section I will explain 
+
+<details> 
+<summary><strong>Mac OS X Tiger (10.4.11)</strong></summary>
 
 
-</br>
 
-### OpenCore Installation
+#### Setting up the installer
 
-1. Move the entire EFI folder from the prepared USB (with your modifications) to the EFI partition on your hard drive or SSD.
-2. If you have a Broadcom wireless card (Wi-Fi & Bluetooth) use the [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases). The EFI folder is already prepared for OCLP.
+- Donwload 10.4.10-8R4088-ACDT.dmg from Acidanthera Image.
+
+</details>
