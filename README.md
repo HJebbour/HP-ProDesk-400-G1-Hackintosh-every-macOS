@@ -691,6 +691,8 @@ The installation of macOS differs from version to others, some version needs a s
 
 In this section I will explain in details how to prepare the installer, install each version of macOS, and apply updates and patches. Please note that these steps may not apply to you.
 
+**It is recommanded to install all available updates on macOS Mojave and later and then apply the patches.**
+
 The installation will be chronological.
 
 <details> 
@@ -717,9 +719,23 @@ Installation of Mac OS X Tiger 10.4.10 is a bit trickier, bellow you will find s
 
 	- If the previous step fails, mount `10.4.10-8R4088-ACDT.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ Disc\ 1 --target /dev/disk6s2 --erase`
 
-- Copy the [custom kernel](Custom Kernel/mach_kernel) to the newly prepared USB installer. **You will not be able to boot into the USB installer if you don't use a custom kernel.**
+- Copy the [custom kernel](Custom%20Kernel/mach_kernel) to the newly prepared USB installer using the following command: `sudo cp mach_kernel /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel` **You will not be able to boot into the USB installer if you don't use a custom kernel.**
 
+#### Installation
 
+Installation of Mac OS X Tiger is straightforward.
+
+- Boot with the previously prepared EFI folder into Mac OS X Tiger Installer.
+
+- Install Mac OS X Tiger using normal procedure.
+
+- 
+
+#### Update
+
+Installation of Mac OS X Tiger is straightforward.
+
+- Boot
 
 </details>
 
