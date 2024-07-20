@@ -717,7 +717,7 @@ Installation of Mac OS X Tiger 10.4.10 is a bit trickier, bellow you will find s
 
 	- If the previous step fails, mount `10.4.10-8R4088-ACDT.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ Disc\ 1 --target /dev/disk6s2 --erase`
 
-- Copy the custom kernel to the newly prepared USB installer
+- Copy the [custom kernel](Custom Kernel/mach_kernel) to the newly prepared USB installer. **You will not be able to boot into the USB installer if you don't use a custom kernel.**
 
 
 
