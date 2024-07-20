@@ -729,13 +729,15 @@ Installation of Mac OS X Tiger is straightforward.
 
 - Install Mac OS X Tiger using normal procedure.
 
-- 
+- Boot again into Mac OS X Tiger Installer to copy the [custom kernel](Custom%20Kernel/mach_kernel) to the newly installed Mac OS X Tiger using the following command: `sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel` **You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
 
 #### Update
 
 Installation of Mac OS X Tiger is straightforward.
 
-- Boot
+- Install all available updates including 10.4.11 using "Software Update".
+
+- Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the system volume using the following command: `sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel` **You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
 
 </details>
 
