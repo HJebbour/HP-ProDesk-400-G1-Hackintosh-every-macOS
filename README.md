@@ -709,7 +709,7 @@ Installation of Mac OS X Tiger 10.4.10 is a bit trickier, bellow you will find s
 
 - Donwload [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS Tiger after installation from Apple Servers).
 
-- At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme disk is required.
+- At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Restore `10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` and `asr` command because Disk Utility will likely not work:
 
