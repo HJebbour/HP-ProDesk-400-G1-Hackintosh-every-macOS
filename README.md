@@ -689,17 +689,17 @@ The following Quirks are used:
 
 The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, other must be installed from Terminal to bypass the signature issue.
 
-In this section I will explain in details how to prepare the installer, install each version of macOS, and apply updates and patches.
+In this section I will explain in details how to prepare the installer, install each version of macOS, and apply updates and patches. Please note that these steps may not apply to you.
 
 The installation will be chronological.
 
 <details> 
-<summary><strong>Mac OS X Tiger (10.4.11)</strong></summary>
+<summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
 
-
+Installation of Mac OS X Tiger 10.4.10 is a bit trickier, bellow you will find steps on how to proceed.
 
 #### Setting up the installer
 
-- Donwload 10.4.10-8R4088-ACDT.dmg from Acidanthera Image.
+- Donwload [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from Acidanthera Image (No need to download other images, we can updates directly from Mac OS Tiger after installation).
 
 </details>
