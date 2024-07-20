@@ -58,8 +58,6 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 - [Installation](#installation)
 	- [UEFI Settings](#uefi-settings)
 	- [macOS Installation](#macos-installation)
-	- [OpenCore Installation](#opencore-installation)
-	- 
 
 </br>
 
@@ -691,7 +689,9 @@ The following Quirks are used:
 
 The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, other must be installed from Terminal to bypass the signature issue.
 
-In this section I will explain 
+In this section I will explain in details how to prepare the installer, install each version of macOS, and apply updates and patches.
+
+The installation will be chronological.
 
 <details> 
 <summary><strong>Mac OS X Tiger (10.4.11)</strong></summary>
