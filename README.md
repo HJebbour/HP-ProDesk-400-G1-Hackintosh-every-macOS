@@ -816,3 +816,41 @@ Install all available updates including 10.6.8 using "Software Update".
 
 </details>
 
+<details>
+<summary><strong>Mac OS X Lion (10.7.5)</strong></summary>
+
+The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a specific SMBIOS, bellow you will find the steps on how to proceed.
+
+**References:**
+
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
+
+#### Setting up the installer
+
+- Download [Mac OS X Lion Installer](https://support.apple.com/en-us/106383) from Apple Website.
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
+
+- Restore `10.6.7-10J4139-ACDT-OSX.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+
+	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.6.7-10J4139-ACDT-OSX.dmg`
+
+	- Then restore using `asr` command: `sudo asr restore --source 10.6.7-10J4139-ACDT-OSX.dmg.dmg --target /dev/disk6s4 --erase` (Replace "/dev/disk6s4" with your exact partition path)
+
+	- If the previous step fails, mount `10.6.7-10J4139-ACDT-OSX.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s4 --erase`
+
+#### Installation
+
+- Boot into the installer.
+
+- Install Mac OS X Snow Leopard using normal procedure.
+
+#### Update
+
+Install all available updates including 10.6.8 using "Software Update".
+
+</details>
+
