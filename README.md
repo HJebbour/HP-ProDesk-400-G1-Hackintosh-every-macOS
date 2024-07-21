@@ -899,7 +899,7 @@ The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a s
 
 #### Update
 
-OS X Mountain Lion is the first version to use Mac App Store to install system updates, and unfortunately, Mac App Store no longer works in OS X Mountain Lion and earlier. OS X 10.8 is the only macOS version for which updates have to be installed manually.
+OS X Mountain Lion was the first version to use the Mac App Store to install system updates, and unfortunately the Mac App Store no longer works in Mountain Lion and earlier versions. Therefore, OS X 10.8 remains the only macOS version for which updates have to be installed manually.
 
 There's only one update available that we can install. Download [Security Update 2015-006 Mountain Lion](https://support.apple.com/en-us/106745) and install it. The final build should be `12F2560`.
 
