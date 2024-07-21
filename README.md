@@ -111,6 +111,7 @@ These are relevant components on my machine which may differ from yours, keep th
 </br>
 
 ### HCL
+This is an overview of hardware compatibility list for all Intel-based macOS.
 
 | macOS | i7-4770 | AHCI SATA SSD | Quadro FX 5600 | RTL8151GH-CG | ALC221 | CSR8510 A10 4.0 |
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
