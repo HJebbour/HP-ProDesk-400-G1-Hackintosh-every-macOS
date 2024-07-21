@@ -738,6 +738,8 @@ The [custom kernel](Custom%20Kernel/mach_kernel) needs to be replaced in the roo
 
 - Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the root volume using the following command: `sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel` **You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
 
+- As the Sleep is not working in Mac OS X Tiger, it is better to disable it from Settings to avoid system freeze after idle.
+
 </details>
 
 <details>
@@ -776,7 +778,9 @@ We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5
 
 #### Update
 
-Install all available updates including 10.5.8 using "Software Update".
+- Install all available updates including 10.5.8 using "Software Update".
+
+- As the Sleep is not working in Mac OS X Leopard, it is better to disable it from Settings to avoid system freeze after idle.
 
 </details>
 
@@ -854,6 +858,50 @@ The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a spe
 #### Update
 
 Install all available updates using "Software Update".
+
+</details>
+
+<details>
+<summary><strong>OS X Mountain Lion (10.8.5)</strong></summary>
+
+The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a specific SMBIOS, bellow you will find the steps on how to proceed.
+
+**References:**
+
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#legacy-macos-offline-method) Legacy macOS: Offline Method.
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
+- OS X Mountain Lion [Wiki Page](https://en.wikipedia.org/wiki/OS_X_Mountain_Lion)
+
+#### Setting up the installer
+
+- Download [Mac OS X Mountain Lion Installer](https://support.apple.com/en-us/106387) from Apple Website.
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
+
+- Restore `InstallESD.dmg` from `/Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+
+	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg`
+
+	- Then restore using `asr` command: `sudo asr restore --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg --target /dev/disk6s6 --erase` (Replace "/dev/disk6s6" with your exact partition path)
+
+	- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase`
+
+#### Installation
+
+- Set the SMBIOS to `MacBookPro5,3` and boot into the installer.
+
+- Install OS X Mountain Lion using normal procedure.
+
+- The `MacBookPro5,3` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
+
+#### Update
+
+OS X Mountain Lion is the first version to use Mac App Store to install system updates, and unfortunately, Mac App Store no longer works in OS X Mountain Lion and earlier. Updates needs to be installed manually.
+
+There's only one update available that we can install. Download [Security Update 2015-006 Mountain Lion](https://support.apple.com/en-us/106745) and install it, the final build should be 12F2560.
 
 </details>
 
