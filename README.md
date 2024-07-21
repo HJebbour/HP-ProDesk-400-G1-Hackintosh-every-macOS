@@ -834,23 +834,25 @@ The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a spe
 
 - Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
 
-- Restore `10.6.7-10J4139-ACDT-OSX.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Restore `InstallESD.dmg` from `/Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg"` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
 
-	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.6.7-10J4139-ACDT-OSX.dmg`
+	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source /Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg`
 
-	- Then restore using `asr` command: `sudo asr restore --source 10.6.7-10J4139-ACDT-OSX.dmg.dmg --target /dev/disk6s4 --erase` (Replace "/dev/disk6s4" with your exact partition path)
+	- Then restore using `asr` command: `sudo asr restore --source /Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg --target /dev/disk6s5 --erase` (Replace "/dev/disk6s5" with your exact partition path)
 
-	- If the previous step fails, mount `10.6.7-10J4139-ACDT-OSX.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s4 --erase`
+	- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ ESD --target /dev/disk6s5 --erase`
 
 #### Installation
 
-- Boot into the installer.
+- Set the SMBIOS to `MacBookPro5,3` and boot into the installer.
 
-- Install Mac OS X Snow Leopard using normal procedure.
+- Install Mac OS X Lion using normal procedure.
+
+- The `MacBookPro5,3` SMBIOS needs to be applied during the whole installation process, then you can go back to `iMac15,1` SMBIOS.
 
 #### Update
 
-Install all available updates including 10.6.8 using "Software Update".
+Install all available updates using "Software Update".
 
 </details>
 
