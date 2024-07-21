@@ -695,27 +695,27 @@ In this section I will explain in details how to prepare the installer, install 
 
 The installation will be chronological.
 
-<details> 
+<details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
 
-Installation of Mac OS X Tiger 10.4.10 is a bit trickier, bellow you will find steps on how to proceed.
+Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot, bellow you will find the steps on how to proceed.
 
 **References:**
 
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
-- 
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
 
 #### Setting up the installer
 
-- Donwload [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS Tiger after installation from Apple Servers).
+- Download [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS X Tiger after installation from Apple Servers).
 
 - At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Restore `10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` and `asr` command because Disk Utility will likely not work:
+- Restore `10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
 
 	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.4.10-8R4088-ACDT.dmg`
 
-	- Then restore using `asr` command: `sudo asr restore --source 10.4.10-8R4088-ACDT.dmg --target /dev/disk6s2 --erase` (Replace "/dev/disk6s2" with your exact partition)
+	- Then restore using `asr` command: `sudo asr restore --source 10.4.10-8R4088-ACDT.dmg --target /dev/disk6s2 --erase` (Replace "/dev/disk6s2" with your exact partition path)
 
 	- If the previous step fails, mount `10.4.10-8R4088-ACDT.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ Disc\ 1 --target /dev/disk6s2 --erase`
 
@@ -733,11 +733,49 @@ Installation of Mac OS X Tiger is straightforward.
 
 #### Update
 
-Installation of Mac OS X Tiger is straightforward.
+The [custom kernel](Custom%20Kernel/mach_kernel) needs to be replaced in the root volume after each update before restarting.
 
 - Install all available updates including 10.4.11 using "Software Update".
 
-- Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the system volume using the following command: `sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel` **You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
+- Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the root volume using the following command: `sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel` **You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
+
+</details>
+
+<details>
+<summary><strong>Mac OS X Leopard (10.5.7)</strong></summary>
+
+We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5.7, bellow you will find the steps on how to proceed.
+
+**References:**
+
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
+
+#### Setting up the installer
+
+- Download [10.5.7-9J3050.dmg](https://archive.org/details/10.5.7-9-j-3050) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS X Leopard after installation from Apple Servers).
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Restore `10.5.7-9J3050.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+
+	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.5.7-9J3050.dmg`
+
+	- Then restore using `asr` command: `sudo asr restore --source 10.5.7-9J3050.dmg --target /dev/disk6s3 --erase` (Replace "/dev/disk6s3" with your exact partition path)
+
+	- If the previous step fails, mount `10.5.7-9J3050.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s3 --erase`
+
+#### Installation
+
+- Set the SMBIOS to `MacBookPro5,3` and boot into the installer.
+
+- Install Mac OS X Leopard using normal procedure.
+
+- Set the SMBIOS back to `iMac15,1`.
+
+#### Update
+
+Install all available updates including 10.5.8 using "Software Update".
 
 </details>
 
