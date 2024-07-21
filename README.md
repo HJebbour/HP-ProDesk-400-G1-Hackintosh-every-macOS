@@ -824,6 +824,7 @@ The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a spe
 **References:**
 
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#legacy-macos-offline-method) Legacy macOS: Offline Method.
 - [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
 
 #### Setting up the installer
@@ -834,7 +835,7 @@ The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a spe
 
 - Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
 
-- Restore `InstallESD.dmg` from `/Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg"` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Restore `InstallESD.dmg` from `/Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
 
 	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source /Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg`
 
@@ -848,7 +849,7 @@ The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a spe
 
 - Install Mac OS X Lion using normal procedure.
 
-- The `MacBookPro5,3` SMBIOS needs to be applied during the whole installation process, then you can go back to `iMac15,1` SMBIOS.
+- The `MacBookPro5,3` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
 
 #### Update
 
