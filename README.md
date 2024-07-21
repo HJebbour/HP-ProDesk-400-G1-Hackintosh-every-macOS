@@ -738,7 +738,7 @@ The [custom kernel](Custom%20Kernel/mach_kernel) needs to be replaced in the roo
 
 - Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the root volume using the following command: `sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel` **You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
 
-- As the Sleep is not working in Mac OS X Tiger, it is better to disable it from Settings to avoid system freeze after idle.
+- As sleep is not working in Mac OS X Tiger, it is better to disable it from `System Preferences -> Energy Saver` to avoid system freeze after idle.
 
 </details>
 
@@ -780,7 +780,7 @@ We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5
 
 - Install all available updates including 10.5.8 using "Software Update".
 
-- As the Sleep is not working in Mac OS X Leopard, it is better to disable it from Settings to avoid system freeze after idle.
+- As sleep is not working in Mac OS X Leopard, it is better to disable it from `System Preferences -> Energy Saver` to avoid system freeze after idle.
 
 </details>
 
