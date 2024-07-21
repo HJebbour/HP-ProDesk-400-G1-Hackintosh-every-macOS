@@ -771,11 +771,49 @@ We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5
 
 - Install Mac OS X Leopard using normal procedure.
 
+- You may receive an error message "Install Failed - The installer could not make the computer start up from the volume Leopard", just ignore the message and click on "Restart", you should be able to boot into the newly installed Mac OS X Leopard.
+
 - Set the SMBIOS back to `iMac15,1`.
 
 #### Update
 
 Install all available updates including 10.5.8 using "Software Update".
+
+</details>
+
+<details>
+<summary><strong>Mac OS X Snow Leopard (10.6.7)</strong></summary>
+
+The installation of Mac OS X Snow Leopard is simple compared to Mac OS X Tiger and Leopard, there's no need for a specific SMBIOS, bellow you will find the steps on how to proceed.
+
+**References:**
+
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
+
+#### Setting up the installer
+
+- Download [10.6.7-10J4139-ACDT-OSX.dmg](https://archive.org/details/10.6.7-10j3250-disk-images) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS X Snow Leopard after installation from Apple Servers).
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Restore `10.6.7-10J4139-ACDT-OSX.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+
+	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.6.7-10J4139-ACDT-OSX.dmg`
+
+	- Then restore using `asr` command: `sudo asr restore --source 10.6.7-10J4139-ACDT-OSX.dmg.dmg --target /dev/disk6s4 --erase` (Replace "/dev/disk6s4" with your exact partition path)
+
+	- If the previous step fails, mount `10.6.7-10J4139-ACDT-OSX.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s4 --erase`
+
+#### Installation
+
+- Boot into the installer.
+
+- Install Mac OS X Snow Leopard using normal procedure.
+
+#### Update
+
+Install all available updates including 10.6.8 using "Software Update".
 
 </details>
 
