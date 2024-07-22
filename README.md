@@ -948,15 +948,30 @@ If you have never get OS X Mavericks from Mac App Store you can download my uplo
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
+- Extract the installer using these commands:
+	- `cd ~/Downloads`
+ 	- `pkgutil --expand-full /Applications/Install\ OS\ X\ Mavericks.app/Contents/SharedSupport/InstallESD.dmg OSInstaller`
 
-- Restore `InstallESD.dmg` from `/Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Attach `InstallESD.dmg` and `BaseSystem.dmg`
+	- `hdiutil attach ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg`
+	- `cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg ~/Downloads/OSInstaller/BaseSystem.dmg`
+	- `hdiutil attach ~/Downloads/OSInstaller/BaseSystem.dmg`
 
-	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg`
+- Restore the attached image `BaseSystem.dmg` (replace `/dev/disk7s1` with BaseSystem.dmg attached BSD device node, and /dev/rdisk8s11 with your USB drive BSD device node)
+	- `sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --noprompt --noverify`
 
-	- Then restore using `asr` command: `sudo asr restore --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg --target /dev/disk6s6 --erase` (Replace "/dev/disk6s6" with your exact partition path)
+- Rename the USB drive to `Install OS X Mavericks`
 
-	- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase`
+- Copy the `Packages` files from `ÌnstallESD` to the USB drive:
+	- `rm -r /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages`
+ 	- `cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages`
+	- `cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.chunklist /Volumes/Install\ OS\ X\ Mavericks`
+	- `cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg /Volumes/Install\ OS\ X\ Mavericks`
+	- `sudo bless --folder /Volumes/Install\ OS\ X\ Mavericks/System/Library/CoreServices --label Install\ OS\ X\ Mavericks`
+
+- Dettach `InstallESD.dmg` and `BaseSystem.dmg`
+	- `hdiutil detach /Volumes/OS\ X\ Install\ ESD`
+	- `hdiutil detach /Volumes/OS\ X\ Base\ System`
 
 #### Installation
 
