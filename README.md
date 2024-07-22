@@ -942,9 +942,11 @@ After the download/installation finishes, you will find `Install OS X Mavericks.
 
 **Download from Archive.org**
 
-If you have never get OS X Mavericks from Mac App Store you can download my uploaded copy (Downloaded using the previous method) on [archive.org]().
+If you have never get OS X Mavericks from Mac App Store you can download my uploaded copy (Downloaded using the previous method) on [archive.org](https://archive.org/details/install-os-x-mavericks_675248567).
 
 **Prepare the USB drive**
+
+The below steps should be followed to overcome the error message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` if you use the `createinstallmedia` tool.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
@@ -977,15 +979,13 @@ If you have never get OS X Mavericks from Mac App Store you can download my uplo
 
 - Set the SMBIOS to `iMac14,2` and boot into the installer.
 
-- Install OS X Mountain Lion using normal procedure.
+- Install OS X Mavericks using normal procedure.
 
 - The `iMac14,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
 
 #### Update
 
-OS X Mountain Lion was the first version to use the Mac App Store to install system updates, and unfortunately the Mac App Store no longer works in Mountain Lion and earlier versions. Therefore, OS X 10.8 remains the only macOS version for which updates have to be installed manually.
-
-There's only one update available that we can install. Download [Security Update 2015-006 Mountain Lion](https://support.apple.com/en-us/106745) and install it. The final build should be `12F2560`.
+Install all available updates using "Mac App Store".
 
 </details>
 
