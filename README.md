@@ -688,7 +688,7 @@ The following Quirks are used:
 
 ### macOS Installation
 
-The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, other must be installed from Terminal to bypass the signature issue.
+The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, others have the signature issue.
 
 In this section I will explain in details how to prepare the installer, install each version of macOS, and apply updates and patches. Please note that these steps may not apply to you.
 
@@ -872,6 +872,58 @@ The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a s
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#legacy-macos-offline-method) Legacy macOS: Offline Method.
 - [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
 - OS X Mountain Lion [Wiki Page](https://en.wikipedia.org/wiki/OS_X_Mountain_Lion)
+
+#### Setting up the installer
+
+- Download [Mac OS X Mountain Lion Installer](https://support.apple.com/en-us/106387) from Apple Website.
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
+
+- Restore `InstallESD.dmg` from `/Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+
+	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg`
+
+	- Then restore using `asr` command: `sudo asr restore --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg --target /dev/disk6s6 --erase` (Replace "/dev/disk6s6" with your exact partition path)
+
+	- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase`
+
+#### Installation
+
+- Set the SMBIOS to `iMac14,2` and boot into the installer.
+
+- Install OS X Mountain Lion using normal procedure.
+
+- The `iMac14,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
+
+#### Update
+
+OS X Mountain Lion was the first version to use the Mac App Store to install system updates, and unfortunately the Mac App Store no longer works in Mountain Lion and earlier versions. Therefore, OS X 10.8 remains the only macOS version for which updates have to be installed manually.
+
+There's only one update available that we can install. Download [Security Update 2015-006 Mountain Lion](https://support.apple.com/en-us/106745) and install it. The final build should be `12F2560`.
+
+</details>
+
+<details>
+<summary><strong>OS X Mavericks (10.9.5)</strong></summary>
+
+The installation and the preparation of the installer of OS X Mavericks is the most complicated of all macOS releases.
+
+1. Apple no longer provides the installer, and the only way to download it from Apple is if you already downloaded it in the past from Mac App Store (Purchase History), otherwise you have to download it from a trusted source. []
+
+2. OS X Mavericks is the first macOS to have the signature issue when we start the installation process up until macOS Sierra.
+
+3. You need a specific SMBIOS aswell.
+
+Bellow you will find the steps on how to overcome all the mentioned hiccups.
+
+**References:**
+
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#legacy-macos-offline-method) Legacy macOS: Offline Method.
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
+- OS X Mountain Lion [Wiki Page](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561)
 
 #### Setting up the installer
 
