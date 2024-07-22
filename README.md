@@ -908,7 +908,7 @@ There's only one update available that we can install. Download [Security Update
 <details>
 <summary><strong>OS X Mavericks (10.9.5)</strong></summary>
 
-The installation and the preparation of the installer of OS X Mavericks is the most complicated of all macOS releases.
+The preparation of the installer and the installation of OS X Mavericks is the most complicated of all macOS releases, for the following reasons:
 
 1. Apple no longer provides the installer, and the only way to download it from Apple is if you already downloaded it in the past from Mac App Store (Purchase History), otherwise you have to download it from a trusted source. [Online Method](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-recovery.html) as proposed by Dortania will not work.
 
@@ -921,7 +921,6 @@ Bellow you will find the steps on how to overcome all the mentioned hiccups.
 **References:**
 
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
-- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#legacy-macos-offline-method) Legacy macOS: Offline Method.
 - [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
 - [mas-cli](https://forums.macrumors.com/threads/can-someone-give-me-a-mavericks-download-link.2279301/post-29751315)
 - [Alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561) to `createinstallmedia`
@@ -930,13 +929,17 @@ Bellow you will find the steps on how to overcome all the mentioned hiccups.
 
 **Download from Mac App Store**
 
-If you have previously downloaded OS X Mavericks from Mac App Store (Purchase History) use the following steps:
+If you have previously downloaded OS X Mavericks from the Mac App Store (Purchase History) use the following steps:
 
 - Install [Homebrew](http://brew.sh/) if you don't already have it.
 
-- Install [mas-cli](https://github.com/mas-cli/mas): `brew install mas`
+- Install [mas-cli](https://github.com/mas-cli/mas):
 
-- Download OS X Mavericks: `mas install 675248567`
+	`brew install mas`
+
+- Download OS X Mavericks:
+
+	`mas install 675248567`
 
 After the download/installation finishes, you will find `Install OS X Mavericks.app` in you `Applications` folder.
 
@@ -951,29 +954,39 @@ The below method should be used to overcome the error message `This copy of the 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Extract the installer using these commands:
-	- `cd ~/Downloads`
- 	- `pkgutil --expand-full /Applications/Install\ OS\ X\ Mavericks.app/Contents/SharedSupport/InstallESD.dmg OSInstaller`
+```
+cd ~/Downloads
+pkgutil --expand-full /Applications/Install\ OS\ X\ Mavericks.app/Contents/SharedSupport/InstallESD.dmg OSInstaller
+```
 
 - Attach `InstallESD.dmg` and `BaseSystem.dmg`
-	- `hdiutil attach ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg`
-	- `cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg ~/Downloads/OSInstaller/BaseSystem.dmg`
-	- `hdiutil attach ~/Downloads/OSInstaller/BaseSystem.dmg`
+```
+hdiutil attach ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg ~/Downloads/OSInstaller/BaseSystem.dmg
+hdiutil attach ~/Downloads/OSInstaller/BaseSystem.dmg
+```
 
 - Restore the attached image `BaseSystem.dmg` (replace `/dev/disk7s1` with BaseSystem.dmg attached BSD device node, and /dev/rdisk8s11 with your USB drive BSD device node)
-	- `sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --noprompt --noverify`
+```
+sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --noprompt --noverify
+```
 
 - Rename the USB drive to `Install OS X Mavericks`
 
 - Copy the `Packages` files from `ÌnstallESD` to the USB drive:
-	- `rm -r /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages`
- 	- `cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages`
-	- `cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.chunklist /Volumes/Install\ OS\ X\ Mavericks`
-	- `cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg /Volumes/Install\ OS\ X\ Mavericks`
-	- `sudo bless --folder /Volumes/Install\ OS\ X\ Mavericks/System/Library/CoreServices --label Install\ OS\ X\ Mavericks`
+```
+rm -r /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages
+cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.chunklist /Volumes/Install\ OS\ X\ Mavericks
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg /Volumes/Install\ OS\ X\ Mavericks
+sudo bless --folder /Volumes/Install\ OS\ X\ Mavericks/System/Library/CoreServices --label Install\ OS\ X\ Mavericks
+```
 
 - Dettach `InstallESD.dmg` and `BaseSystem.dmg`
-	- `hdiutil detach /Volumes/OS\ X\ Install\ ESD`
-	- `hdiutil detach /Volumes/OS\ X\ Base\ System`
+```
+hdiutil detach /Volumes/OS\ X\ Install\ ESD
+hdiutil detach /Volumes/OS\ X\ Base\ System
+```
 
 #### Installation
 
