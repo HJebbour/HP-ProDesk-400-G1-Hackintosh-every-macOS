@@ -849,11 +849,11 @@ The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a spe
 
 #### Installation
 
-- Set the SMBIOS to `MacBookPro5,3` and boot into the installer.
+- Set the SMBIOS to `iMac12,2` and boot into the installer.
 
 - Install Mac OS X Lion using normal procedure.
 
-- The `MacBookPro5,3` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
+- The `iMac12,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
 
 #### Update
 
@@ -891,11 +891,11 @@ The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a s
 
 #### Installation
 
-- Set the SMBIOS to `MacBookPro5,3` and boot into the installer.
+- Set the SMBIOS to `iMac14,2` and boot into the installer.
 
 - Install OS X Mountain Lion using normal procedure.
 
-- The `MacBookPro5,3` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
+- The `iMac14,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
 
 #### Update
 
