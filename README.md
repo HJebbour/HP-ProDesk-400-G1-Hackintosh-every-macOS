@@ -924,7 +924,7 @@ Bellow you will find the steps on how to overcome all the mentioned hiccups.
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#legacy-macos-offline-method) Legacy macOS: Offline Method.
 - [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
 - [mas-cli](https://forums.macrumors.com/threads/can-someone-give-me-a-mavericks-download-link.2279301/post-29751315)
-- `createinstallmedia` [alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561)
+- [Alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561) to `createinstallmedia`
 
 #### Setting up the installer
 
@@ -946,7 +946,7 @@ If you have never get OS X Mavericks from Mac App Store you can download my uplo
 
 **Prepare the USB drive**
 
-The below steps should be followed to overcome the error message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` if you use the `createinstallmedia` tool.
+The below method should be used to overcome the error message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` instead of the `createinstallmedia` tool.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
