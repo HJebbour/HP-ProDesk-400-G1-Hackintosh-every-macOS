@@ -929,7 +929,22 @@ Bellow you will find the steps on how to overcome all the mentioned hiccups.
 #### Setting up the installer
 
 **Download from Mac App Store**
-- Download [Mac OS X Mountain Lion Installer](https://support.apple.com/en-us/106387) from Apple Website.
+
+If you have previously downloaded OS X Mavericks from Mac App Store (Purchase History) use the following steps:
+
+- Install [Homebrew](http://brew.sh/) if you don't already have it.
+
+- Install [mas-cli](https://github.com/mas-cli/mas): `brew install mas`
+
+- Download OS X Mavericks: `mas install 675248567`
+
+After the download/installation finishes, you will find `Install OS X Mavericks.app` in you `Applications` folder.
+
+**Download from Archive.org**
+
+If you have never get OS X Mavericks from Mac App Store you can download my uploaded copy (Downloaded using the previous method) on [archive.org]().
+
+**Prepare the USB drive**
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
