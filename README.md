@@ -910,9 +910,9 @@ There's only one update available that we can install. Download [Security Update
 
 The installation and the preparation of the installer of OS X Mavericks is the most complicated of all macOS releases.
 
-1. Apple no longer provides the installer, and the only way to download it from Apple is if you already downloaded it in the past from Mac App Store (Purchase History), otherwise you have to download it from a trusted source. []
+1. Apple no longer provides the installer, and the only way to download it from Apple is if you already downloaded it in the past from Mac App Store (Purchase History), otherwise you have to download it from a trusted source. [Online Method](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-recovery.html) as proposed by Dortania will not work.
 
-2. OS X Mavericks is the first macOS to have the signature issue when we start the installation process up until macOS Sierra.
+2. OS X Mavericks is the first macOS to have the installation issue when we start the installation process, up until macOS Sierra you will receive this message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` if you use the `createinstallmedia` tool.
 
 3. You need a specific SMBIOS aswell.
 
@@ -923,10 +923,12 @@ Bellow you will find the steps on how to overcome all the mentioned hiccups.
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#legacy-macos-offline-method) Legacy macOS: Offline Method.
 - [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
-- OS X Mountain Lion [Wiki Page](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561)
+- [mas-cli](https://forums.macrumors.com/threads/can-someone-give-me-a-mavericks-download-link.2279301/post-29751315)
+- `createinstallmedia` [alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561)
 
 #### Setting up the installer
 
+**Download from Mac App Store**
 - Download [Mac OS X Mountain Lion Installer](https://support.apple.com/en-us/106387) from Apple Website.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
