@@ -1002,3 +1002,77 @@ Install all available updates using "Mac App Store".
 
 </details>
 
+<details>
+<summary><strong>OS X Yosemite (10.10.5)</strong></summary>
+
+The preparation of the installer of OS X Yosemite is similar to OS X Mavericks but the installer is provided by Apple and you don't need a specific SMBIOS, `iMac15,1` is supported by OS X Yosemite.
+
+Bellow you will find the steps on how to proceed.
+
+**References:**
+
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
+- [Alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561) to `createinstallmedia`
+
+#### Setting up the installer
+
+**Download from Mac App Store**
+
+Download [OS X Yosemite Installer](http://updates-http.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg) from Apple Website.
+
+**Prepare the USB drive**
+
+The below method should be used to overcome the error message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` instead of the `createinstallmedia` tool.
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Open the downloaded DMG image `InstallMacOSX.dmg`
+
+
+- Extract the installer using these commands:
+```
+hdiutil attach ~/Downloads/InstallMacOSX.dmg
+cd ~/Downloads
+pkgutil --expand-full "/Volumes/Install OS X/InstallMacOSX.pkg" OSInstaller
+```
+
+- Attach `InstallESD.dmg` and `BaseSystem.dmg`
+```
+hdiutil attach ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg ~/Downloads/OSInstaller/BaseSystem.dmg
+hdiutil attach ~/Downloads/OSInstaller/BaseSystem.dmg
+```
+
+- Restore the attached image `BaseSystem.dmg` (replace `/dev/disk7s1` with BaseSystem.dmg attached BSD device node, and /dev/rdisk8s11 with your USB drive BSD device node)
+```
+sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --noprompt --noverify
+```
+
+- Rename the USB drive to `Install OS X Yosemite`
+
+- Copy the `Packages` files from `ÌnstallESD` to the USB drive:
+```
+rm -r /Volumes/Install\ OS\ X\ Yosemite/System/Installation/Packages
+cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ OS\ X\ Yosemite/System/Installation/Packages
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.chunklist /Volumes/Install\ OS\ X\ Yosemite
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg /Volumes/Install\ OS\ X\ Yosemite
+sudo bless --folder /Volumes/Install\ OS\ X\ Yosemite/System/Library/CoreServices --label Install\ OS\ X\ Yosemite
+```
+
+- Dettach `InstallESD.dmg` and `BaseSystem.dmg`
+```
+hdiutil detach /Volumes/OS\ X\ Install\ ESD
+hdiutil detach /Volumes/OS\ X\ Base\ System
+```
+
+#### Installation
+
+Install OS X Yosemite using normal procedure.
+
+#### Update
+
+Install all available updates using "Mac App Store".
+
+</details>
+
