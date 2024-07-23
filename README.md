@@ -1579,3 +1579,52 @@ Now we need to patch the GPU in order to have graphic acceleration in macOS Vent
 
 </details>
 
+<details>
+<summary><strong>macOS Sonoma (14.5)</strong></summary>
+
+The preparation of the installer and the installation of macOS Sonoma is similar to macOS Ventura. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
+
+You will find below the steps on how to proceed.
+
+**References:**
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+- [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)
+
+#### Setting up the installer
+
+- Download the latest version of macOS Sonoma using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+
+- At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Install the `InstallAssistant.pkg` package, it will put `Install macOS Sonoma.app` in your `/Applications` folder.
+
+- Create a bootable installer for macOS Sonoma using `createinstallmedia` tool.
+```
+sudo /Applications/Install\ macOS\ Sonoma.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+```
+Replace `MyVolume` with your USB drive name.
+
+#### Installation
+
+Install macOS Sonoma using normal procedure.
+
+If the installation fails, set the SMBIOS to `iMac19,1`. After the installation you can go back to `iMac15,1` SMBIOS.
+
+#### Post-Installation
+
+- Install all available updates using "Software Update" in System Settings.
+
+Now we need to patch the GPU in order to have graphic acceleration in macOS Sonoma, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) for that. We already have our EFI ready for OCLP.
+
+- Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
+
+- Open the `OpenCore-Patcher.app`
+
+- Click on `Post-Install Root Patch` and then click on `Start Root Patching`.
+
+- You should have graphic acceleration after you restart your computer.
+
+</details>
+
