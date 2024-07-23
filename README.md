@@ -1265,7 +1265,7 @@ Install all available updates using "Mac App Store".
 <details>
 <summary><strong>macOS High Sierra (10.13.6)</strong></summary>
 
-Starting from macOS High Sierra, the preparation of the installer process changes. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later which we need to address.
+Starting from macOS High Sierra, the preparation of the installer process changes and the `createinstallmedia` tool no longer causes installation issues. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later which we need to address.
 
 You will find below the steps on how to proceed.
 
@@ -1484,7 +1484,7 @@ As with Mojave and Catalina, we need to patch the GPU in order to have graphic a
 <details>
 <summary><strong>macOS Monterey (12.7.5)</strong></summary>
 
-The preparation of the installer and the installation of macOS Monterey is similar to macOS Big Sur. You may need a compatible SMBIOS, `iMac15,1` is no longer supported by Apple.
+The preparation of the installer and the installation of macOS Monterey is similar to macOS Big Sur. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
 
 You will find below the steps on how to proceed.
 
@@ -1512,7 +1512,7 @@ Replace `MyVolume` with your USB drive name.
 
 Install macOS Monterey using normal procedure.
 
-If the installation fails, set the SMBIOS to `iMac19,1`. After the installation finishes you can go back to `iMac15,1` SMBIOS.
+If the installation fails, set the SMBIOS to `iMac19,1`. After the installation you can go back to `iMac15,1` SMBIOS.
 
 #### Post-Installation
 
