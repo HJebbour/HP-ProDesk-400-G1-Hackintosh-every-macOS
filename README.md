@@ -880,14 +880,18 @@ The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a s
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
+```
+cd ~/Downloads
+pkgutil --expand-full "/Volumes/Install Mac OS X/InstallMacOSX.pkg" OSInstaller
+```
 
-- Restore `InstallESD.dmg` from `/Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Restore `InstallESD.dmg` from `~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+```
+asr imagescan --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
+sudo asr restore --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg --target /dev/disk6s6 --erase (Replace "/dev/disk6s6" with your USB drive BSD device node)
+```
 
-	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg`
-
-	- Then restore using `asr` command: `sudo asr restore --source /Applications/Install\ OS\ X\ Mountain\ Lion.app/Contents/SharedSupport/InstallESD.dmg --target /dev/disk6s6 --erase` (Replace "/dev/disk6s6" with your exact partition path)
-
-	- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase`
+- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase`
 
 #### Installation
 
