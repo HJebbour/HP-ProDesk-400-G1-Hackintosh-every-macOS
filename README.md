@@ -1265,73 +1265,60 @@ Install all available updates using "Mac App Store".
 <details>
 <summary><strong>macOS High Sierra (10.13.6)</strong></summary>
 
-Starting from macOS High Sierra, the preparation of the installer process changes.
+Starting from macOS High Sierra, the preparation of the installer process changes. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later.
 
 You will below find the steps on how to proceed.
 
 **References:**
 
-- [Download](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#downloading-macos-modern-os) modern macOS
-- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
-- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
-- [Alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561) to `createinstallmedia`
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
 
 #### Setting up the installer
 
-- Download [macOS Sierra Installer](http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg) from Apple Website.
-
-**The below method should be used to overcome the error message** `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` **instead of the** `createinstallmedia` **tool.**
+- Download macOS High Sierra using [gibMacOS](https://github.com/corpnewt/gibMacOS).
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Extract the installer using these commands:
-```
-hdiutil attach ~/Downloads/InstallOS.dmg
-cd ~/Downloads
-pkgutil --expand-full "/Volumes/Install macOS/InstallOS.pkg" OSInstaller
-```
+- Make the installer using the `MakeInstall` script from `gibMacOS` and choose the folder containing macOS High Sierra packages.
 
-- Attach `InstallESD.dmg` and `BaseSystem.dmg`
+- Create a bootable installer for macOS High Sierra using `createinstallmedia` tool.
 ```
-hdiutil attach ~/Downloads/OSInstaller/InstallOS.pkg/InstallESD.dmg
-cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg ~/Downloads/OSInstaller/BaseSystem.dmg
-hdiutil attach ~/Downloads/OSInstaller/BaseSystem.dmg
+sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
-
-- Restore the attached image `BaseSystem.dmg` (replace `/dev/disk7s1` with BaseSystem.dmg attached BSD device node, and /dev/rdisk8s11 with your USB drive BSD device node)
-```
-sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --noprompt --noverify
-```
-
-- Rename the USB drive to `Install macOS Sierra`
-
-- Copy the `Packages` files from `InstallESD` to the USB drive:
-```
-rm -r /Volumes/Install\ macOS\ Sierra/System/Installation/Packages
-cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ macOS\ Sierra/System/Installation/Packages
-cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.chunklist /Volumes/Install\ macOS\ Sierra
-cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg /Volumes/Install\ macOS\ Sierra
-sudo bless --folder /Volumes/Install\ macOS\ Sierra/System/Library/CoreServices --label Install\ macOS\ Sierra
-```
-
-- Dettach `InstallESD.dmg` and `BaseSystem.dmg`
-```
-hdiutil detach /Volumes/OS\ X\ Install\ ESD
-hdiutil detach /Volumes/OS\ X\ Base\ System
-```
+(replace `MyVolume` with your USB drive name)
 
 #### Installation
 
-Install macOS Sierra using normal procedure.
-
-If you've used `createinstallmedia` tool to prepare the installer, you should install macOS Sierra from Terminal using the following command:
-```
-installer -pkg /Volumes/Mac\ OS\ X\ Install\ DVD/Packages/OSInstall.mpkg -target /Volumes/Sierra
-```
+Install macOS High Sierra using normal procedure.
 
 #### Update
 
 Install all available updates using "Mac App Store".
+
+With macOS High Sierra, Apple introduced APFS instead of HFS+, High Sierra will cause issues with macOS Big Sur and newer volumes as described [here](https://github.com/Macschrauber/Macschrauber-s-Rom-Dump/blob/main/Rename_and_repair_preboot.md). To avoid this issue, follow the below steps:
+
+- Create partitions for macOS Big Sur and later and format them as APFS.
+
+- Get the UUID of each created partitions using `Disk Utility`.
+
+- Type `sudo vifs` in Terminal, type "i" and add all UUIDs with the following syntax:
+```
+UUID="Big SUr UUID" none apfs rw,noauto
+UUID="Monterey UUID" none apfs rw,noauto
+UUID="Ventura UUID" none apfs rw,noauto
+UUID="Sonoma UUID" none apfs rw,noauto
+```
+
+- Click "Escape", then type ":wq" to quit the editor.
+
+- Update the date of High Sierra's `SystemVersion.plist` using the following command:
+```
+sudo touch -t 203009110327 /System/Library/CoreServices/SystemVersion.plist
+sudo touch -t 203009042358 /System/Library/CoreServices/PlatformSupport.plist
+```
+
+- After you install each macOS, you should add the UUID of its `Update` volume.
 
 </details>
 
