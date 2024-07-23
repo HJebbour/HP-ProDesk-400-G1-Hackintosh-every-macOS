@@ -1413,12 +1413,6 @@ Install macOS Catalina using normal procedure.
 
 - Download [Legacy Video Patch](https://github.com/chris1111/Legacy-Video-patch/archive/refs/heads/master.zip).
 
-- Disable Gatekeeper using `Gatekeeper.command`.
-
-- Create the patcher tool using `create_app.command`.
-
-- Install the patch.
-
 - Now we need to add `amfi=0x80` in boot-args, but if we add it in `config.plist` it will be applied to all macOS versions, we will disable it only on macOS Catalina as follows:
 	- Get the root volume UUID with this command: `diskutil info / | grep 'Volume UUID'`
 	- Get the Preboot volume identifier using this command: `diskutil list | grep Preboot`
@@ -1429,6 +1423,12 @@ Install macOS Catalina using normal procedure.
 		<key>Kernel Flags</key>
 		<string>amfi=0x80</string>
 		```
+
+- Disable Gatekeeper using `Gatekeeper.command`.
+
+- Create the patcher tool using `create_app.command`.
+
+- Install the patch.
 
 - You should have graphic acceleration after you restart your computer.
 
@@ -1583,7 +1583,8 @@ Now we need to patch the GPU in order to have graphic acceleration in macOS Vent
 <summary><strong>macOS Sonoma (14.5)</strong></summary>
 </br>
 The preparation of the installer and the installation of macOS Sonoma is similar to macOS Ventura. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
-</br>
+
+
 You will find below the steps on how to proceed.
 
 **References:**
