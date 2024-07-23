@@ -1434,3 +1434,50 @@ Install macOS Catalina using normal procedure.
 
 </details>
 
+<details>
+<summary><strong>macOS Big Sur (11.7.10)</strong></summary>
+
+The preparation of the installer and the installation of macOS Big Sur is similar to macOS Catalina. But starting with macOS Big Sur we will use OpenCore Legacy Patcher to patch our GPU, which make it easier that Mojave/Catalina.
+
+You will find below the steps on how to proceed.
+
+**References:**
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+- [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)
+
+#### Setting up the installer
+
+- Download macOS Big Sur using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+
+- At least an 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Install the `InstallAssistant.pkg` package, it will put `Install macOS Big Sur.app`to your `/Applications` folder.
+
+- Create a bootable installer for macOS Big Sur using `createinstallmedia` tool.
+```
+sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+```
+Replace `MyVolume` with your USB drive name.
+
+#### Installation
+
+Install macOS Big Sur using normal procedure.
+
+#### Post-Installation
+
+- Install all available updates using "Software Update" in System Settings.
+
+As with Mojave and Catalina, we need to patch the GPU in order to work in macOS Big Sur, starting with this release of macOS, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) which is easier to maneuver than the previous patches. We already have our EFI ready for OCLP.
+
+- Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
+
+- Open the `OpenCore-Patcher.app`
+
+- Click on `Post-Install Root Patch` and then click on `Start Root Patching`.
+
+- You should have graphic acceleration after you restart your computer.
+
+</details>
+
