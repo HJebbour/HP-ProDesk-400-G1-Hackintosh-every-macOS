@@ -1375,7 +1375,7 @@ Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular N
 <details>
 <summary><strong>macOS Catalina (10.15.7)</strong></summary>
 
-The preparation of the installer and the installation of macOS Catalina is similar to macOS Mojave. But Catalina needs `amfi=0x80` in boot-args to allow the Legacy Video Patch.
+The preparation of the installer and the installation of macOS Catalina is similar to macOS Mojave. But Catalina needs AMFI disabled to allow the patch to work.
 
 You will find below the steps on how to proceed.
 
@@ -1419,7 +1419,16 @@ Install macOS Catalina using normal procedure.
 
 - Install the patch.
 
-- 
+- Now we need to add `amfi=0x80` in boot-args, but if we add it in `config.plist` it will be applied to all macOS versions, we will disable it only on macOS Catalina as follows:
+	- Get the root volume UUID with this command: `diskutil info / | grep 'Volume UUID'`
+	- Get the Preboot volume identifier using this command: `diskutil list | grep Preboot`
+	- Mount the Preboot volume: `diskutil mount disk3s4` (replace "disk3s4" with your Preboot identifier)
+	- Open `com.apple.Boot.plist` file: `sudo vim /Volumes/Preboot/UUID/Library/Preferences/SystemConfiguration/com.apple.Boot.plist` (replace "UUID" with your actual UUID retreived earlier)
+	- Add `amfi=0x80` to the `Kernel Flags` in the `com.apple.Boot.plist` file as follows:
+		```
+		<key>Kernel Flags</key>
+		<string>amfi=0x80</string>
+		```
 
 - You should have graphic acceleration after you restart your computer.
 
