@@ -1453,7 +1453,7 @@ You will find below the steps on how to proceed.
 
 - At least an 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Install the `InstallAssistant.pkg` package, it will put `Install macOS Big Sur.app`to your `/Applications` folder.
+- Install the `InstallAssistant.pkg` package, it will put `Install macOS Big Sur.app` in your `/Applications` folder.
 
 - Create a bootable installer for macOS Big Sur using `createinstallmedia` tool.
 ```
@@ -1470,6 +1470,55 @@ Install macOS Big Sur using normal procedure.
 - Install all available updates using "Software Update" in System Settings.
 
 As with Mojave and Catalina, we need to patch the GPU in order to work in macOS Big Sur, starting with this release of macOS, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) which is easier to maneuver than the previous patches. We already have our EFI ready for OCLP.
+
+- Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
+
+- Open the `OpenCore-Patcher.app`
+
+- Click on `Post-Install Root Patch` and then click on `Start Root Patching`.
+
+- You should have graphic acceleration after you restart your computer.
+
+</details>
+
+<details>
+<summary><strong>macOS Monterey (12.7.5)</strong></summary>
+
+The preparation of the installer and the installation of macOS Monterey is similar to macOS Big Sur. You may need a supported SMBIOS, `iMac15,1` is no longer officially supported by Apple.
+
+You will find below the steps on how to proceed.
+
+**References:**
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+- [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)
+
+#### Setting up the installer
+
+- Download macOS Monterey using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+
+- At least an 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Install the `InstallAssistant.pkg` package, it will put `Install macOS Monterey.app` in your `/Applications` folder.
+
+- Create a bootable installer for macOS Big Sur using `createinstallmedia` tool.
+```
+sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+```
+Replace `MyVolume` with your USB drive name.
+
+#### Installation
+
+Install macOS Monterey using normal procedure.
+
+If the installation fails, set the SMBIOS to `iMac19,1`, after the installation finishes you can go back to SMBIOS `iMac15,1`.
+
+#### Post-Installation
+
+- Install all available updates using "Software Update" in System Settings.
+
+Now, we need to patch the GPU in order to work in macOS Monterey, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) for that. We already have our EFI ready for OCLP.
 
 - Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
 
