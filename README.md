@@ -688,7 +688,7 @@ The following Quirks are used:
 
 ### macOS Installation
 
-The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, others have the signature issue.
+The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, others have the installation issue.
 
 In this section I will explain in details how to prepare the installer, install each version of macOS, and apply updates and patches. Please note that these steps may not apply to you.
 
@@ -699,7 +699,9 @@ The installation will be chronological.
 <details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
 
-Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot, bellow you will find the steps on how to proceed.
+Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot.
+
+You will find bellow the steps on how to proceed.
 
 **References:**
 
@@ -712,15 +714,23 @@ Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom
 
 - At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Restore `10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Restore `10.4.10-8R4088-ACDT.dmg` from `~/Downloads/10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+```
+asr imagescan --source ~/Downloads/10.4.10-8R4088-ACDT.dmg
+sudo asr restore --source ~/Downloads/10.4.10-8R4088-ACDT.dmg --target /dev/disk6s2 --erase
+```
+Replace `/dev/disk6s2` with your USB drive BSD device node
 
-	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.4.10-8R4088-ACDT.dmg`
+- If the previous step fails, mount `10.4.10-8R4088-ACDT.dmg` and use this command instead:
+```
+sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ Disc\ 1 --target /dev/disk6s2 --erase
+```
 
-	- Then restore using `asr` command: `sudo asr restore --source 10.4.10-8R4088-ACDT.dmg --target /dev/disk6s2 --erase` (Replace "/dev/disk6s2" with your exact partition path)
-
-	- If the previous step fails, mount `10.4.10-8R4088-ACDT.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ Disc\ 1 --target /dev/disk6s2 --erase`
-
-- Copy the [custom kernel](Custom%20Kernel/mach_kernel) to the newly prepared USB installer using the following command: `sudo cp mach_kernel /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel` **You will not be able to boot into the USB installer if you don't use a custom kernel.**
+- Copy the [custom kernel](Custom%20Kernel/mach_kernel) to the newly prepared USB installer using the following command:
+```
+sudo cp ~/Downloads/mach_kernel /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel
+```
+**You will not be able to boot into the USB installer if you don't use a custom kernel.**
 
 #### Installation
 
@@ -736,7 +746,11 @@ The [custom kernel](Custom%20Kernel/mach_kernel) needs to be replaced in the roo
 
 - Install all available updates including 10.4.11 using "Software Update".
 
-- Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the root volume using the following command: `sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel` **You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
+- Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the root volume using the following command:
+```
+sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel
+```
+**You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
 
 - As sleep is not working in Mac OS X Tiger, it is better to disable it from `System Preferences -> Energy Saver` to avoid system freeze after idle.
 
@@ -745,7 +759,9 @@ The [custom kernel](Custom%20Kernel/mach_kernel) needs to be replaced in the roo
 <details>
 <summary><strong>Mac OS X Leopard (10.5.7)</strong></summary>
 
-We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5.7, bellow you will find the steps on how to proceed.
+We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5.7.
+
+You will find bellow the steps on how to proceed.
 
 **References:**
 
@@ -758,13 +774,17 @@ We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Restore `10.5.7-9J3050.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Restore `10.5.7-9J3050.dmg` from `~/Downloads/10.5.7-9J3050.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+```
+asr imagescan --source ~/Downloads/10.5.7-9J3050.dmg
+sudo asr restore --source ~/Downloads/10.5.7-9J3050.dmg --target /dev/disk6s3 --erase
+```
+Replace `/dev/disk6s3` with your USB drive BSD device node
 
-	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.5.7-9J3050.dmg`
-
-	- Then restore using `asr` command: `sudo asr restore --source 10.5.7-9J3050.dmg --target /dev/disk6s3 --erase` (Replace "/dev/disk6s3" with your exact partition path)
-
-	- If the previous step fails, mount `10.5.7-9J3050.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s3 --erase`
+- If the previous step fails, mount `10.5.7-9J3050.dmg` and use this command instead:
+```
+sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s3 --erase
+```
 
 #### Installation
 
@@ -787,7 +807,9 @@ We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5
 <details>
 <summary><strong>Mac OS X Snow Leopard (10.6.7)</strong></summary>
 
-The installation of Mac OS X Snow Leopard is simple compared to Mac OS X Tiger and Leopard, there's no need for a specific SMBIOS, bellow you will find the steps on how to proceed.
+The installation of Mac OS X Snow Leopard is simple compared to Mac OS X Tiger and Leopard, there's no need for a specific SMBIOS.
+
+You will find bellow the steps on how to proceed.
 
 **References:**
 
@@ -800,19 +822,21 @@ The installation of Mac OS X Snow Leopard is simple compared to Mac OS X Tiger a
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Restore `10.6.7-10J4139-ACDT-OSX.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Restore `10.6.7-10J4139-ACDT-OSX.dmg` from `~/Downloads/10.6.7-10J4139-ACDT-OSX.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+```
+asr imagescan --source ~/Downloads/10.6.7-10J4139-ACDT-OSX.dmg
+sudo asr restore --source ~/Downloads/10.6.7-10J4139-ACDT-OSX.dmg --target /dev/disk6s4 --erase
+```
+Replace `/dev/disk6s4` with your USB drive BSD device node
 
-	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source 10.6.7-10J4139-ACDT-OSX.dmg`
-
-	- Then restore using `asr` command: `sudo asr restore --source 10.6.7-10J4139-ACDT-OSX.dmg.dmg --target /dev/disk6s4 --erase` (Replace "/dev/disk6s4" with your exact partition path)
-
-	- If the previous step fails, mount `10.6.7-10J4139-ACDT-OSX.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s4 --erase`
+- If the previous step fails, mount `10.6.7-10J4139-ACDT-OSX.dmg` and use this command instead:
+```
+sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s4 --erase
+```
 
 #### Installation
 
-- Boot into the installer.
-
-- Install Mac OS X Snow Leopard using normal procedure.
+Install Mac OS X Snow Leopard using normal procedure.
 
 #### Update
 
@@ -823,7 +847,9 @@ Install all available updates including 10.6.8 using "Software Update".
 <details>
 <summary><strong>Mac OS X Lion (10.7.5)</strong></summary>
 
-The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a specific SMBIOS, bellow you will find the steps on how to proceed.
+The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a specific SMBIOS.
+
+You will find bellow the steps on how to proceed.
 
 **References:**
 
@@ -837,15 +863,23 @@ The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a spe
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
+- Extract the installer using the following command.
+```
+cd ~/Downloads
+pkgutil --expand-full "/Volumes/Install Mac OS X/InstallMacOSX.pkg" OSInstaller
+```
 
-- Restore `InstallESD.dmg` from `/Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg` to a USB drive following below steps using `imagescan` and `asr` command (Disk Utility will likely not work):
+- Restore `InstallESD.dmg` from `~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+```
+asr imagescan --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
+sudo asr restore --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg --target /dev/disk6s6 --erase
+```
+Replace `/dev/disk6s6` with your USB drive BSD device node
 
-	- Use `imagescan` to scan the downloaded image, this step munges some headers, and is required: `asr imagescan --source /Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg`
-
-	- Then restore using `asr` command: `sudo asr restore --source /Applications/Install\ Mac\ OS\ X\ Lion.app/Contents/SharedSupport/InstallESD.dmg --target /dev/disk6s5 --erase` (Replace "/dev/disk6s5" with your exact partition path)
-
-	- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ ESD --target /dev/disk6s5 --erase`
+- If the previous step fails, mount `InstallESD.dmg` and use this command instead:
+```
+sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ ESD --target /dev/disk6s6 --erase
+```
 
 #### Installation
 
@@ -892,9 +926,12 @@ pkgutil --expand-full "/Volumes/Install Mac OS X/InstallMacOSX.pkg" OSInstaller
 asr imagescan --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
 sudo asr restore --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg --target /dev/disk6s6 --erase
 ```
-Replace "/dev/disk6s6" with your USB drive BSD device node
+Replace `/dev/disk6s6` with your USB drive BSD device node
 
-- If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase`
+- If the previous step fails, mount `InstallESD.dmg` and use this command instead:
+```
+sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase
+```
 
 #### Installation
 
