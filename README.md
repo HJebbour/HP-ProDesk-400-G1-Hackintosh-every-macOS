@@ -1191,6 +1191,79 @@ Install all available updates using "Mac App Store".
 </details>
 
 <details>
+<summary><strong>macOS High Sierra (10.13.6)</strong></summary>
+
+Starting from macOS High Sierra, the preparation of the installer process changes.
+
+You will below find the steps on how to proceed.
+
+**References:**
+
+- [Download](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#downloading-macos-modern-os) modern macOS
+- [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
+- [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
+- [Alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561) to `createinstallmedia`
+
+#### Setting up the installer
+
+- Download [macOS Sierra Installer](http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg) from Apple Website.
+
+**The below method should be used to overcome the error message** `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` **instead of the** `createinstallmedia` **tool.**
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Extract the installer using these commands:
+```
+hdiutil attach ~/Downloads/InstallOS.dmg
+cd ~/Downloads
+pkgutil --expand-full "/Volumes/Install macOS/InstallOS.pkg" OSInstaller
+```
+
+- Attach `InstallESD.dmg` and `BaseSystem.dmg`
+```
+hdiutil attach ~/Downloads/OSInstaller/InstallOS.pkg/InstallESD.dmg
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg ~/Downloads/OSInstaller/BaseSystem.dmg
+hdiutil attach ~/Downloads/OSInstaller/BaseSystem.dmg
+```
+
+- Restore the attached image `BaseSystem.dmg` (replace `/dev/disk7s1` with BaseSystem.dmg attached BSD device node, and /dev/rdisk8s11 with your USB drive BSD device node)
+```
+sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --noprompt --noverify
+```
+
+- Rename the USB drive to `Install macOS Sierra`
+
+- Copy the `Packages` files from `InstallESD` to the USB drive:
+```
+rm -r /Volumes/Install\ macOS\ Sierra/System/Installation/Packages
+cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ macOS\ Sierra/System/Installation/Packages
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.chunklist /Volumes/Install\ macOS\ Sierra
+cp /Volumes/OS\ X\ Install\ ESD/BaseSystem.dmg /Volumes/Install\ macOS\ Sierra
+sudo bless --folder /Volumes/Install\ macOS\ Sierra/System/Library/CoreServices --label Install\ macOS\ Sierra
+```
+
+- Dettach `InstallESD.dmg` and `BaseSystem.dmg`
+```
+hdiutil detach /Volumes/OS\ X\ Install\ ESD
+hdiutil detach /Volumes/OS\ X\ Base\ System
+```
+
+#### Installation
+
+Install macOS Sierra using normal procedure.
+
+If you've used `createinstallmedia` tool to prepare the installer, you should install macOS Sierra from Terminal using the following command:
+```
+installer -pkg /Volumes/Mac\ OS\ X\ Install\ DVD/Packages/OSInstall.mpkg -target /Volumes/Sierra
+```
+
+#### Update
+
+Install all available updates using "Mac App Store".
+
+</details>
+
+<details>
 <summary><strong>macOS Sierra (10.12.6)</strong></summary>
 
 The preparation of the installer of macOS Sierra is identical to OS X El Capitan.
