@@ -1265,7 +1265,7 @@ Install all available updates using "Mac App Store".
 <details>
 <summary><strong>macOS High Sierra (10.13.6)</strong></summary>
 
-Starting from macOS High Sierra, the preparation of the installer process changes. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later.
+Starting from macOS High Sierra, the preparation of the installer process changes. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later which we need to address.
 
 You will find below the steps on how to proceed.
 
@@ -1278,13 +1278,13 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download macOS High Sierra using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+- Download the latest version of macOS High Sierra using [gibMacOS](https://github.com/corpnewt/gibMacOS).
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS High Sierra packages you just downloaded.
 
-- Move `Install macOS High Sierra.app`to your `/Applications` folder.
+- Move `Install macOS High Sierra.app` to your `/Applications` folder.
 
 - Create a bootable installer for macOS High Sierra using `createinstallmedia` tool.
 ```
@@ -1340,13 +1340,13 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download macOS Mojave using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+- Download the latest version of macOS Mojave using [gibMacOS](https://github.com/corpnewt/gibMacOS).
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Mojave packages you just downloaded.
 
-- Move `Install macOS Mojave.app`to your `/Applications` folder.
+- Move `Install macOS Mojave.app` to your `/Applications` folder.
 
 - Create a bootable installer for macOS Mojave using `createinstallmedia` tool.
 ```
@@ -1366,7 +1366,7 @@ Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular N
 
 - Download [Fix Old NVIDIA macOS Mojave](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave/releases/tag/V1).
 
-- Install the patch (choose `macOS Mojave-10.14(5-6)`)
+- Install the patch (choose `macOS Mojave-10.14(5-6)`).
 
 - You should have graphic acceleration after you restart your computer.
 
@@ -1386,13 +1386,13 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download macOS Catalina using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+- Download the latest version of macOS Catalina using [gibMacOS](https://github.com/corpnewt/gibMacOS).
 
-- At least an 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+- At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Catalina packages you just downloaded.
 
-- Move `Install macOS Catalina.app`to your `/Applications` folder.
+- Move `Install macOS Catalina.app` to your `/Applications` folder.
 
 - Create a bootable installer for macOS Catalina using `createinstallmedia` tool.
 ```
@@ -1449,9 +1449,9 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download macOS Big Sur using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+- Download the latest version of macOS Big Sur using [gibMacOS](https://github.com/corpnewt/gibMacOS).
 
-- At least an 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+- At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Install the `InstallAssistant.pkg` package, it will put `Install macOS Big Sur.app` in your `/Applications` folder.
 
@@ -1469,7 +1469,7 @@ Install macOS Big Sur using normal procedure.
 
 - Install all available updates using "Software Update" in System Settings.
 
-As with Mojave and Catalina, we need to patch the GPU in order to work in macOS Big Sur, starting with this release of macOS, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) which is easier to maneuver than the previous patches. We already have our EFI ready for OCLP.
+As with Mojave and Catalina, we need to patch the GPU in order to have graphic acceleration in macOS Big Sur, starting with this release of macOS, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) which is easier to maneuver than the previous patches. We already have our EFI ready for OCLP.
 
 - Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
 
@@ -1496,13 +1496,13 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download macOS Monterey using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+- Download the latest version of macOS Monterey using [gibMacOS](https://github.com/corpnewt/gibMacOS).
 
-- At least an 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+- At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
 - Install the `InstallAssistant.pkg` package, it will put `Install macOS Monterey.app` in your `/Applications` folder.
 
-- Create a bootable installer for macOS Big Sur using `createinstallmedia` tool.
+- Create a bootable installer for macOS Monterey using `createinstallmedia` tool.
 ```
 sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
@@ -1512,13 +1512,13 @@ Replace `MyVolume` with your USB drive name.
 
 Install macOS Monterey using normal procedure.
 
-If the installation fails, set the SMBIOS to `iMac19,1`, after the installation finishes you can go back to SMBIOS `iMac15,1`.
+If the installation fails, set the SMBIOS to `iMac19,1`. After the installation finishes you can go back to `iMac15,1` SMBIOS.
 
 #### Post-Installation
 
 - Install all available updates using "Software Update" in System Settings.
 
-Now, we need to patch the GPU in order to work in macOS Monterey, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) for that. We already have our EFI ready for OCLP.
+Now we need to patch the GPU in order to have graphic acceleration in macOS Monterey, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) for that. We already have our EFI ready for OCLP.
 
 - Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
 
