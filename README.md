@@ -1273,6 +1273,8 @@ You will below find the steps on how to proceed.
 
 - [gibMacOS](https://github.com/corpnewt/gibMacOS)
 - [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+- [Fix APFS corruption on Big Sur and later](https://www.reddit.com/r/hackintosh/comments/jpikj5/how_to_fix_big_sur_corruption_while_dual_booting)
+- [Rename and repair preboot](https://github.com/Macschrauber/Macschrauber-s-Rom-Dump/blob/main/Rename_and_repair_preboot.md)
 
 #### Setting up the installer
 
@@ -1280,39 +1282,41 @@ You will below find the steps on how to proceed.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Make the installer using the `MakeInstall` script from `gibMacOS` and choose the folder containing macOS High Sierra packages.
+- Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS High Sierra packages you just downloaded.
+
+- Move `Install macOS High Sierra.app`to your `/Applications` folder.
 
 - Create a bootable installer for macOS High Sierra using `createinstallmedia` tool.
 ```
 sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
-(replace `MyVolume` with your USB drive name)
+Replace `MyVolume` with your USB drive name.
 
 #### Installation
 
 Install macOS High Sierra using normal procedure.
 
-#### Update
+#### Post-Installation
 
-Install all available updates using "Mac App Store".
+- Install all available updates using "Mac App Store".
 
 With macOS High Sierra, Apple introduced APFS instead of HFS+, High Sierra will cause issues with macOS Big Sur and newer volumes as described [here](https://github.com/Macschrauber/Macschrauber-s-Rom-Dump/blob/main/Rename_and_repair_preboot.md). To avoid this issue, follow the below steps:
 
 - Create partitions for macOS Big Sur and later and format them as APFS.
 
-- Get the UUID of each created partitions using `Disk Utility`.
+- Get the UUID of each created APFS volumes using `Disk Utility`.
 
-- Type `sudo vifs` in Terminal, type "i" and add all UUIDs with the following syntax:
+- Type `sudo vifs` in Terminal, type `i` and add all UUIDs with the following syntax:
 ```
-UUID="Big SUr UUID" none apfs rw,noauto
+UUID="Big Sur UUID" none apfs rw,noauto
 UUID="Monterey UUID" none apfs rw,noauto
 UUID="Ventura UUID" none apfs rw,noauto
 UUID="Sonoma UUID" none apfs rw,noauto
 ```
 
-- Click "Escape", then type ":wq" to quit the editor.
+- Click "Escape", then type `:wq!` to save and quit the editor.
 
-- Update the date of High Sierra's `SystemVersion.plist` using the following command:
+- Update the date of macOS High Sierra's `SystemVersion.plist` using the following commands:
 ```
 sudo touch -t 203009110327 /System/Library/CoreServices/SystemVersion.plist
 sudo touch -t 203009042358 /System/Library/CoreServices/PlatformSupport.plist
