@@ -740,7 +740,7 @@ Installation of Mac OS X Tiger is straightforward.
 
 - Install Mac OS X Tiger using normal procedure.
 
-#### Update
+#### Post-Installation
 
 The [custom kernel](Custom%20Kernel/mach_kernel) needs to be replaced in the root volume after each update before restarting.
 
@@ -796,7 +796,7 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s
 
 - Set the SMBIOS back to `iMac15,1`.
 
-#### Update
+#### Post-Installation
 
 - Install all available updates including 10.5.8 using "Software Update".
 
@@ -838,7 +838,7 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s
 
 Install Mac OS X Snow Leopard using normal procedure.
 
-#### Update
+#### Post-Installation
 
 Install all available updates including 10.6.8 using "Software Update".
 
@@ -889,7 +889,7 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ ESD --target /dev/disk6s
 
 - The `iMac12,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
 
-#### Update
+#### Post-Installation
 
 Install all available updates using "Software Update".
 
@@ -941,7 +941,7 @@ sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --e
 
 - The `iMac14,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
 
-#### Update
+#### Post-Installation
 
 OS X Mountain Lion was the first version to use the Mac App Store to install system updates, and unfortunately the Mac App Store no longer works in Mountain Lion and earlier versions. Therefore, OS X 10.8 remains the only macOS version for which updates have to be installed manually.
 
@@ -1040,7 +1040,7 @@ hdiutil detach /Volumes/OS\ X\ Base\ System
 
 - The `iMac14,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
 
-#### Update
+#### Post-Installation
 
 Install all available updates using "Mac App Store".
 
@@ -1051,7 +1051,7 @@ Install all available updates using "Mac App Store".
 
 The preparation of the installer of OS X Yosemite is similar to OS X Mavericks but the installer is provided by Apple and you don't need a specific SMBIOS, `iMac15,1` is supported by OS X Yosemite.
 
-You will below find the steps on how to proceed.
+You will find below the steps on how to proceed.
 
 **References:**
 
@@ -1112,7 +1112,7 @@ If you used `createinstallmedia` tool to prepare the installer, you should insta
 installer -pkg /Volumes/Mac\ OS\ X\ Install\ DVD/Packages/OSInstall.mpkg -target /Volumes/Yosemite
 ```
 
-#### Update
+#### Post-Installation
 
 Install all available updates using "Mac App Store".
 
@@ -1123,7 +1123,7 @@ Install all available updates using "Mac App Store".
 
 The preparation of the installer of OS X El Capitan is identical to OS X Yosemite.
 
-You will below find the steps on how to proceed.
+You will find below the steps on how to proceed.
 
 **References:**
 
@@ -1184,7 +1184,7 @@ If you've used `createinstallmedia` tool to prepare the installer, you should in
 installer -pkg /Volumes/Mac\ OS\ X\ Install\ DVD/Packages/OSInstall.mpkg -target /Volumes/El\ Capitan
 ```
 
-#### Update
+#### Post-Installation
 
 Install all available updates using "Mac App Store".
 
@@ -1195,7 +1195,7 @@ Install all available updates using "Mac App Store".
 
 The preparation of the installer of macOS Sierra is identical to OS X El Capitan.
 
-You will below find the steps on how to proceed.
+You will find below the steps on how to proceed.
 
 **References:**
 
@@ -1256,7 +1256,7 @@ If you've used `createinstallmedia` tool to prepare the installer, you should in
 installer -pkg /Volumes/Mac\ OS\ X\ Install\ DVD/Packages/OSInstall.mpkg -target /Volumes/Sierra
 ```
 
-#### Update
+#### Post-Installation
 
 Install all available updates using "Mac App Store".
 
@@ -1267,7 +1267,7 @@ Install all available updates using "Mac App Store".
 
 Starting from macOS High Sierra, the preparation of the installer process changes. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later.
 
-You will below find the steps on how to proceed.
+You will find below the steps on how to proceed.
 
 **References:**
 
@@ -1323,6 +1323,52 @@ sudo touch -t 203009042358 /System/Library/CoreServices/PlatformSupport.plist
 ```
 
 - After you install each macOS, you should add the UUID of its `Update` volume.
+
+</details>
+
+<details>
+<summary><strong>macOS Mojave (10.14.6)</strong></summary>
+
+The preparation of the installer and the installation of macOS Mojave is similar to macOS High Sierra. But starting with macOS Mojave we need to apply a patch to enable GPU acceleration.
+
+You will find below the steps on how to proceed.
+
+**References:**
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+
+#### Setting up the installer
+
+- Download macOS Mojave using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+
+- At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Mojave packages you just downloaded.
+
+- Move `Install macOS Mojave.app`to your `/Applications` folder.
+
+- Create a bootable installer for macOS Mojave using `createinstallmedia` tool.
+```
+sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+```
+Replace `MyVolume` with your USB drive name.
+
+#### Installation
+
+Install macOS Mojave using normal procedure.
+
+#### Post-Installation
+
+- Install all available updates using "Software Update" in System Settings.
+
+Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular Nvidia Tesla graphic cards, which means we will not have graphic acceleration after installation. Fortunately, [dosdude1](http://dosdude1.com/mojave/) released a patcher for unsupported macs. It is better to use [chris1111](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave) tool (extracted from dosdude1 macOS Mojave Patcher) because the dosdude1 patcher installs kext and files specifically for Mac's customers, Hackintosh only need Graphics kexts and OpenCore does the rest of the work.
+
+- Download [Fix Old NVIDIA macOS Mojave](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave/releases/tag/V1).
+
+- Install the patch (choose `macOS Mojave-10.14(5-6)`)
+
+- After you restart your computer, you should have graphic acceleration now.
 
 </details>
 
