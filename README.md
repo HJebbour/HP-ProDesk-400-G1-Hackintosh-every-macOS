@@ -864,7 +864,9 @@ Install all available updates using "Software Update".
 <details>
 <summary><strong>OS X Mountain Lion (10.8.5)</strong></summary>
 
-The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a specific SMBIOS, bellow you will find the steps on how to proceed.
+The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a specific SMBIOS.
+
+You will find bellow the steps on how to proceed.
 
 **References:**
 
@@ -879,7 +881,7 @@ The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a s
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Extract the installer using [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-pkg.html#extracting-the-installer) Installer guide.
+- Extract the installer using the following command.
 ```
 cd ~/Downloads
 pkgutil --expand-full "/Volumes/Install Mac OS X/InstallMacOSX.pkg" OSInstaller
@@ -888,8 +890,9 @@ pkgutil --expand-full "/Volumes/Install Mac OS X/InstallMacOSX.pkg" OSInstaller
 - Restore `InstallESD.dmg` from `~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
 ```
 asr imagescan --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
-sudo asr restore --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg --target /dev/disk6s6 --erase (Replace "/dev/disk6s6" with your USB drive BSD device node)
+sudo asr restore --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg --target /dev/disk6s6 --erase
 ```
+Replace "/dev/disk6s6" with your USB drive BSD device node
 
 - If the previous step fails, mount `InstallESD.dmg` and use this command instead: `sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --erase`
 
