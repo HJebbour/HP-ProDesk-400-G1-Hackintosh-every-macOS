@@ -699,6 +699,8 @@ The installation will be chronological.
 <details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
 
+</br>
+
 Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot.
 
 You will find bellow the steps on how to proceed.
@@ -759,6 +761,8 @@ sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_ke
 <details>
 <summary><strong>Mac OS X Leopard (10.5.7)</strong></summary>
 
+</br>
+
 We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5.7.
 
 You will find bellow the steps on how to proceed.
@@ -807,6 +811,8 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s
 <details>
 <summary><strong>Mac OS X Snow Leopard (10.6.7)</strong></summary>
 
+</br>
+
 The installation of Mac OS X Snow Leopard is simple compared to Mac OS X Tiger and Leopard, there's no need for a specific SMBIOS.
 
 You will find bellow the steps on how to proceed.
@@ -846,6 +852,8 @@ Install all available updates including 10.6.8 using "Software Update".
 
 <details>
 <summary><strong>Mac OS X Lion (10.7.5)</strong></summary>
+
+</br>
 
 The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a specific SMBIOS.
 
@@ -897,6 +905,8 @@ Install all available updates using "Software Update".
 
 <details>
 <summary><strong>OS X Mountain Lion (10.8.5)</strong></summary>
+
+</br>
 
 The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a specific SMBIOS.
 
@@ -951,6 +961,8 @@ There's only one update available that we can install. Download [Security Update
 
 <details>
 <summary><strong>OS X Mavericks (10.9.5)</strong></summary>
+
+</br>
 
 The preparation of the installer and the installation of OS X Mavericks is the most complicated of all macOS releases, for the following reasons:
 
@@ -1049,6 +1061,8 @@ Install all available updates using "Mac App Store".
 <details>
 <summary><strong>OS X Yosemite (10.10.5)</strong></summary>
 
+</br>
+
 The preparation of the installer of OS X Yosemite is similar to OS X Mavericks but the installer is provided by Apple and you don't need a specific SMBIOS, `iMac15,1` is supported by OS X Yosemite.
 
 You will find below the steps on how to proceed.
@@ -1120,6 +1134,8 @@ Install all available updates using "Mac App Store".
 
 <details>
 <summary><strong>OS X El Capitan (10.11.6)</strong></summary>
+
+</br>
 
 The preparation of the installer of OS X El Capitan is identical to OS X Yosemite.
 
@@ -1193,6 +1209,8 @@ Install all available updates using "Mac App Store".
 <details>
 <summary><strong>macOS Sierra (10.12.6)</strong></summary>
 
+</br>
+
 The preparation of the installer of macOS Sierra is identical to OS X El Capitan.
 
 You will find below the steps on how to proceed.
@@ -1265,6 +1283,8 @@ Install all available updates using "Mac App Store".
 <details>
 <summary><strong>macOS High Sierra (10.13.6)</strong></summary>
 
+</br>
+
 Starting from macOS High Sierra, the preparation of the installer process changes and the `createinstallmedia` tool no longer causes installation issues. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later which we need to address.
 
 You will find below the steps on how to proceed.
@@ -1329,6 +1349,8 @@ sudo touch -t 203009042358 /System/Library/CoreServices/PlatformSupport.plist
 <details>
 <summary><strong>macOS Mojave (10.14.6)</strong></summary>
 
+</br>
+
 The preparation of the installer and the installation of macOS Mojave is similar to macOS High Sierra. But starting with macOS Mojave we need to apply a patch to enable GPU acceleration.
 
 You will find below the steps on how to proceed.
@@ -1374,6 +1396,8 @@ Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular N
 
 <details>
 <summary><strong>macOS Catalina (10.15.7)</strong></summary>
+
+</br>
 
 The preparation of the installer and the installation of macOS Catalina is similar to macOS Mojave. But Catalina needs AMFI disabled to allow the patch to work.
 
@@ -1437,6 +1461,8 @@ Install macOS Catalina using normal procedure.
 <details>
 <summary><strong>macOS Big Sur (11.7.10)</strong></summary>
 
+</br>
+
 The preparation of the installer and the installation of macOS Big Sur is similar to macOS Catalina. But starting with macOS Big Sur we will use OpenCore Legacy Patcher to patch our GPU, which make it easier that Mojave/Catalina.
 
 You will find below the steps on how to proceed.
@@ -1483,6 +1509,8 @@ As with Mojave and Catalina, we need to patch the GPU in order to have graphic a
 
 <details>
 <summary><strong>macOS Monterey (12.7.5)</strong></summary>
+
+</br>
 
 The preparation of the installer and the installation of macOS Monterey is similar to macOS Big Sur. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
 
@@ -1533,6 +1561,8 @@ Now we need to patch the GPU in order to have graphic acceleration in macOS Mont
 <details>
 <summary><strong>macOS Ventura (13.6.7)</strong></summary>
 
+</br>
+
 The preparation of the installer and the installation of macOS Ventura is similar to macOS Monterey. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
 
 You will find below the steps on how to proceed.
@@ -1581,9 +1611,10 @@ Now we need to patch the GPU in order to have graphic acceleration in macOS Vent
 
 <details>
 <summary><strong>macOS Sonoma (14.5)</strong></summary>
-</br>
-The preparation of the installer and the installation of macOS Sonoma is similar to macOS Ventura. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
 
+</br>
+
+The preparation of the installer and the installation of macOS Sonoma is similar to macOS Ventura. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
 
 You will find below the steps on how to proceed.
 
