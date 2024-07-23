@@ -1583,7 +1583,7 @@ Now we need to patch the GPU in order to have graphic acceleration in macOS Vent
 <summary><strong>macOS Sonoma (14.5)</strong></summary>
 </br>
 The preparation of the installer and the installation of macOS Sonoma is similar to macOS Ventura. You may need a compatible SMBIOS because `iMac15,1` is no longer supported by Apple.
-
+</br>
 You will find below the steps on how to proceed.
 
 **References:**
