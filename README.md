@@ -58,7 +58,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 - [Installation](#installation)
 	- [UEFI Settings](#uefi-settings)
 	- [macOS Installation](#macos-installation)
-		- [OS X Mavericks](https://github.com/HJebbour/HP-ProDesk-400-G1-Hackintosh-every-macOS/edit/main/README.md#setting-up-the-installer-5)
+		- [OS X Mavericks](#setting-up-the-installer-5)
 
 </br>
 
