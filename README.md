@@ -1484,7 +1484,7 @@ As with Mojave and Catalina, we need to patch the GPU in order to work in macOS 
 <details>
 <summary><strong>macOS Monterey (12.7.5)</strong></summary>
 
-The preparation of the installer and the installation of macOS Monterey is similar to macOS Big Sur. You may need a supported SMBIOS, `iMac15,1` is no longer officially supported by Apple.
+The preparation of the installer and the installation of macOS Monterey is similar to macOS Big Sur. You may need a compatible SMBIOS, `iMac15,1` is no longer supported by Apple.
 
 You will find below the steps on how to proceed.
 
