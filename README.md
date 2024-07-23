@@ -1191,15 +1191,14 @@ Install all available updates using "Mac App Store".
 </details>
 
 <details>
-<summary><strong>macOS High Sierra (10.13.6)</strong></summary>
+<summary><strong>macOS Sierra (10.12.6)</strong></summary>
 
-Starting from macOS High Sierra, the preparation of the installer process changes.
+The preparation of the installer of macOS Sierra is identical to OS X El Capitan.
 
 You will below find the steps on how to proceed.
 
 **References:**
 
-- [Download](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#downloading-macos-modern-os) modern macOS
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
 - [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
 - [Alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561) to `createinstallmedia`
@@ -1264,14 +1263,15 @@ Install all available updates using "Mac App Store".
 </details>
 
 <details>
-<summary><strong>macOS Sierra (10.12.6)</strong></summary>
+<summary><strong>macOS High Sierra (10.13.6)</strong></summary>
 
-The preparation of the installer of macOS Sierra is identical to OS X El Capitan.
+Starting from macOS High Sierra, the preparation of the installer process changes.
 
 You will below find the steps on how to proceed.
 
 **References:**
 
+- [Download](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#downloading-macos-modern-os) modern macOS
 - [Dortania's](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#making-the-installer-in-macos) USB Creation.
 - [Restoring images without the futility of Disk Utility](https://sporks.space/2023/10/09/restoring-images-without-the-futility-of-disk-utility/)
 - [Alternative](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561) to `createinstallmedia`
