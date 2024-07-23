@@ -1362,13 +1362,66 @@ Install macOS Mojave using normal procedure.
 
 - Install all available updates using "Software Update" in System Settings.
 
-Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular Nvidia Tesla graphic cards, which means we will not have graphic acceleration after installation. Fortunately, [dosdude1](http://dosdude1.com/mojave/) released a patcher for unsupported macs. It is better to use [chris1111](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave) tool (extracted from dosdude1 macOS Mojave Patcher) because the dosdude1 patcher installs kext and files specifically for Mac's customers, Hackintosh only need Graphics kexts and OpenCore does the rest of the work.
+Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular Nvidia Tesla graphic cards, which means we will not have graphic acceleration after installation. Fortunately, [dosdude1](http://dosdude1.com/mojave/) released a patcher for unsupported macs. But, it is better to use [chris1111](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave) tool (which is extracted from dosdude1 macOS Mojave Patcher) because the dosdude1 patcher installs kext and files specifically for Mac's customers, hackintosh only need GPU kexts and OpenCore does the rest of the work.
 
 - Download [Fix Old NVIDIA macOS Mojave](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave/releases/tag/V1).
 
 - Install the patch (choose `macOS Mojave-10.14(5-6)`)
 
-- After you restart your computer, you should have graphic acceleration now.
+- You should have graphic acceleration after you restart your computer.
+
+</details>
+
+<details>
+<summary><strong>macOS Catalina (10.15.7)</strong></summary>
+
+The preparation of the installer and the installation of macOS Catalina is similar to macOS Mojave. But Catalina needs `amfi=0x80` in boot-args to allow the Legacy Video Patch.
+
+You will find below the steps on how to proceed.
+
+**References:**
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+
+#### Setting up the installer
+
+- Download macOS Catalina using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+
+- At least an 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Catalina packages you just downloaded.
+
+- Move `Install macOS Catalina.app`to your `/Applications` folder.
+
+- Create a bootable installer for macOS Catalina using `createinstallmedia` tool.
+```
+sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+```
+Replace `MyVolume` with your USB drive name.
+
+#### Installation
+
+Install macOS Catalina using normal procedure.
+
+#### Post-Installation
+
+- Install all available updates using "Software Update" in System Settings.
+
+[dosdude1](http://dosdude1.com/catalina/) released a patcher for unsupported macs on macOS Catalina. But, it is better to use [chris1111's](https://github.com/chris1111/Legacy-Video-patch) Legacy Video Patch tool (which is extracted from dosdude1 macOS Catalina Patcher) because the dosdude1 patcher installs kext and files specifically for Mac's customers, hackintosh only need GPU kexts and OpenCore does the rest of the work.
+**[dosdude1](http://dosdude1.com/catalina/) macOS Catalina Patcher caused a crash on my computer so I had to use [chris1111's](https://github.com/chris1111/Legacy-Video-patch) tool anyway**
+
+- Download [Legacy Video Patch](https://github.com/chris1111/Legacy-Video-patch/archive/refs/heads/master.zip).
+
+- Disable Gatekeeper using `Gatekeeper.command`.
+
+- Create the patcher tool using `create_app.command`.
+
+- Install the patch.
+
+- 
+
+- You should have graphic acceleration after you restart your computer.
 
 </details>
 
