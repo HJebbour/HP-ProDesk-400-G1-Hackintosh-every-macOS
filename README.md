@@ -662,26 +662,37 @@ The following Quirks are used:
 
 ### i. UEFI Settings
 
+**Storage**
+
+- **Storage Options**
+  - `SATA Emulation` **AHCI**
+
 **Security**
 
+- **Network Boot**
+  - `Network Boot` **Disabled**
+
 - **System Security**
-  - `Virtualization Technology (VT-x)` **Enable**
-  - `Intel VT for Directed I/O (VT-d)` **Disable**
+  - `Data Execution Prevention` **Enabled**
+  - `Virtualization Technology (VTx)` **Enabled**
+  - `Virtualization Technology Directed I/O (VTd)` **Disabled**
+
+- **Secure Boot Configuration**
+  - `Legacy Support` **Enabled**
+  - `Secure Boot` **Disabled**
+  - `Fast Boot` **Disabled**
 
 **Advanced**
 
-- **Boot Options**
-  - `Fast Boot` **Disable**
-  - `S5 Wake On LAN` **Disable**
+- **Onboard Devices**
+  - `Serial Port A` **Enabled**
 
-- **Device Configurations**
-  - `SATA Controller Mode` **AHCI**
+- **Device Options**
+  - `Integrated Video` **Disabled**
 
-- **Secure Boot Configuration**
-  - `Configure Legacy Support and Secure Boot` **Disable Legacy Support and Disable Secure Boot**
-
-- **Performance Options**
-  - `Intel Hyper-Threading Technology` **Enable**
+- **Option ROL Launch Policy**
+  - `PXE Option ROMs` **Do Not Launch**
+  - `Video Option ROMs` **Legacy Only**
 
 </br>
 
