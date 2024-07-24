@@ -556,7 +556,7 @@ For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.c
 <summary><strong>PlatformInfo</strong></summary>
 
 #### Generic
-The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Although, some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS, we will discuss this further in the [macOS Installation](#macos-installation) section below.
+The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Although, some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS during installation, we will discuss this further in the [macOS Installation](#macos-installation) section below.
 
 **You need to generate your own Serial Number using [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**
 
@@ -653,6 +653,10 @@ The following Quirks are used:
 - [CorpNewt](https://github.com/corpnewt) for [USBMap](https://github.com/corpnewt/USBMap)
 - [headkaze](https://github.com/headkaze) for [Hackintool](https://github.com/headkaze/Hackintool)
 - [Mieze](https://github.com/Mieze) for [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
+- [RehabMan](https://github.com/RehabMan) for old versions of [RealtekRTL8111](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/)
+- [dosdude1](https://github.com/dosdude1) and [chris1111](https://github.com/chris1111) for Mojave/Catalina Legacy Video Patcher
+- [dmitri-arekhta](https://sourceforge.net/u/dmitri-arekhta/profile) for 32-bit of [RealtekR1000](https://sourceforge.net/projects/realtekr1000)
+- [](https://github.com/khronokernel) for [Legacy Kexts](https://github.com/khronokernel/Legacy-Kexts)
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
 - And every other contributor
 
