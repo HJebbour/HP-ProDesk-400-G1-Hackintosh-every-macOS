@@ -42,19 +42,19 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	5. [Audio](#v-audio)
 	6. [Bluetooth](#vi-bluetooth)
 4. [Contents](#4-contents)
-	1. [This is a Guide!](#this-is-a-guide)
-	2. [This is not a Guide!](#this-is-not-a-guide)
-	3. [Working](#working)
-	4. [Not Working](#not-working)
-	5. [Software](#software)
-	6. [Kernel](#kernel)
-	7. [ACPI](#acpi)
-	8. [Kext](#kext)
-	9. [UEFI Drivers](#uefi-drivers)
-	10. [config.plist](#configplist)
-	11. [Other Repositories](#other-repositories)
-	12. [Credits](#credits)
-	13. [Screenshots](#screenshots)
+	1. [This is not a Guide!](#i-this-is-not-a-guide)
+	2. [This is a Guide!](#ii-this-is-a-guide)
+	3. [Working](#iii-working)
+	4. [Not Working](#iv-not-working)
+	5. [Software](#v-software)
+	6. [Kernel](#vi-kernel)
+	7. [ACPI](#vii-acpi)
+	8. [Kext](#viii-kext)
+	9. [UEFI Drivers](#ix-uefi-drivers)
+	10. [config.plist](#x-configplist)
+	11. [Screenshots](#xi-screenshots)
+	12. [Other Repositories](#xii-other-repositories)
+	13. [Credits](#xiii-credits)
 5. [Installation](#5-installation)
 	- [UEFI Settings](#uefi-settings)
 	- [macOS Installation](#macos-installation)
@@ -207,7 +207,7 @@ CSR8510 A10 4.0 USB dongle:
 
 ## 4. Contents
 
-### This is not a Guide!
+### i. This is not a Guide!
 
 This is not a guide. It shoud only be used as a reference or if you have the exact same machine. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
 
@@ -232,13 +232,13 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-### This is a Guide!
+### ii. This is a Guide!
 
 **If you have a slightly different computer you should follow the one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
 
 </br>
 
-### Working
+### iii. Working
 
 > #### Video and Audio
 | Feature                              | Status | Dependency          | Remarks                      |
@@ -271,13 +271,13 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-### Not Working
+### iv. Not Working
 
 **Everything is working!**
 
 </br>
 
-### Software
+### v. Software
 
 | Component      | Version |
 | -------------- | ------- |
@@ -302,7 +302,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 </br>
 
-### Kernel
+### vi. Kernel
 
 Mac OS X Tiger cannot run on this computer with vanilla mach_kernel, it needs a custom kernel from the early hackintosh distros. I used [8.9.1 kernel SSE3 apr18]() custom kernel extracted from [XxX OS x86 10.4.11](https://archive.org/details/xxxosx8610point4point11rev2_202007)
 
@@ -310,7 +310,7 @@ Then, we need to replace it with the vanilla `mach_kernel` found on Mac OS X Tig
 
 </br>
 
-### ACPI
+### vii. ACPI
 
 | Component              | Description            |
 | ---------------------- | ---------------------- |
@@ -320,7 +320,7 @@ Then, we need to replace it with the vanilla `mach_kernel` found on Mac OS X Tig
 
 </br>
 
-### Kext
+### viii. Kext
 
 | Kext                   | Version | Description |
 | ---------------------- | ------- | ------- |
@@ -343,7 +343,7 @@ Then, we need to replace it with the vanilla `mach_kernel` found on Mac OS X Tig
 
 </br>
 
-### UEFI Drivers
+### ix. UEFI Drivers
 
 |     Driver      | Version           | Description       |
 | --------------- | ----------------- | ----------------- |
@@ -357,7 +357,7 @@ Then, we need to replace it with the vanilla `mach_kernel` found on Mac OS X Tig
 
 </br>
 
-### config.plist
+### x. config.plist
 
 The following `config.plist` has been optimized to boot every Intel-based macOS releases to this date without extra Quirks and patches. The settings provided are specific to the HP ProDesk 400 G1 and may not be applicable to your computer.
 
@@ -620,7 +620,17 @@ The following Quirks are used:
 
 </details>
 
-### Other Repositories
+### xi. Screenshots
+
+    <p float="left">
+        <img src="./Docs/HP-Z640-macOS-Sonoma-14.5.png" alt="Neofetch & About This Mac" width="1000">
+	<img src="./Docs/OpenCore-Boot-Picker.png" alt="Multiboot: Windows 11, Ubuntu, Fedora, ESXi, Proxmox, and macOS" width="1000">
+	<img src="./Docs/HP-Z640-macOS-Sequoia-15-DP1.png" alt="Experimental support of macOS Sequoia" width="1000">
+    </p>
+
+</br>
+
+### xii. Other Repositories
 
 - **Haswell-Hackintosh-every-macOS repository:**
   - [b00t0x/MSI-Z97M-Hackintosh-every-macOS](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS)
@@ -635,7 +645,7 @@ The following Quirks are used:
 
 </br>
 
-### Credits
+### xiii. Credits
 
 #### Credit to all these great people whom I don't know but have made my hackintosh dreams a reality:
 
@@ -646,16 +656,6 @@ The following Quirks are used:
 - [Mieze](https://github.com/Mieze) for [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
 - And every other contributor
-
-</br>
-
-### Screenshots
-
-    <p float="left">
-        <img src="./Docs/HP-Z640-macOS-Sonoma-14.5.png" alt="Neofetch & About This Mac" width="1000">
-	<img src="./Docs/OpenCore-Boot-Picker.png" alt="Multiboot: Windows 11, Ubuntu, Fedora, ESXi, Proxmox, and macOS" width="1000">
-	<img src="./Docs/HP-Z640-macOS-Sequoia-15-DP1.png" alt="Experimental support of macOS Sequoia" width="1000">
-    </p>
 
 </br>
 
