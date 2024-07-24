@@ -58,7 +58,8 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 5. [Installation](#5-installation)
 	1. [UEFI Settings](#i-uefi-settings)
 	2. [macOS Installation](#ii-macos-installation)
-		- [Mac OS X Tiger](#setting-up-the-installer-5)
+		- [Mac OS X Tiger](#mac-os-x-tiger)
+		- [Mac OS X Leopard](#mac-os-x-leopard)
 
 </br>
 
@@ -761,7 +762,7 @@ sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_ke
 <details>
 <summary><strong>Mac OS X Leopard (10.5.7)</strong></summary>
 
-</br>
+#### Mac OS X Leopard
 
 We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5.7.
 
