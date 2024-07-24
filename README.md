@@ -303,9 +303,9 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 ### vi. Kernel
 
-Mac OS X Tiger cannot run on this computer with vanilla mach_kernel, it needs a custom kernel from the early hackintosh distros. I used [8.9.1 kernel SSE3 apr18]() custom kernel extracted from [XxX OS x86 10.4.11](https://archive.org/details/xxxosx8610point4point11rev2_202007)
+Mac OS X Tiger cannot run on this computer with vanilla mach_kernel, it needs a custom kernel from the early hackintosh distros. I used [8.9.1 kernel SSE3 apr18](Custom%20Kernel/mach_kernel) custom kernel extracted from [XxX OS x86 10.4.11](https://archive.org/details/xxxosx8610point4point11rev2_202007).
 
-Then, we need to replace it with the vanilla `mach_kernel` found on Mac OS X Tiger Installer, on the drive after installation, and after apply each update before rebooting, otherwise you can't boot Mac OS X Tiger.
+Then we need to copy it to the USB installer, to the disk after installation, and after applying each update before rebooting, otherwise you can't boot Mac OS X Tiger.
 
 </br>
 
