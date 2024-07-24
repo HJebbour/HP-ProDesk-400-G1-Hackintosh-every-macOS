@@ -35,26 +35,26 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	2. [Hardware](#ii-hardware)
 	3. [HCL](#iii-hcl)
 3. [Build](#3-build)
-	- [Processor](#processor)
-	- [Graphic Card](#graphic-card)
-	- [Storage](#storage)
-	- [Ethernet](#ethernet)
-	- [Audio](#audio)
-	- [Bluetooth](#bluetooth)
+	1. [Processor](#i-processor)
+	2. [Graphic Card](#ii-graphic-card)
+	3. [Storage](#iii-storage)
+	4. [Ethernet](#iv-ethernet)
+	5. [Audio](#v-audio)
+	6. [Bluetooth](#vi-bluetooth)
 4. [Contents](#4-contents)
-	- [This is a Guide!](#this-is-a-guide)
-	- [This is not a Guide!](#this-is-not-a-guide)
-	- [Working](#working)
-	- [Not Working](#not-working)
-	- [Software](#software)
-	- [Kernel](#kernel)
-	- [ACPI](#acpi)
-	- [Kext](#kext)
-	- [UEFI Drivers](#uefi-drivers)
-	- [config.plist](#configplist)
-	- [Other Repositories](#other-repositories)
-	- [Credits](#credits)
-	- [Screenshots](#screenshots)
+	1. [This is a Guide!](#this-is-a-guide)
+	2. [This is not a Guide!](#this-is-not-a-guide)
+	3. [Working](#working)
+	4. [Not Working](#not-working)
+	5. [Software](#software)
+	6. [Kernel](#kernel)
+	7. [ACPI](#acpi)
+	8. [Kext](#kext)
+	9. [UEFI Drivers](#uefi-drivers)
+	10. [config.plist](#configplist)
+	11. [Other Repositories](#other-repositories)
+	12. [Credits](#credits)
+	13. [Screenshots](#screenshots)
 5. [Installation](#5-installation)
 	- [UEFI Settings](#uefi-settings)
 	- [macOS Installation](#macos-installation)
@@ -148,13 +148,13 @@ This is an overview of hardware compatibility list for all Intel-based macOS.
 
 ## 3. Build
 
-### Processor
+### i. Processor
 
 The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. Although it needs a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
 
 </br>
 
-### Graphic Card
+### ii. Graphic Card
 
 This is the tricky part. I needed a GPU that is natively compatible with Tiger and can be patched with OCLP in Sonoma. I checked Dortania GPU Buyers Guide both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/).
 
@@ -171,7 +171,7 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 
 </br>
 
-### Storage
+### iii. Storage
 
 - The first issue with storage is that AHCI causes a kernel panic with Mac OS X Tiger, so I had to disable `AppleAHCIPort` in the config.plist file and install Tiger on a USB flash drive.
 - The second issue, it is a weird one! 1/2 times OS X Mountain Lion doesn't detect my 2TB SSD and thus I got stuck at "Waiting for root device", I installed Mountain Lion on a 128 GB SSD.
@@ -179,7 +179,7 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 
 </br>
 
-### Ethernet
+### iv. Ethernet
 
 It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all macOS versions. I had to use three different kexts:
 - [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard while forcing `IONetworkingFamily`.
@@ -188,7 +188,7 @@ It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all
 
 </br>
 
-### Audio
+### v. Audio
 
 On-board audio Realtek ALC221:
 - Not working on Mac OS X Leopard and Tiger! Consider using a USB DAC headset/speaker for audio funcionality.
@@ -197,7 +197,7 @@ On-board audio Realtek ALC221:
 
 </br>
 
-### Bluetooth
+### vi. Bluetooth
 
 CSR8510 A10 4.0 USB dongle:
 - Works natively on Mac OS X Tiger until macOS Big Sur.
