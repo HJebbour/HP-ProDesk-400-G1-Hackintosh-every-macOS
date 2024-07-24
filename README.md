@@ -369,6 +369,8 @@ In this section I am going to explain every setting used in `config.plist` to gi
 <details> 
 <summary><strong>ACPI</strong></summary>
 
+#### ACPI
+
 #### Add
 `SSDT-EC.aml`
 
