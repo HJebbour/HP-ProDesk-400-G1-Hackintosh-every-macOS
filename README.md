@@ -83,7 +83,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 ### i. Features
 
-- Same **hardware** configuration: No need to swap GPU cards, Ethernet cards.
+- Same **hardware** configuration: No need to swap GPU cards or Ethernet cards.
 - Same **BIOS** configuration: No need to change BIOS configuration to run a specific macOS version.
 - Same **connectors**: No need to switch video output, LAN, USB to run a specific macOS version.
 - Same **bootloader**: No need to use different bootloader like Chameleon or Clover for older macOS versions. OpenCore covers all Intel macOS releases.
