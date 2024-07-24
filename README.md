@@ -661,7 +661,7 @@ The following Quirks are used:
 
 ## 5. Installation
 
-### UEFI Settings
+### i. UEFI Settings
 
 **Security**
 
@@ -686,7 +686,7 @@ The following Quirks are used:
 
 </br>
 
-### macOS Installation
+### ii. macOS Installation
 
 The installation of macOS differs from one version to another, some versions need a specific SMBIOS to install, others have installation problems for various reasons, in particular legacy macOS (macOS Sierra and earlier).
 
@@ -698,6 +698,7 @@ The macOS installation will be chronological.
 
 <details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
+	
 #### Mac OS X Tiger
 </br>
 
