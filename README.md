@@ -56,8 +56,8 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	12. [Other Repositories](#xii-other-repositories)
 	13. [Credits](#xiii-credits)
 5. [Installation](#5-installation)
-	- [UEFI Settings](#uefi-settings)
-	- [macOS Installation](#macos-installation)
+	1. [UEFI Settings](#i-uefi-settings)
+	2. [macOS Installation](#ii-macos-installation)
 		- [OS X Mavericks](#setting-up-the-installer-5)
 
 </br>
@@ -698,7 +698,7 @@ The macOS installation will be chronological.
 
 <details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
-
+#### Mac OS X Tiger
 </br>
 
 Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot.
