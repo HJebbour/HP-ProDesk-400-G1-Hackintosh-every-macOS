@@ -700,7 +700,6 @@ The macOS installation will be chronological.
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
 	
 #### Mac OS X Tiger
-</br>
 
 Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot.
 
