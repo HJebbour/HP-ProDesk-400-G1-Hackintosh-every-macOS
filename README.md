@@ -52,15 +52,12 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	8. [Kext](#viii-kext)
 	9. [UEFI Drivers](#ix-uefi-drivers)
 	10. [config.plist](#x-configplist)
-		- [ACPI](#acpi)
 	12. [Screenshots](#xi-screenshots)
 	13. [Other Repositories](#xii-other-repositories)
 	14. [Credits](#xiii-credits)
 5. [Installation](#5-installation)
 	1. [UEFI Settings](#i-uefi-settings)
 	2. [macOS Installation](#ii-macos-installation)
-		- [Mac OS X Tiger](#mac-os-x-tiger)
-		- [Mac OS X Leopard](#mac-os-x-leopard)
 
 </br>
 
@@ -369,8 +366,6 @@ In this section I am going to explain every setting used in `config.plist` to gi
 
 <details> 
 <summary><strong>ACPI</strong></summary>
-
-#### ACPI
 
 #### Add
 `SSDT-EC.aml`
@@ -703,7 +698,7 @@ The macOS installation will be chronological.
 <details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
 	
-#### Mac OS X Tiger
+</br>
 
 Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot.
 
@@ -765,7 +760,7 @@ sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_ke
 <details>
 <summary><strong>Mac OS X Leopard (10.5.7)</strong></summary>
 
-#### Mac OS X Leopard
+</br>
 
 We need to change the SMBIOS to `MacBookPro5,3` to install Mac OS X Leopard 10.5.7.
 
