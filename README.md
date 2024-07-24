@@ -650,13 +650,13 @@ The following Quirks are used:
 
 - The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
 - [Apple](http://apple.com) for macOS
-- [CorpNewt](https://github.com/corpnewt) for [USBMap](https://github.com/corpnewt/USBMap)
+- [CorpNewt](https://github.com/corpnewt) for [USBMap](https://github.com/corpnewt/USBMap) and [gibMacOS](https://github.com/corpnewt/gibMacOS)
 - [headkaze](https://github.com/headkaze) for [Hackintool](https://github.com/headkaze/Hackintool)
 - [Mieze](https://github.com/Mieze) for [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
 - [RehabMan](https://github.com/RehabMan) for old versions of [RealtekRTL8111](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/)
 - [dosdude1](https://github.com/dosdude1) and [chris1111](https://github.com/chris1111) for Mojave/Catalina Legacy Video Patcher
 - [dmitri-arekhta](https://sourceforge.net/u/dmitri-arekhta/profile) for 32-bit of [RealtekR1000](https://sourceforge.net/projects/realtekr1000)
-- [](https://github.com/khronokernel) for [Legacy Kexts](https://github.com/khronokernel/Legacy-Kexts)
+- [khronokernel](https://github.com/khronokernel) for [Legacy Kexts](https://github.com/khronokernel/Legacy-Kexts)
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
 - And every other contributor
 
@@ -689,7 +689,7 @@ The following Quirks are used:
 **Advanced**
 
 - **Onboard Devices**
-  - `Serial Port A` **Enabled**
+  - `Serial Port A` **Disabled**
 
 - **Device Options**
   - `Integrated Video` **Disabled**
