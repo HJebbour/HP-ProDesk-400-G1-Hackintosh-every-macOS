@@ -31,9 +31,9 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 
 1. [Introduction](#1-introduction)
 2. [Summary](#2-summary)
-	- [Features](#features)
-	- [Hardware](#hardware)
-	- [HCL](#hcl)
+	1. [Features](#i-features)
+	2. [Hardware](#ii-hardware)
+	3. [HCL](#iii-hcl)
 3. [Build](#3-build)
 	- [Processor](#processor)
 	- [Graphic Card](#graphic-card)
@@ -82,7 +82,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 ## 2. Summary
 
-### Features
+### i. Features
 
 - Same **hardware** configuration: No need to swap GPU cards, Ethernet cards.
 - Same **BIOS** configuration: No need to change BIOS configuration to run a specific macOS version.
@@ -92,7 +92,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 </br>
 
-### Hardware
+### ii. Hardware
 
 #### HP ProDesk 400 G1
 These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
@@ -110,7 +110,7 @@ These are relevant components on my machine which may differ from yours, keep th
 
 </br>
 
-### HCL
+### iii. HCL
 This is an overview of hardware compatibility list for all Intel-based macOS.
 
 | macOS | i7-4770 | AHCI SATA SSD | Quadro FX 5600 | RTL8151GH-CG | ALC221 | CSR8510 A10 4.0 |
