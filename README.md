@@ -30,18 +30,18 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Summary](#summary)
+2. [Summary](#2-summary)
 	- [Features](#features)
 	- [Hardware](#hardware)
 	- [HCL](#hcl)
-- [Build](#build)
+3. [Build](#3-build)
 	- [Processor](#processor)
 	- [Graphic Card](#graphic-card)
 	- [Storage](#storage)
 	- [Ethernet](#ethernet)
 	- [Audio](#audio)
 	- [Bluetooth](#bluetooth)
-- [Contents](#contents)
+4. [Contents](#4-contents)
 	- [This is a Guide!](#this-is-a-guide)
 	- [This is not a Guide!](#this-is-not-a-guide)
 	- [Working](#working)
@@ -55,7 +55,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	- [Other Repositories](#other-repositories)
 	- [Credits](#credits)
 	- [Screenshots](#screenshots)
-- [Installation](#installation)
+5. [Installation](#5-installation)
 	- [UEFI Settings](#uefi-settings)
 	- [macOS Installation](#macos-installation)
 		- [OS X Mavericks](#setting-up-the-installer-5)
@@ -80,7 +80,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 </br>
 
-## Summary
+## 2. Summary
 
 ### Features
 
@@ -146,7 +146,7 @@ This is an overview of hardware compatibility list for all Intel-based macOS.
 
 </br>
 
-## Build
+## 3. Build
 
 ### Processor
 
@@ -205,7 +205,7 @@ CSR8510 A10 4.0 USB dongle:
 
 </br>
 
-## Contents
+## 4. Contents
 
 ### This is not a Guide!
 
@@ -659,7 +659,7 @@ The following Quirks are used:
 
 </br>
 
-## Installation
+## 5. Installation
 
 ### UEFI Settings
 
