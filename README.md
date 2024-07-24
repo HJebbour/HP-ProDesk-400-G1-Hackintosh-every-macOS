@@ -689,13 +689,13 @@ The following Quirks are used:
 
 ### macOS Installation
 
-The installation of macOS differs from version to others, some version needs a specific SMBIOS to install, others have the installation issue.
+The installation of macOS differs from one version to another, some versions need a specific SMBIOS to install, others have installation problems for various reasons, in particular legacy macOS (macOS Sierra and earlier).
 
-In this section I will explain in details how to prepare the installer, install each version of macOS, and apply updates and patches. Please note that these steps may not apply to you.
+In this section, I will explain in detail how to prepare the installer, install each version of macOS and apply updates and patches. Please note that these steps may not apply to you.
 
-**It is recommanded to install all available updates on macOS Mojave and later and then apply the patches.**
+**It is recommanded to install all available updates on macOS Mojave and later, and then apply the patches, otherwise you will have to re-apply the patches after each update.**
 
-The installation will be chronological.
+The macOS installation will be chronological.
 
 <details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
