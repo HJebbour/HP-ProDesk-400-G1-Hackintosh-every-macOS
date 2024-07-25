@@ -208,18 +208,18 @@ CSR8510 A10 4.0 USB dongle:
 
 ### i. This is not a Guide!
 
-This is not a guide. It shoud only be used as a reference or if you have the exact same machine. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
+This is not a guide. It shoud only be used as a reference or if you have the exact same machine. I give a few tips and tricks I've learned on my journey into building a hackintosh. The best way of using this is as a companion to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
 
 I understand that some may simply add the OC and Boot folders to their EFI folder. For clarity the EFI partition needs a folder called EFI that contains the Boot and OC folder.
 
-```EFI
-EFI (drive)
+```
+EFI (partition)
 	EFI
 	├── BOOT
 	├── OC
 ```
 
-It should work and your HP ProDesk 400 G1 should boot and work fine. **You will at minimum need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the [Dortania](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html) guide. Best of luck.
+It should work and your HP ProDesk 400 G1 should boot and operate correctly. **At the very least, you'll need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the [Dortania](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html) guide. Best of luck.
 
 > **NOTE** if you simply wish to copy my EFI please do the following:
 >
@@ -233,7 +233,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 ### ii. This is a Guide!
 
-**If you have a slightly different computer you should follow the one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
+**If you have a slightly different computer, you should follow the one and only guide to macOS installation guide provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
 
 </br>
 
@@ -242,7 +242,7 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 > #### Video and Audio
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Full Graphics Accleration (QE/CI) | ✅ | `NVinject.kext`, `WhateverGreen.kext`, and NVIDIA legacy patching `NVCAP` | NVIDIA Quadro FX 5600 is natively supported on Mac OS X Tiger up to macOS High Sierra, and needs patchers with macOS Mojave and later |
+| Full Graphics Accleration (QE/CI) | ✅ | `NVinject.kext`, `WhateverGreen.kext`, and NVIDIA legacy patching `NVCAP` | NVIDIA Quadro FX 5600 is natively supported on Mac OS X Tiger through to macOS High Sierra, and needs patchers with macOS Mojave and later |
 | Audio Output (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext` | Not working on Mac OS X Tiger and Leopard |
 | Audio Input (Front/Back) | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
 | Internal Speaker | ✅ | `SSDT-HPET.aml`, `AppleALC.kext` with Layout ID = 11 and `VoodooHDA-FAT.kext | Not working on Mac OS X Tiger and Leopard |
@@ -257,15 +257,14 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 > #### Connectivity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Bluetooth | ✅ | `BlueToolFixup.kext` | CSR 4.0 Bluetooth USB dongle is natively supported on Mac OS X Tiger until macOS Big Sur, `BlueToolFixup.kext` is needed on macOS Monterey and later |
+| Bluetooth | ✅ | `BlueToolFixup.kext` | CSR 4.0 Bluetooth USB dongle is natively supported on Mac OS X Tiger through to macOS Big Sur, `BlueToolFixup.kext` is required on macOS Monterey and later |
 | Ethernet | ✅ | `RealtekR1000.kext`, `RealtekRTL8111-SL.kext`, and `RealtekRTL8111.kext` | - |
 | USB 2.0 / USB 3.0 | ✅ | `USBMap.kext` | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
 
 > #### Miscellaneous
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Multiple Boot | ✅ | - | macOS, Windows, and Linux distributions (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
-| Boot chime | ✅ | - | Working like a charme |
+| Boot chime | ✅ | - | Works like a charme |
 
 </br>
 
@@ -302,9 +301,9 @@ It should work and your HP ProDesk 400 G1 should boot and work fine. **You will 
 
 ### vi. Kernel
 
-Mac OS X Tiger cannot run on this computer with vanilla mach_kernel, it needs a custom kernel from the early hackintosh distros. I used [8.9.1 kernel SSE3 apr18](Custom%20Kernel/mach_kernel) custom kernel extracted from [XxX OS x86 10.4.11](https://archive.org/details/xxxosx8610point4point11rev2_202007).
+Mac OS X Tiger cannot run on this computer with vanilla kernel, it needs a custom kernel from the early hackintosh distros. I used [8.9.1 kernel SSE3 apr18](Custom%20Kernel/mach_kernel) custom kernel extracted from [XxX OS x86 10.4.11](https://archive.org/details/xxxosx8610point4point11rev2_202007).
 
-Then we need to copy it to the USB installer, to the disk after installation, and after applying each update before rebooting, otherwise you can't boot Mac OS X Tiger.
+Then we need to copy it to the USB installer, to the disk after installation, and after applying each update before rebooting, otherwise you won't be able to boot Mac OS X Tiger.
 
 </br>
 
@@ -357,11 +356,11 @@ Then we need to copy it to the USB installer, to the disk after installation, an
 
 ### x. config.plist
 
-The following `config.plist` has been optimized to boot every Intel-based macOS releases to this date without extra Quirks and patches. The settings provided are specific to the HP ProDesk 400 G1 and may not be applicable to your computer.
+The following `config.plist` has been optimized to boot all Intel-based macOS releases without extra Quirks and patches. The settings provided are specific to the HP ProDesk 400 G1 and may not be applicable to your computer.
 
-Please refer to [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) and [OpenCore Reference Manual](https://dortania.github.io/docs/latest/Configuration.html) to adjust your `config.plist` to your system.
+Please refer to [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) and [OpenCore Reference Manual](https://dortania.github.io/docs/latest/Configuration.html) to adapt your `config.plist` to your system.
 
-In this section I am going to explain every setting used in `config.plist` to give you an overview about this hackintosh.
+In this section I will explain each parameter used in `config.plist` to give you an overview of this hackintosh.
 
 <details> 
 <summary><strong>ACPI</strong></summary>
@@ -390,7 +389,7 @@ These patches are generated when choosing SSDT-HPET patch with SSDTTime.
 <summary><strong>Booter</strong></summary>
 
 #### Patch
-Because `-no_compat_check` disables system updates, it is better to apply this [patch](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/432736eb98d7f8f69b5db229fcec861aceb356a4/payloads/Config/config.plist#L220-L267) from OpenCore Legacy Patcher.
+As `-no_compat_check` disables system updates, it is best to apply this [patch](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/432736eb98d7f8f69b5db229fcec861aceb356a4/payloads/Config/config.plist#L220-L267) from OpenCore Legacy Patcher.
 
 | Comment                  | Find                                                                                           | Replace                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -421,7 +420,9 @@ The following Quirks are used:
 <details> 
 <summary><strong>DeviceProperties</strong></summary>
 
-Use your own patch if you have a different GPU using [this](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching) guide. However, this patch is not effective for Mac OS X Tiger 10.4, `NVinject.kext` is required.
+</br>
+
+Use your own [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching) if you have a different GPU. However, this patch is not applicable for Mac OS X Tiger 10.4, `NVinject.kext` is required.
 
 #### PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)
 
@@ -469,7 +470,7 @@ Please refer to the [Kernel Support Table](https://dortania.github.io/OpenCore-I
 | x86_64 | RestrictEvents.kext    | 20.0.0    |           |
 
 #### Block
-Blocking kexts to avoid kernel panic on Mac OS X Tiger 10.4 and Mac OS X Leopard 10.5. This results in AHCI being unusable in Mac OS X Tiger 10.4, requiring to install it on an USB drive.
+Blocking kexts to prevent kernel panic on Mac OS X Tiger 10.4 and Mac OS X Leopard 10.5. As a result, AHCI is unusable in Mac OS X Tiger 10.4, and must be installed on a USB drive.
 
 | Arch | Identifier                     | MinKernel | MaxKernel | Strategy  |
 | ---- | ------------------------------ | --------- | --------- | --------- |
@@ -477,21 +478,21 @@ Blocking kexts to avoid kernel panic on Mac OS X Tiger 10.4 and Mac OS X Leopard
 | i386 | com.apple.driver.EFIRuntime    | 8.0.0     | 9.99.99   | Disable   |
 
 #### Force
-Force loading `IONetworkingFamily.kext` to allow Ethernet to work on OS X Yosemite 10.10 and earlier.
+Force loading `IONetworkingFamily.kext` to allow Ethernet to run on OS X Yosemite 10.10 and earlier.
 
 | Arch | BundlePath                                        | Identifier                         | ExecutablePath                    | PlistPath           | MinKernel | MaxKernel |
 | ---- | ------------------------------------------------- | ---------------------------------- | --------------------------------- | ------------------- | --------- | --------- |
 | Any  | System/Library/Extensions/IONetworkingFamily.kext | com.apple.iokit.IONetworkingFamily | Contents/MacOS/IONetworkingFamily | Contents/Info.plist | 8.0.0     | 14.99.99  |
 
 #### Patch
-`DummyPowerManagement` is required for Mac OS X Snow Leopard 10.6.6 and earlier (10.6.7 and 10.6.8 doesn't need this patch) in order to avoid kernel panic. Instead of enabling it in `Emulate`, an equivalent patch is applied so we can only target 10.6.6 and earlier.
+`DummyPowerManagement` is required for Mac OS X Snow Leopard 10.6.6 and earlier (10.6.7 and 10.6.8 do not need this patch) to avoid kernel panic. Instead of enabling it in `Emulate`, an equivalent patch is applied to target only 10.6.6 and earlier.
 
 | Arch | Identifier                                    | Base                                                 | Replace       | MinKernel | MaxKernel | Count |
 | ---- | --------------------------------------------- | ---------------------------------------------------- | ------------- | --------- | --------- | ----- |
 | Any  | com.apple.driver.AppleIntelCPUPowerManagement | __ZN28AppleIntelCPUPowerManagement5startEP9IOService | B8010000 00C3 | 8.0.0     | 10.6.99   | 1     |
 
 #### Emulate
-Haswell is unsupported in Mac OS X Lion 10.7 and Mac OS X Snow Leopard 10.6, we need to spoof Nehalem (`0x0106A2`) CPUID. Interestingly, using Nehalem's CPUID instead of Ivy Bridge or Sandy Bridge avoids the need for `DummyPowerManagement`. CPUID spoofing is not needed in Mac OS X Tiger 10.4 and Leopard 10.5.
+Haswell is not supported in Mac OS X Lion 10.7 and Mac OS X Snow Leopard 10.6, we need to spoof Nehalem (`0x0106A2`) CPUID. Interestingly, using Nehalem's CPUID instead of Ivy Bridge or Sandy Bridge avoids the need for `DummyPowerManagement`. CPUID spoofing is not required in Mac OS X Tiger 10.4 and Leopard 10.5.
 
 - Cpuid1Data: `A2060100 00000000 00000000 00000000`
 
@@ -514,15 +515,15 @@ The following Quirks are used:
 <summary><strong>Misc</strong></summary>
 
 #### Boot
-These parameters are not essential, just preferences, you can use my config as is, and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization.
+These settings are not essential, they are just preferences, you can use my configuration as is, and refer to [Dortania](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) guide for more customization.
 
-If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor ratio. This adjustment is made because the NVIDIA Quadro FX 5600 lacks GOP, limiting the bootloader to display only up to 1280x1024. This causes distortion on a 16:9 or 16:10 display, so the icon aspect ratio is modified.
+If you don't have a 4:3 monitor, set `PickerVariant` to `GeldenGateExt_16-9` or `GeldenGateExt_16-10` depending on your monitor's ratio. This adjustment is made because the NVIDIA Quadro FX 5600 has no GOP, which limits the bootloader to display only 1280x1024 or 800x600. This causes distortion on a 16:9 or 16:10 display, which is why the aspect ratio of the icon is modified.
 
 #### Debug
 All debug and logging settings are disabled.
 
 #### Security
-`SecureBootModel` needs to be disabled to allow the execution of OCLP.
+`SecureBootModel` must be disabled for OCLP to run.
 
 </details>
 
@@ -555,7 +556,7 @@ For more details on `revpatch=sbvmm`, refer to [RestrictEvents](https://github.c
 <summary><strong>PlatformInfo</strong></summary>
 
 #### Generic
-The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used earlier it can boots all macOS releases. Although, some versions of macOS cannot be installed with this SMBIOS, you need to choose a compatible SMBIOS during installation, we will discuss this further in the [macOS Installation](#macos-installation) section below.
+The adequate SMBIOS for this computer is `iMac15,1`, with this SMBIOS and the [patches](#patch-1) used previously, it can boot all macOS releases. Although some versions of macOS cannot be installed with this SMBIOS, you should choose a compatible SMBIOS during installation, we will discuss this further in the [macOS Installation](#macos-installation) section below.
 
 **You need to generate your own Serial Number using [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**
 
@@ -572,7 +573,7 @@ By default, OpenCore only loads APFS drivers from macOS Big Sur and newer. If yo
 - MinVersion: `-1`
 
 #### Audio
-The following settings with `AudioDxe.efi` driver enables the Boot-chime.
+The following settings and `AudioDxe.efi` driver enable the Boot-chime.
 
 - AudioDevice: `PciRoot(0x0)/Pci(0x1B,0x0)`
 
@@ -595,7 +596,7 @@ The following settings with `AudioDxe.efi` driver enables the Boot-chime.
 - Connect Drivers: `True`
 
 #### Input
-The following settings enables the usage of the Mouse and Keyboard in OpenCore boot picker.
+The following settings enable you to use the mouse and keyboard in OpenCore boot picker.
 
 - KeyForgetThreshold: `5`
 
