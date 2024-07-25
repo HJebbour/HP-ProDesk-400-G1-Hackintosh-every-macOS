@@ -1299,7 +1299,7 @@ Install all available updates using "Mac App Store".
 
 </br>
 
-Starting from macOS High Sierra, the preparation of the installer process changes and the `createinstallmedia` tool no longer causes installation issues. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later which we need to address.
+Starting with macOS High Sierra, the preparation of the installer process changes and the `createinstallmedia` tool no longer causes installation issues. There's also a bug with APFS on High Sierra causing issues with macOS Big Sur and later, which we need to address.
 
 You will find below the steps on how to proceed.
 
@@ -1316,7 +1316,7 @@ You will find below the steps on how to proceed.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS High Sierra packages you just downloaded.
+- Build the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS High Sierra packages you've just downloaded.
 
 - Move `Install macOS High Sierra.app` to your `/Applications` folder.
 
@@ -1328,13 +1328,13 @@ Replace `MyVolume` with your USB drive name.
 
 #### Installation
 
-Install macOS High Sierra using normal procedure.
+Install macOS High Sierra following normal procedure.
 
 #### Post-Installation
 
 - Install all available updates using "Mac App Store".
 
-With macOS High Sierra, Apple introduced APFS instead of HFS+, High Sierra will cause issues with macOS Big Sur and newer volumes as described [here](https://github.com/Macschrauber/Macschrauber-s-Rom-Dump/blob/main/Rename_and_repair_preboot.md). To avoid this issue, follow the below steps:
+With macOS High Sierra, Apple has introduced APFS instead of HFS+, High Sierra will cause issues with macOS Big Sur and newer volumes, as described [here](https://github.com/Macschrauber/Macschrauber-s-Rom-Dump/blob/main/Rename_and_repair_preboot.md). To prevent this issue, follow the steps below:
 
 - Create partitions for macOS Big Sur and later and format them as APFS.
 
@@ -1365,7 +1365,7 @@ sudo touch -t 203009042358 /System/Library/CoreServices/PlatformSupport.plist
 
 </br>
 
-The preparation of the installer and the installation of macOS Mojave is similar to macOS High Sierra. But starting with macOS Mojave we need to apply a patch to enable GPU acceleration.
+Preparing the installer and installing macOS Mojave is similar to macOS High Sierra. But starting with macOS Mojave, we need to apply a patch to enable GPU acceleration.
 
 You will find below the steps on how to proceed.
 
@@ -1380,7 +1380,7 @@ You will find below the steps on how to proceed.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Mojave packages you just downloaded.
+- Build the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Mojave packages you've just downloaded.
 
 - Move `Install macOS Mojave.app` to your `/Applications` folder.
 
@@ -1392,19 +1392,19 @@ Replace `MyVolume` with your USB drive name.
 
 #### Installation
 
-Install macOS Mojave using normal procedure.
+Install macOS Mojave following normal procedure.
 
 #### Post-Installation
 
 - Install all available updates using "Software Update" in System Settings.
 
-Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular Nvidia Tesla graphic cards, which means we will not have graphic acceleration after installation. Fortunately, [dosdude1](http://dosdude1.com/mojave/) released a patcher for unsupported macs. But, it is better to use [chris1111](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave) tool (which is extracted from dosdude1 macOS Mojave Patcher) because the dosdude1 patcher installs kext and files specifically for Mac's customers, hackintosh only need GPU kexts and OpenCore does the rest of the work.
+Starting with macOS Mojave, Apple has dropped support for Legacy GPUs, in particular Nvidia Tesla graphic cards, which means we will not get graphic acceleration after installation. Fortunately, [dosdude1](http://dosdude1.com/mojave/) has released a patcher for unsupported Macs. But, it is best to use the [chris1111](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave) tool (which is extracted from dosdude1 macOS Mojave Patcher) because the dosdude1 patcher installs kext and files specifically for Mac's customers, hackintosh only need GPU kexts and OpenCore does the rest of the work.
 
 - Download [Fix Old NVIDIA macOS Mojave](https://github.com/chris1111/Fix-Old-NVIDIA-macOS-Mojave/releases/tag/V1).
 
 - Install the patch (choose `macOS Mojave-10.14(5-6)`).
 
-- You should have graphic acceleration after you restart your computer.
+- You should benefit from graphics acceleration after restarting your computer.
 
 </details>
 
@@ -1413,7 +1413,7 @@ Starting with macOS Mojave, Apple dropped support of Legacy GPUs in particular N
 
 </br>
 
-The preparation of the installer and the installation of macOS Catalina is similar to macOS Mojave. But Catalina needs AMFI disabled to allow the patch to work.
+Preparing the installer and installing macOS Catalina is similar to macOS Mojave. But Catalina requires AMFI to be disabled for the patch to work.
 
 You will find below the steps on how to proceed.
 
@@ -1428,7 +1428,7 @@ You will find below the steps on how to proceed.
 
 - At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Make the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Catalina packages you just downloaded.
+- Build the installer using the `BuildmacOSInstallApp.command` script from `gibMacOS` and choose the folder containing macOS Catalina packages you've just downloaded.
 
 - Move `Install macOS Catalina.app` to your `/Applications` folder.
 
@@ -1440,13 +1440,13 @@ Replace `MyVolume` with your USB drive name.
 
 #### Installation
 
-Install macOS Catalina using normal procedure.
+Install macOS Catalina following normal procedure.
 
 #### Post-Installation
 
 - Install all available updates using "Software Update" in System Settings.
 
-[dosdude1](http://dosdude1.com/catalina/) released a patcher for unsupported macs on macOS Catalina. But, it is better to use [chris1111's](https://github.com/chris1111/Legacy-Video-patch) Legacy Video Patch tool (which is extracted from dosdude1 macOS Catalina Patcher) because the dosdude1 patcher installs kext and files specifically for Mac's customers, hackintosh only need GPU kexts and OpenCore does the rest of the work.
+[dosdude1](http://dosdude1.com/catalina/) has released a patcher for unsupported Macs on macOS Catalina. But, it is better to use [chris1111's](https://github.com/chris1111/Legacy-Video-patch) Legacy Video Patch tool (which is extracted from dosdude1 macOS Catalina Patcher) because dosdude1's patcher installs kext and files specifically for Mac's customers, hackintosh only need GPU kexts and OpenCore does the rest of the work.
 **[dosdude1](http://dosdude1.com/catalina/) macOS Catalina Patcher caused a crash on my computer so I had to use [chris1111's](https://github.com/chris1111/Legacy-Video-patch) tool anyway**
 
 - Download [Legacy Video Patch](https://github.com/chris1111/Legacy-Video-patch/archive/refs/heads/master.zip).
@@ -1455,7 +1455,7 @@ Install macOS Catalina using normal procedure.
 	- Get the root volume UUID with this command: `diskutil info / | grep 'Volume UUID'`
 	- Get the Preboot volume identifier using this command: `diskutil list | grep Preboot`
 	- Mount the Preboot volume: `diskutil mount disk3s4` (replace "disk3s4" with your Preboot identifier)
-	- Open `com.apple.Boot.plist` file: `sudo vim /Volumes/Preboot/UUID/Library/Preferences/SystemConfiguration/com.apple.Boot.plist` (replace "UUID" with your actual UUID retreived earlier)
+	- Open `com.apple.Boot.plist` file: `sudo vim /Volumes/Preboot/UUID/Library/Preferences/SystemConfiguration/com.apple.Boot.plist` (replace "UUID" with your actual UUID obtained earlier)
 	- Add `amfi=0x80` to the `Kernel Flags` in the `com.apple.Boot.plist` file as follows:
 		```
 		<key>Kernel Flags</key>
@@ -1468,7 +1468,7 @@ Install macOS Catalina using normal procedure.
 
 - Install the patch.
 
-- You should have graphic acceleration after you restart your computer.
+- You should benefit from graphics acceleration after restarting your computer.
 
 </details>
 
@@ -1477,7 +1477,7 @@ Install macOS Catalina using normal procedure.
 
 </br>
 
-The preparation of the installer and the installation of macOS Big Sur is similar to macOS Catalina. But starting with macOS Big Sur we will use OpenCore Legacy Patcher to patch our GPU, which make it easier that Mojave/Catalina.
+The preparation of the installer and the installation of macOS Big Sur is similar to macOS Catalina. But starting with macOS Big Sur we will be using OpenCore Legacy Patcher to patch our GPU, which makes the operation easier than for Mojave/Catalina.
 
 You will find below the steps on how to proceed.
 
@@ -1503,13 +1503,13 @@ Replace `MyVolume` with your USB drive name.
 
 #### Installation
 
-Install macOS Big Sur using normal procedure.
+Install macOS Big Sur following normal procedure.
 
 #### Post-Installation
 
 - Install all available updates using "Software Update" in System Settings.
 
-As with Mojave and Catalina, we need to patch the GPU in order to have graphic acceleration in macOS Big Sur, starting with this release of macOS, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) which is easier to maneuver than the previous patches. We already have our EFI ready for OCLP.
+As with Mojave and Catalina, we need to patch the GPU in order to have graphics acceleration in macOS Big Sur, starting with this version of macOS, we will be using [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/), which is easier to maneuver than previous patches. We already have our EFI ready for OCLP.
 
 - Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
 
@@ -1517,7 +1517,7 @@ As with Mojave and Catalina, we need to patch the GPU in order to have graphic a
 
 - Click on `Post-Install Root Patch` and then click on `Start Root Patching`.
 
-- You should have graphic acceleration after you restart your computer.
+- You should benefit from graphics acceleration after restarting your computer.
 
 </details>
 
