@@ -180,7 +180,7 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 
 ### iv. Ethernet
 
-It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) to work on all versions of macOS. I had to use three different kexts:
+It was a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) to work on all versions of macOS. I had to use three different kexts:
 - [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard while forcing `IONetworkingFamily`.
 - [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard up to macOS High Sierra while forcing `IONetworkingFamily` for Mac OS X Snow Leopard up to Yosemite.
 - [RealtekRTL8111 v2.4.2](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/tag/2.4.2) for macOS Mojave and later.
