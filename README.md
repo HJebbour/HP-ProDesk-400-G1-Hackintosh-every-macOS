@@ -94,7 +94,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 ### ii. Hardware
 
 #### HP ProDesk 400 G1
-These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
+These are relevant components on my machine that may differ from yours, so keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
 
 | Category  | Component                                       |
 | --------- | ----------------------------------------------- |
@@ -149,22 +149,22 @@ This is an overview of hardware compatibility list for all Intel-based macOS.
 
 ### i. Processor
 
-The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. Although it needs a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
+The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. However, you will need a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
 
 </br>
 
 ### ii. Graphic Card
 
-This is the tricky part. I needed a GPU that is natively compatible with Tiger and can be patched with OCLP in Sonoma. I checked Dortania GPU Buyers Guide both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/).
+This was the trickiest part. I needed a GPU that is natively compatible with Tiger and could be patched with OCLP in Sonoma. I consulted Dortania GPU Buyers Guide, for both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/), and here's what I discovered:
 
-- For AMD, I found that the HD 2000 Series are supported natively from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposed supported macOS versions, it turns out legacy AMD GPUs are a hit or a miss even if they are officially supported by Apple, unlike Nvidia legacy should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
+- For AMD, I found that the HD 2000 Series is natively supported from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposedly supported macOS versions, it turns out that legacy AMD GPUs are a hit or a miss even though they are officially supported by Apple, unlike Nvidia's legacy GPUs which should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
 
-- I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. Indeed after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all Intel macOS releases.
-The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are the best suited for this kind of hackintosh, GeForce 8800 GTS 320/640 and Quadro FX 5600 are known to be working.
+- I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently, this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. In fact, after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all versions of Intel-based macOS.
+The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are the best suited to this type of hackintosh, with GeForce 8800 GTS 320/640 and Quadro FX 5600 known to work.
 
-- **Please note that legacy GPUs needs CSM/Legacy Boot turned on in the BIOS settings, otherwise you will have a blank screen when you boot the computer.**
+- **Please note that legacy GPUs need CSM/Legacy Boot to be enabled in the BIOS settings, otherwise you will get a blank screen when you boot the computer.**
 
-- If you don't want to buy an older GPU you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up-to macOS Monterey 12, and can be used on macOS Ventura and Sonoma with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine but without hardware acceleration (QE/CI).
+- If you don't want to buy an old GPU, you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up to macOS Monterey 12, and can be used on macOS Ventura and Sonoma with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine but without hardware acceleration (QE/CI).
 
 - **Fun fact:** If you install Mac OS X Tiger, Leopard, and/or Snow Leopard from another Mac OS X using "OSInstall.mpkg" you will get the welcome video intro without a compatible GPU (hardware acceleration).
 
@@ -172,15 +172,15 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 
 ### iii. Storage
 
-- The first issue with storage is that AHCI causes a kernel panic with Mac OS X Tiger, so I had to disable `AppleAHCIPort` in the config.plist file and install Tiger on a USB flash drive.
-- The second issue, it is a weird one! 1/2 times OS X Mountain Lion doesn't detect my 2TB SSD and thus I got stuck at "Waiting for root device", I installed Mountain Lion on a 128 GB SSD.
-- The other macOS releases can be installed on any SATA SSD without any issues.
+- The first problem with storage is that AHCI causes kernel panic with Mac OS X Tiger, so I had to disable `AppleAHCIPort` for 10.4 in the config.plist file and install Tiger on a USB drive.
+- The second issue is a weird one! 1/2 times OS X Mountain Lion doesn't detect my 2TB SSD and thus I'm stuck at "Waiting for root device", I had to install Mountain Lion on a 128 GB SSD.
+- The other macOS releases can be installed on any SATA SSD without any problem.
 
 </br>
 
 ### iv. Ethernet
 
-It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all macOS versions. I had to use three different kexts:
+It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) to work on all versions of macOS. I had to use three different kexts:
 - [RealtekR1000](https://sourceforge.net/projects/realtekr1000/) for Mac OS X Tiger and Leopard while forcing `IONetworkingFamily`.
 - [Realtek RTL8111 v1.2.3](https://bitbucket.org/RehabMan/os-x-realtek-network/downloads/RehabMan-Realtek-Network-2014-1016.zip) for Mac OS X Snow Leopard up to macOS High Sierra while forcing `IONetworkingFamily` for Mac OS X Snow Leopard up to Yosemite.
 - [RealtekRTL8111 v2.4.2](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/tag/2.4.2) for macOS Mojave and later.
@@ -192,14 +192,14 @@ It is a bit complicated to get my Ethernet (Realtek RTL8151GH-CG) working on all
 On-board audio Realtek ALC221:
 - Not working on Mac OS X Leopard and Tiger! Consider using a USB DAC headset/speaker for audio funcionality.
 - Working on Mac OS X Snow Leopard and Lion using [VoodooHDA-FAT](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
-- Working on OS X Mountain Lion and later using `AppleALC` with layout-id 11.
+- Working on OS X Mountain Lion and later using `AppleALC` with layout-id 11 and `SSDT-HPET.aml`.
 
 </br>
 
 ### vi. Bluetooth
 
 CSR8510 A10 4.0 USB dongle:
-- Works natively on Mac OS X Tiger until macOS Big Sur.
+- Works natively on Mac OS X Tiger through to macOS Big Sur.
 - `BlueToolFixup.kext` is required on macOS Monterey and later.
 
 </br>
