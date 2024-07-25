@@ -788,7 +788,7 @@ You will find bellow the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [10.5.7-9J3050.dmg](https://archive.org/details/10.5.7-9-j-3050) from [Acidanthera Image](https://archive.org/search.php?query=subject%3A%22Mac+DMG+Installer+Restore+Disks%22) (No need to download other images, we can install updates directly from Mac OS X Leopard after installation from Apple Servers).
+- Download [10.5.7-9J3050.dmg](https://archive.org/details/10.5.7-9-j-3050) from [Acidanthera Image](https://archive.org/search.php?query=subject%3A%22Mac+DMG+Installer+Restore+Disks%22) (No need to download other images, we can install updates directly from Mac OS X Leopard after installation from Apple servers).
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
@@ -816,7 +816,7 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s
 
 #### Post-Installation
 
-- Install all available updates including 10.5.8 using "Software Update".
+- Install all available updates, including 10.5.8 using "Software Update".
 
 - As sleep mode does not work in Mac OS X Leopard, it is best to disable it from `System Preferences -> Energy Saver` to prevent the system from freezing after a period of idle time.
 
@@ -838,11 +838,11 @@ You will find bellow the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [10.6.7-10J4139-ACDT-OSX.dmg](https://archive.org/details/10.6.7-10j3250-disk-images) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS X Snow Leopard after installation from Apple Servers).
+- Download [10.6.7-10J4139-ACDT-OSX.dmg](https://archive.org/details/10.6.7-10j3250-disk-images) from [Acidanthera Image](https://archive.org/search.php?query=subject%3A%22Mac+DMG+Installer+Restore+Disks%22) (No need to download other images, we can install updates directly from Mac OS X Snow Leopard after installation from Apple servers).
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Restore `10.6.7-10J4139-ACDT-OSX.dmg` from `~/Downloads/10.6.7-10J4139-ACDT-OSX.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+- Restore `10.6.7-10J4139-ACDT-OSX.dmg` from `~/Downloads/10.6.7-10J4139-ACDT-OSX.dmg` to a USB drive following the steps below using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
 ```
 asr imagescan --source ~/Downloads/10.6.7-10J4139-ACDT-OSX.dmg
 sudo asr restore --source ~/Downloads/10.6.7-10J4139-ACDT-OSX.dmg --target /dev/disk6s4 --erase
@@ -856,11 +856,11 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s
 
 #### Installation
 
-Install Mac OS X Snow Leopard using normal procedure.
+Install Mac OS X Snow Leopard following normal procedure.
 
 #### Post-Installation
 
-Install all available updates including 10.6.8 using "Software Update".
+Install all available updates, including 10.6.8 using "Software Update".
 
 </details>
 
@@ -871,7 +871,7 @@ Install all available updates including 10.6.8 using "Software Update".
 
 The installation of Mac OS X Lion is similar to Mac OS X Leopard, you need a specific SMBIOS.
 
-You will find bellow the steps on how to proceed.
+You will find below the steps on how to proceed.
 
 **References:**
 
@@ -881,17 +881,17 @@ You will find bellow the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [Mac OS X Lion Installer](https://support.apple.com/en-us/106383) from Apple Website.
+- Download [Mac OS X Lion Installer](https://support.apple.com/en-us/106383) from Apple website.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Extract the installer using the following command.
+- Extract the installer using the following commands.
 ```
 cd ~/Downloads
 pkgutil --expand-full "/Volumes/Install Mac OS X/InstallMacOSX.pkg" OSInstaller
 ```
 
-- Restore `InstallESD.dmg` from `~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+- Restore `InstallESD.dmg` from `~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg` to a USB drive following the steps below using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
 ```
 asr imagescan --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
 sudo asr restore --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg --target /dev/disk6s6 --erase
@@ -905,11 +905,11 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ ESD --target /dev/disk6s
 
 #### Installation
 
-- Set the SMBIOS to `iMac12,2` and boot into the installer.
+- Set the SMBIOS to `iMac12,2` and boot Mac OS X Lion installer.
 
-- Install Mac OS X Lion using normal procedure.
+- Install Mac OS X Lion following normal procedure.
 
-- The `iMac12,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
+- The `iMac12,2` SMBIOS needs to be applied during the whole installation process, after the installation, you can go back to `iMac15,1` SMBIOS.
 
 #### Post-Installation
 
@@ -924,7 +924,7 @@ Install all available updates using "Software Update".
 
 The installation of OS X Mountain Lion is similar to Mac OS X Lion, you need a specific SMBIOS.
 
-You will find bellow the steps on how to proceed.
+You will find below the steps on how to proceed.
 
 **References:**
 
@@ -935,17 +935,17 @@ You will find bellow the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [Mac OS X Mountain Lion Installer](https://support.apple.com/en-us/106387) from Apple Website.
+- Download [Mac OS X Mountain Lion Installer](https://support.apple.com/en-us/106387) from Apple website.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Extract the installer using the following command.
+- Extract the installer using the following commands.
 ```
 cd ~/Downloads
 pkgutil --expand-full "/Volumes/Install Mac OS X/InstallMacOSX.pkg" OSInstaller
 ```
 
-- Restore `InstallESD.dmg` from `~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+- Restore `InstallESD.dmg` from `~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg` to a USB drive following the steps below using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
 ```
 asr imagescan --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg
 sudo asr restore --source ~/Downloads/OSInstaller/InstallMacOSX.pkg/InstallESD.dmg --target /dev/disk6s6 --erase
@@ -959,11 +959,11 @@ sudo asr restore --source /Volumes/OS\ X\ Install\ ESD --target /dev/disk6s6 --e
 
 #### Installation
 
-- Set the SMBIOS to `iMac14,2` and boot into the installer.
+- Set the SMBIOS to `iMac14,2` and boot OS X Mountain Lion installer.
 
-- Install OS X Mountain Lion using normal procedure.
+- Install OS X Mountain Lion following normal procedure.
 
-- The `iMac14,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
+- The `iMac14,2` SMBIOS must be applied during the whole installation process, after the installation, you can go back to `iMac15,1` SMBIOS.
 
 #### Post-Installation
 
@@ -978,15 +978,15 @@ There's only one update available that we can install. Download [Security Update
 
 </br>
 
-The preparation of the installer and the installation of OS X Mavericks is the most complicated of all macOS releases, for the following reasons:
+Preparing the installer and installing OS X Mavericks is the most challenging of all macOS versions, for the following reasons:
 
-1. Apple no longer provides the installer, and the only way to download it from Apple is if you already downloaded it in the past from Mac App Store (Purchase History), otherwise you have to download it from a trusted source. [Online Method](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-recovery.html) as proposed by Dortania will not work.
+1. Apple no longer provides the installer, and the only way to download it from Apple is if you've already downloaded it in the past from the Mac App Store (Purchase History), otherwise you will need to download it from a reliable source. The [Online Method](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install-recovery.html) as suggested by Dortania will not work.
 
-2. OS X Mavericks is the first macOS to have the installation problem when we start the installation process due to various issues mentioned [here](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561), up until macOS Sierra you will receive this message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` if you use the `createinstallmedia` tool.
+2. OS X Mavericks is the first macOS to have a problem when we start the installation process due to various issues mentioned [here](https://forums.macrumors.com/threads/app-store-links-and-mas-cli-ids-for-macos-installers-from-lion-to-ventura.2378889/post-32931561), until macOS Sierra you will receive this message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` if you use the `createinstallmedia` tool.
 
 3. You need a specific SMBIOS aswell.
 
-Bellow you will find the steps on how to overcome all the mentioned hiccups.
+You will find below the steps on how to overcome all mentioned obstacles.
 
 **References:**
 
@@ -999,9 +999,9 @@ Bellow you will find the steps on how to overcome all the mentioned hiccups.
 
 **Download from Mac App Store**
 
-If you have previously downloaded OS X Mavericks from the Mac App Store (Purchase History) use the following steps:
+If you have previously downloaded OS X Mavericks from the Mac App Store (Purchase History) proceed as follows:
 
-- Install [Homebrew](http://brew.sh/) if you don't already have it.
+- Install [Homebrew](http://brew.sh/) (if you don't already have it).
 
 - Install [mas-cli](https://github.com/mas-cli/mas):
 
@@ -1011,15 +1011,15 @@ If you have previously downloaded OS X Mavericks from the Mac App Store (Purchas
 
 	`mas install 675248567`
 
-After the download/installation finishes, you will find `Install OS X Mavericks.app` in you `Applications` folder.
+After the download/installation finishes, you will find `Install OS X Mavericks.app` in you `/Applications` folder.
 
 **Download from Archive.org**
 
-If you have never get OS X Mavericks from Mac App Store you can download my uploaded copy (Downloaded using the previous method) on [archive.org](https://archive.org/details/install-os-x-mavericks_675248567).
+If you've never obtained OS X Mavericks from the Mac App Store, you can download my copy (downloaded using the previous method) from [archive.org](https://archive.org/details/install-os-x-mavericks_675248567).
 
 **Prepare the USB drive**
 
-The below method should be used to overcome the error message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` instead of the `createinstallmedia` tool.
+The method bellow should be used to overcome the error message `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` instead of the `createinstallmedia` tool.
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
@@ -1043,7 +1043,7 @@ sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --nopromp
 
 - Rename the USB drive to `Install OS X Mavericks`
 
-- Copy the `Packages` files from `InstallESD` to the USB drive:
+- Copy the `Packages` folder from `InstallESD` to the USB drive:
 ```
 rm -r /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages
 cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ OS\ X\ Mavericks/System/Installation/Packages
@@ -1060,11 +1060,11 @@ hdiutil detach /Volumes/OS\ X\ Base\ System
 
 #### Installation
 
-- Set the SMBIOS to `iMac14,2` and boot into the installer.
+- Set the SMBIOS to `iMac14,2` and boot OS X Mavericks installer.
 
-- Install OS X Mavericks using normal procedure.
+- Install OS X Mavericks following normal procedure.
 
-- The `iMac14,2` SMBIOS needs to be applied during the whole installation process, after the installation finishes, you can go back to `iMac15,1` SMBIOS.
+- The `iMac14,2` SMBIOS must be applied during the whole installation process, after the installation, you can go back to `iMac15,1` SMBIOS.
 
 #### Post-Installation
 
@@ -1077,7 +1077,7 @@ Install all available updates using "Mac App Store".
 
 </br>
 
-The preparation of the installer of OS X Yosemite is similar to OS X Mavericks but the installer is provided by Apple and you don't need a specific SMBIOS, `iMac15,1` is supported by OS X Yosemite.
+The preparation of OS X Yosemite installer is similar to OS X Mavericks but the installer is provided by Apple and you don't need a specific SMBIOS, `iMac15,1` is supported by OS X Yosemite.
 
 You will find below the steps on how to proceed.
 
@@ -1089,7 +1089,7 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [OS X Yosemite Installer](http://updates-http.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg) from Apple Website.
+- Download [OS X Yosemite Installer](http://updates-http.cdn-apple.com/2019/cert/061-41343-20191023-02465f92-3ab5-4c92-bfe2-b725447a070d/InstallMacOSX.dmg) from Apple website.
 
 **The below method should be used to overcome the error message** `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` **instead of the** `createinstallmedia` **tool.**
 
@@ -1116,7 +1116,7 @@ sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --nopromp
 
 - Rename the USB drive to `Install OS X Yosemite`
 
-- Copy the `Packages` files from `InstallESD` to the USB drive:
+- Copy the `Packages` folder from `InstallESD` to the USB drive:
 ```
 rm -r /Volumes/Install\ OS\ X\ Yosemite/System/Installation/Packages
 cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ OS\ X\ Yosemite/System/Installation/Packages
@@ -1133,7 +1133,7 @@ hdiutil detach /Volumes/OS\ X\ Base\ System
 
 #### Installation
 
-Install OS X Yosemite using normal procedure.
+Install OS X Yosemite following normal procedure.
 
 If you used `createinstallmedia` tool to prepare the installer, you should install OS X Yosemite from Terminal using the following command:
 ```
@@ -1151,7 +1151,7 @@ Install all available updates using "Mac App Store".
 
 </br>
 
-The preparation of the installer of OS X El Capitan is identical to OS X Yosemite.
+The preparation of OS X El Capitan installer is identical to OS X Yosemite.
 
 You will find below the steps on how to proceed.
 
@@ -1163,7 +1163,7 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [OS X El Capitan Installer](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg) from Apple Website.
+- Download [OS X El Capitan Installer](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg) from Apple website.
 
 **The below method should be used to overcome the error message** `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` **instead of the** `createinstallmedia` **tool.**
 
@@ -1190,7 +1190,7 @@ sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --nopromp
 
 - Rename the USB drive to `Install OS X El Capitan`
 
-- Copy the `Packages` files from `InstallESD` to the USB drive:
+- Copy the `Packages` folder from `InstallESD` to the USB drive:
 ```
 rm -r /Volumes/Install\ OS\ X\ El\ Capitan/System/Installation/Packages
 cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ OS\ X\ El\ Capitan/System/Installation/Packages
@@ -1207,7 +1207,7 @@ hdiutil detach /Volumes/OS\ X\ Base\ System
 
 #### Installation
 
-Install OS X El Capitan using normal procedure.
+Install OS X El Capitan following normal procedure.
 
 If you've used `createinstallmedia` tool to prepare the installer, you should install OS X El Capitan from Terminal using the following command:
 ```
@@ -1225,7 +1225,7 @@ Install all available updates using "Mac App Store".
 
 </br>
 
-The preparation of the installer of macOS Sierra is identical to OS X El Capitan.
+The preparation of macOS Sierra installer is identical to OS X El Capitan.
 
 You will find below the steps on how to proceed.
 
@@ -1237,7 +1237,7 @@ You will find below the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [macOS Sierra Installer](http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg) from Apple Website.
+- Download [macOS Sierra Installer](http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg) from Apple website.
 
 **The below method should be used to overcome the error message** `This copy of the Install Mac OS X can't be verified. It may have been corrupted or tampered with during download` **instead of the** `createinstallmedia` **tool.**
 
@@ -1264,7 +1264,7 @@ sudo asr restore --source /dev/disk7s1 --target /dev/rdisk8s11 --erase --nopromp
 
 - Rename the USB drive to `Install macOS Sierra`
 
-- Copy the `Packages` files from `InstallESD` to the USB drive:
+- Copy the `Packages` folder from `InstallESD` to the USB drive:
 ```
 rm -r /Volumes/Install\ macOS\ Sierra/System/Installation/Packages
 cp -rpv /Volumes/OS\ X\ Install\ ESD/Packages /Volumes/Install\ macOS\ Sierra/System/Installation/Packages
@@ -1281,7 +1281,7 @@ hdiutil detach /Volumes/OS\ X\ Base\ System
 
 #### Installation
 
-Install macOS Sierra using normal procedure.
+Install macOS Sierra following normal procedure.
 
 If you've used `createinstallmedia` tool to prepare the installer, you should install macOS Sierra from Terminal using the following command:
 ```
