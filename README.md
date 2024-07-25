@@ -717,7 +717,7 @@ The macOS installation will be chronological as follows:
 
 Installing Mac OS X Tiger 10.4.10 is a little trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) to boot.
 
-You will find the steps below on how to proceed.
+You will find below the steps on how to proceed.
 
 **References:**
 
@@ -754,7 +754,7 @@ Installation of Mac OS X Tiger is simple.
 
 - Boot with the previously prepared EFI folder into Mac OS X Tiger Installer.
 
-- Install Mac OS X Tiger following th normal procedure.
+- Install Mac OS X Tiger following normal procedure.
 
 #### Post-Installation
 
@@ -788,11 +788,11 @@ You will find bellow the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [10.5.7-9J3050.dmg](https://archive.org/details/10.5.7-9-j-3050) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS X Leopard after installation from Apple Servers).
+- Download [10.5.7-9J3050.dmg](https://archive.org/details/10.5.7-9-j-3050) from [Acidanthera Image](https://archive.org/search.php?query=subject%3A%22Mac+DMG+Installer+Restore+Disks%22) (No need to download other images, we can install updates directly from Mac OS X Leopard after installation from Apple Servers).
 
 - At least an 8 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Restore `10.5.7-9J3050.dmg` from `~/Downloads/10.5.7-9J3050.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+- Restore `10.5.7-9J3050.dmg` from `~/Downloads/10.5.7-9J3050.dmg` to a USB drive following the steps below using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
 ```
 asr imagescan --source ~/Downloads/10.5.7-9J3050.dmg
 sudo asr restore --source ~/Downloads/10.5.7-9J3050.dmg --target /dev/disk6s3 --erase
@@ -808,9 +808,9 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s
 
 - Set the SMBIOS to `MacBookPro5,3` and boot into the installer.
 
-- Install Mac OS X Leopard using normal procedure.
+- Install Mac OS X Leopard following normal procedure.
 
-- You may receive an error message "Install Failed - The installer could not make the computer start up from the volume Leopard", just ignore the message and click on "Restart", you should be able to boot into the newly installed Mac OS X Leopard.
+- You may receive an error message saying "Install Failed - The installer could not make the computer start up from the volume Leopard", just ignore it and click on "Restart", you should be able to boot Mac OS X Leopard.
 
 - Set the SMBIOS back to `iMac15,1`.
 
@@ -818,7 +818,7 @@ sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ DVD --target /dev/disk6s
 
 - Install all available updates including 10.5.8 using "Software Update".
 
-- As sleep is not working in Mac OS X Leopard, it is better to disable it from `System Preferences -> Energy Saver` to avoid system freeze after idle.
+- As sleep mode does not work in Mac OS X Leopard, it is best to disable it from `System Preferences -> Energy Saver` to prevent the system from freezing after a period of idle time.
 
 </details>
 
