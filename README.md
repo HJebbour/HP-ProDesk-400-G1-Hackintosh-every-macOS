@@ -708,16 +708,16 @@ In this section, I will explain in detail how to prepare the installer, install 
 
 **It is recommanded to install all available updates on macOS Mojave and later, and then apply the patches, otherwise you will have to re-apply the patches after each update.**
 
-The macOS installation will be chronological.
+The macOS installation will be chronological as follows:
 
 <details>
 <summary><strong>Mac OS X Tiger (10.4.10)</strong></summary>
 	
 </br>
 
-Installation of Mac OS X Tiger 10.4.10 is a bit trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) in order to boot.
+Installing Mac OS X Tiger 10.4.10 is a little trickier, we will need a [custom kernel](Custom%20Kernel/mach_kernel) to boot.
 
-You will find bellow the steps on how to proceed.
+You will find the steps below on how to proceed.
 
 **References:**
 
@@ -726,11 +726,11 @@ You will find bellow the steps on how to proceed.
 
 #### Setting up the installer
 
-- Download [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from Acidanthera Image (No need to download other images, we can install updates directly from Mac OS X Tiger after installation from Apple Servers).
+- Download [10.4.10-8R4088-ACDT.dmg](https://archive.org/details/10.4.10-8-r-4088-acdt) from [Acidanthera Image](https://archive.org/search.php?query=subject%3A%22Mac+DMG+Installer+Restore+Disks%22) (No need to download other images, we can install updates directly from Mac OS X Tiger after installation from Apple servers).
 
 - At least a 16 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
 
-- Restore `10.4.10-8R4088-ACDT.dmg` from `~/Downloads/10.4.10-8R4088-ACDT.dmg` to a USB drive following below steps using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will likely not work):
+- Restore `10.4.10-8R4088-ACDT.dmg` from `~/Downloads/10.4.10-8R4088-ACDT.dmg` to a USB drive following the steps below using `imagescan` (to scan the downloaded image, this step munges some headers, and is requiredand), and `asr` command (Disk Utility will probably not work):
 ```
 asr imagescan --source ~/Downloads/10.4.10-8R4088-ACDT.dmg
 sudo asr restore --source ~/Downloads/10.4.10-8R4088-ACDT.dmg --target /dev/disk6s2 --erase
@@ -742,33 +742,33 @@ Replace `/dev/disk6s2` with your USB drive BSD device node
 sudo asr restore --source /Volumes/Mac\ OS\ X\ Install\ Disc\ 1 --target /dev/disk6s2 --erase
 ```
 
-- Copy the [custom kernel](Custom%20Kernel/mach_kernel) to the newly prepared USB installer using the following command:
+- Copy the [custom kernel](Custom%20Kernel/mach_kernel) into the newly prepared USB installer using the following command:
 ```
 sudo cp ~/Downloads/mach_kernel /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel
 ```
-**You will not be able to boot into the USB installer if you don't use a custom kernel.**
+**You will not be able to boot the USB installer unless you use a custom kernel.**
 
 #### Installation
 
-Installation of Mac OS X Tiger is straightforward.
+Installation of Mac OS X Tiger is simple.
 
 - Boot with the previously prepared EFI folder into Mac OS X Tiger Installer.
 
-- Install Mac OS X Tiger using normal procedure.
+- Install Mac OS X Tiger following th normal procedure.
 
 #### Post-Installation
 
-The [custom kernel](Custom%20Kernel/mach_kernel) needs to be replaced in the root volume after each update before restarting.
+The [custom kernel](Custom%20Kernel/mach_kernel) must be replaced in the root volume after each update before restarting.
 
-- Install all available updates including 10.4.11 using "Software Update".
+- Install all available updates, including 10.4.11, using "Software Update".
 
-- Before restarting, copy again the [custom kernel](Custom%20Kernel/mach_kernel) to the root volume using the following command:
+- Before restarting, copy the [custom kernel](Custom%20Kernel/mach_kernel) back to the root volume using the following command:
 ```
 sudo cp /Volumes/Mac\ OS\ X\ Install\ Disc\ 1/mach_kernel /Volumes/Tiger/mach_kernel
 ```
-**You will not be able to boot into Mac OS X Tiger if you don't use a custom kernel.**
+**You will not be able to boot Mac OS X Tiger if you don't use a custom kernel.**
 
-- As sleep is not working in Mac OS X Tiger, it is better to disable it from `System Preferences -> Energy Saver` to avoid system freeze after idle.
+- As sleep mode does not work in Mac OS X Tiger, it is best to disable it from `System Preferences -> Energy Saver` to prevent the system from freezing after a period of idle time.
 
 </details>
 
