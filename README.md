@@ -621,13 +621,133 @@ The following Quirks are used:
 
 ### xi. Screenshots
 
+<details><summary><strong>Mac OS X Tiger</strong></summary>
+    <br>
     <p float="left">
-        <img src="./Docs/HP-Z640-macOS-Sonoma-14.5.png" alt="Neofetch & About This Mac" width="1000">
-	<img src="./Docs/OpenCore-Boot-Picker.png" alt="Multiboot: Windows 11, Ubuntu, Fedora, ESXi, Proxmox, and macOS" width="1000">
-	<img src="./Docs/HP-Z640-macOS-Sequoia-15-DP1.png" alt="Experimental support of macOS Sequoia" width="1000">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
     </p>
+</details>
 
-</br>
+<details><summary><strong>Mac OS X Leopard</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>Mac OS X Snow Leopard</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>Mac OS X Lion</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>OS X Mountain Lion</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>OS X Mavericks</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>OS X Yosemite</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>OS X El Capitan</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS Sierra</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS High Sierra</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS Mojave</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS Catalina</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS Big Sur</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS Monterey</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS Ventura</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
+
+<details><summary><strong>macOS Sonoma</strong></summary>
+    <br>
+    <p float="left">
+        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
+	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
+    </p>
+</details>
 
 ### xii. Other Repositories
 
