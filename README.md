@@ -65,7 +65,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 
 I was inspired to create this project when I prepared macOS installers (from Mac OS X Tiger 10.4 to macOS Sonoma 14) in an external hard drive and wanted to test these installers to see if they worked properly. I tried recent versions of macOS on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports OS X El Capitan 10.11 and above. I had an older machine (Core 2 Quad Kentsfield) but only managed to get as far as OS X Mountain Lion. I still wanted to test old Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel-based macOS releases on a single computer, it motivated me to do the same thing because I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here on the real fun starts, I needed to build a hackintosh capable of running all Intel-based macOS versions from Mac OS X Tiger 10.4.10 to macOS Sonoma 14.5 with **ONE** EFI folder allowing all Intel versions of macOS to be run on the same computer.
 
-This hackintosh is one of the powerful Mac OS X Tiger computers, since version 10.4.4 was released in 2006 (initial Intel release) way before this hardware (2013). I've noticed that Mac OS X versions 10.6 and earlier are very snappy and responsive, and I miss the feel of the old Mac OS X and the Aqua theme.
+This hackintosh is one of the most powerful Mac OS X Tiger computers, since version 10.4.4 was released in 2006 (initial Intel release) way before this hardware (2013). I've noticed that Mac OS X versions 10.6 and earlier are very snappy and responsive, and I miss the feel of the old Mac OS X and the Aqua theme.
 
 </br>
 
