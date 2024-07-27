@@ -28,8 +28,8 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 
 <br>
 <p float="center">
-	<img src="./Docs/Every-macOS.png" alt="Every macOS">
-	<img src="./Docs/Screenshots/Every-About-This-Mac.png" alt="Every About This Mac">
+	<img align="center" src="./Docs/Every-macOS.png" alt="Every macOS">
+	<img align="center" src="./Docs/Screenshots/Every-About-This-Mac.png" alt="Every About This Mac" width="2160">
 </p>
 
 ## Table of Contents
@@ -632,20 +632,31 @@ The following Quirks are used:
 
 ### xi. Screenshots
 
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/OC-boot-picker-1.png" alt="OpenCore boot picker 1/2">
+	<img align="center" src="./Docs/Screenshots/OC-boot-picker-2.png" alt="OpenCore boot picker 2/2">
+	<img align="center" src="./Docs/Screenshots/Tiger-Sonoma.png" alt="Tiger-Sonoma">
+</p>
+
 <details><summary><strong>Mac OS X Tiger</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.4/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.4/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.4/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>Mac OS X Leopard</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.5/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.5/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.5/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>Mac OS X Snow Leopard</strong></summary>
