@@ -29,6 +29,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 <br>
 <p float="center">
 	<img src="./Docs/Every-macOS.png" alt="Every macOS">
+	<img src="./Docs/Screenshots/Every-About-This-Mac.png" alt="Every About This Mac">
 </p>
 
 ## Table of Contents
