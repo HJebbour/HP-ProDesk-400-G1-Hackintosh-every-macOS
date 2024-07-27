@@ -660,115 +660,143 @@ The following Quirks are used:
 </details>
 
 <details><summary><strong>Mac OS X Snow Leopard</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.6/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.6/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.6/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>Mac OS X Lion</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.7/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.7/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.7/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>OS X Mountain Lion</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.8/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.8/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.8/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>OS X Mavericks</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.9/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.9/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.9/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>OS X Yosemite</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.10/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.10/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.10/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>OS X El Capitan</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.11/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.11/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.11/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS Sierra</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.12/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.12/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.12/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS High Sierra</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.13/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.13/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.13/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS Mojave</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.14/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.14/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.14/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS Catalina</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/10.15/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/10.15/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/10.15/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS Big Sur</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/11/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/11/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/11/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS Monterey</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/12/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/12/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/12/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS Ventura</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/13/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/13/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/13/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 <details><summary><strong>macOS Sonoma</strong></summary>
-    <br>
-    <p float="left">
-        <img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="About This Mac" width="1000">
-	<img src="./Docs/HP-ProDesk-400-G1-MT.png" alt="Desktop" width="1000">
-    </p>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/14/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/14/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/14/Picture-2.png" alt="About This Mac">
+</p>
+
 </details>
 
 ### xii. Other Repositories
