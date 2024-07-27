@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>RealtekR1000</string>
+	<key>CFBundleIdentifier</key>
+	<string>rtl.r1000.nic.ext</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.4</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>Realtek RTL8111B/RTL8168 NIC</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>rtl.r1000.nic.ext</string>
+			<key>IOClass</key>
+			<string>rtl_r1000_nic_ext</string>
+			<key>IOPCIMatch</key>
+			<string>0x816910ec 0x816710ec 0x816810ec 0x813610ec</string>
+			<key>IOProbeScore</key>
+			<integer>500</integer>
+			<key>IOProviderClass</key>
+			<string>IOPCIDevice</string>
+			<key>Name</key>
+			<string>PCI ID Matching</string>
+		</dict>
+	</dict>
+	<key>NSPrincipalClass</key>
+	<string>rtl_r1000_nic_ext</string>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.iokit.IONetworkingFamily</key>
+		<string>1.5</string>
+		<key>com.apple.iokit.IOPCIFamily</key>
+		<string>1.6</string>
+		<key>com.apple.kernel.iokit</key>
+		<string>6.0</string>
+		<key>com.apple.kernel.libkern</key>
+		<string>6.0</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>8.0.0b2</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>8.0.0b2</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0.0b2</string>
+		<key>com.apple.kpi.mach</key>
+		<string>8.0.0b2</string>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Network-Root</string>
+</dict>
+</plist>
