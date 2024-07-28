@@ -640,7 +640,10 @@ The following Quirks are used:
 [![Running Mac OS X Tiger and macOS Sonoma on the same Hackintosh](https://img.youtube.com/vi/hSjW0jXXZ6w/maxresdefault.jpg)](https://www.youtube.com/watch?v=hSjW0jXXZ6w)
 
 #### Running every Intel-based macOS on the same Hackintosh
-[![Running every Intel-based macOS on the same Hackintosh](https://img.youtube.com/vi/hSjW0jXXZ6w/maxresdefault.jpg)](https://www.youtube.com/watch?v=hSjW0jXXZ6w)
+[![Running every Intel-based macOS on the same Hackintosh](https://img.youtube.com/vi/ahVEb-pAtow/maxresdefault.jpg)](https://www.youtube.com/watch?v=ahVEb-pAtow)
+
+#### Running every Intel based macOS on the same Hackintosh (Timelapse)
+[![Running every Intel based macOS on the same Hackintosh (Timelapse)](https://img.youtube.com/vi/-fdr4ZmxM5s/maxresdefault.jpg)](https://www.youtube.com/watch?v=-fdr4ZmxM5s)
 
 ### xii. Screenshots
 
