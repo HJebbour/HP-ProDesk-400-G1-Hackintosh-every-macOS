@@ -57,9 +57,10 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	8. [Kext](#viii-kext)
 	9. [UEFI Drivers](#ix-uefi-drivers)
 	10. [config.plist](#x-configplist)
-	12. [Screenshots](#xi-screenshots)
-	13. [Other Repositories](#xii-other-repositories)
-	14. [Credits](#xiii-credits)
+	11. [Video](#xii-screenshots)
+	12. [Screenshots](#xii-screenshots)
+	13. [Other Repositories](#xiii-other-repositories)
+	14. [Credits](#xiv-credits)
 5. [Installation](#5-installation)
 	1. [UEFI Settings](#i-uefi-settings)
 	2. [macOS Installation](#ii-macos-installation)
@@ -631,7 +632,16 @@ The following Quirks are used:
 
 </details>
 
-### xi. Screenshots
+### xi. Video
+
+**YouTube videos of running every macOS on the same computer**
+
+#### Running Mac OS X Tiger and macOS Sonoma on the same Hackintosh
+[![Running Mac OS X Tiger and macOS Sonoma on the same Hackintosh](https://img.youtube.com/vi/hSjW0jXXZ6w/maxresdefault.jpg)](https://www.youtube.com/watch?v=hSjW0jXXZ6w)
+
+
+
+### xii. Screenshots
 
 <br>
 <p float="center">
@@ -800,7 +810,7 @@ The following Quirks are used:
 
 </details>
 
-### xii. Other Repositories
+### xiii. Other Repositories
 
 - **Haswell-Hackintosh-every-macOS repository:**
   - [b00t0x/MSI-Z97M-Hackintosh-every-macOS](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS)
@@ -815,7 +825,7 @@ The following Quirks are used:
 
 </br>
 
-### xiii. Credits
+### xiv. Credits
 
 #### Credit to all these great people whom I don't know but have made my hackintosh dreams a reality:
 
