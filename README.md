@@ -634,7 +634,7 @@ The following Quirks are used:
 
 ### xi. Video
 
-**YouTube videos of running every macOS on the same computer (Click on the image to see the video)**
+**YouTube videos of running every macOS on the same computer (Click on the image to play the video)**
 
 #### Running Mac OS X Tiger and macOS Sonoma on the same Hackintosh
 [![Running Mac OS X Tiger and macOS Sonoma on the same Hackintosh](https://img.youtube.com/vi/hSjW0jXXZ6w/maxresdefault.jpg)](https://www.youtube.com/watch?v=hSjW0jXXZ6w)
