@@ -1845,6 +1845,8 @@ Now we need to patch the GPU in order to have graphics acceleration in macOS Son
 
 </details>
 
+</br>
+
 ## 6. Conclusion
 
 This project took me exactly one month, between searching for the perfect GPU, testing on candidate computers (Kenstfield & Haswell-E), and fine-tuning the designated computer (Haswell). I built this project just to have fun and take on a new challenge in the hackintosh world. I was lucky enough to have the right hardware for this project (except for the graphics card, which I had to buy). I wouldn't recommend this project to those who have no patience and can't afford to damage anything, in fact, I damaged my oldest Hackintosh (from the Leopard era) while installing a GPU and Bluetooth functionality on my T919 from my daily Hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/).
