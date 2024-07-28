@@ -63,6 +63,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 5. [Installation](#5-installation)
 	1. [UEFI Settings](#i-uefi-settings)
 	2. [macOS Installation](#ii-macos-installation)
+6. [Conclusion](#6-conclusion)
 
 </br>
 
@@ -1844,3 +1845,8 @@ Now we need to patch the GPU in order to have graphics acceleration in macOS Son
 
 </details>
 
+## 6. Conclusion
+
+This project took me exactly one month to build, from finding the perfect GPU, testing with other computers (Kenstfield & Haswell-E), and fine tuning the Haswell computer. I built this project just for fun and try new challenge in the hackintosh scene. I was lucky to have the adequate hardware to make this project a reality (except the graphic card which I had to buy). I don't recommend this to anyone who don't have patience and can't afford to damage something, actually, I damaged my oldest hackintosh (from the Leopard era) while installing a GPU and the Bluetooth functionnality of my T919 from my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/).
+
+Finally, when I finished this project and I succeded, I was very happy with the outcome and I don't regret the damages I did, and the time I devoted.
