@@ -57,7 +57,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	8. [Kext](#viii-kext)
 	9. [UEFI Drivers](#ix-uefi-drivers)
 	10. [config.plist](#x-configplist)
-	11. [Video](#xii-screenshots)
+	11. [Video](#xi-screenshots)
 	12. [Screenshots](#xii-screenshots)
 	13. [Other Repositories](#xiii-other-repositories)
 	14. [Credits](#xiv-credits)
@@ -634,12 +634,13 @@ The following Quirks are used:
 
 ### xi. Video
 
-**YouTube videos of running every macOS on the same computer**
+**YouTube videos of running every macOS on the same computer (Click on the image to see the video)**
 
 #### Running Mac OS X Tiger and macOS Sonoma on the same Hackintosh
 [![Running Mac OS X Tiger and macOS Sonoma on the same Hackintosh](https://img.youtube.com/vi/hSjW0jXXZ6w/maxresdefault.jpg)](https://www.youtube.com/watch?v=hSjW0jXXZ6w)
 
-
+#### Running every Intel-based macOS on the same Hackintosh
+[![Running every Intel-based macOS on the same Hackintosh](https://img.youtube.com/vi/hSjW0jXXZ6w/maxresdefault.jpg)](https://www.youtube.com/watch?v=hSjW0jXXZ6w)
 
 ### xii. Screenshots
 
