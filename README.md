@@ -1,17 +1,18 @@
-# Running every Intel-based macOS releases (from Mac OS X Tiger 10.4 to macOS Sonoma 14) on HP ProDesk 400 G1 (Haswell)
+# Running every Intel-based macOS releases (from Mac OS X Tiger 10.4 to macOS Sequoia 15) on HP ProDesk 400 G1 (Haswell)
 
 OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 <img align="right" src="./Docs/HP-ProDesk-400-G1-MT.png" alt="HP ProDesk 400 G1" width="460">
 
 **Status: Fully Working | Stable**
 
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.0-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.0)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.2-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.2)
 
 [![Model](https://img.shields.io/badge/Model-ProDesk%20400%20G1-lightgrey)](https://support.hp.com/us-en/document/c04496994)
 
-[![macOS](https://img.shields.io/badge/macOS-Sonoma%2014.5-a5ca4b.svg)](https://www.apple.com/macos/sonoma/)
-[![macOS](https://img.shields.io/badge/macOS-Ventura%2013.6.7-f58627.svg)](https://web.archive.org/web/20230925214840/https://www.apple.com/macos/ventura/)
-[![macOS](https://img.shields.io/badge/macOS-Monterey%2012.7.5-9a16d0.svg)](https://www.apple.com/by/macos/monterey/)
+[![macOS](https://img.shields.io/badge/macOS-Sequoia%2015.0.1-e49865.svg)](https://www.apple.com/macos/macos-sequoia/)
+[![macOS](https://img.shields.io/badge/macOS-Sonoma%2014.7-a5ca4b.svg)](https://www.apple.com/macos/sonoma/)
+[![macOS](https://img.shields.io/badge/macOS-Ventura%2013.7-f58627.svg)](https://web.archive.org/web/20230925214840/https://www.apple.com/macos/ventura/)
+[![macOS](https://img.shields.io/badge/macOS-Monterey%2012.7.6-9a16d0.svg)](https://www.apple.com/by/macos/monterey/)
 [![macOS](https://img.shields.io/badge/macOS-Big%20Sur%2011.7.10-6d6835.svg)](https://web.archive.org/web/20211018064504/https://www.apple.com/macos/big-sur/)
 [![macOS](https://img.shields.io/badge/macOS-Catalina%2010.15.7-65627e.svg)](https://web.archive.org/web/20201109035708/http://www.apple.com/macos/catalina/)
 [![macOS](https://img.shields.io/badge/macOS-Mojave%2010.14.6-c38143.svg)](https://web.archive.org/web/20190901002230/https://www.apple.com/macos/mojave/)
@@ -59,7 +60,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 	10. [config.plist](#x-configplist)
 	11. [Video](#xi-video)
 	12. [Screenshots](#xii-screenshots)
-	13. [Other Repositories](#xiii-other-repositories)
+	13. [Relevant Repositories](#xiii-relevant-repositories)
 	14. [Credits](#xiv-credits)
 5. [Installation](#5-installation)
 	1. [UEFI Settings](#i-uefi-settings)
@@ -70,7 +71,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 
 ## 1. Introduction
 
-I was inspired to create this project when I prepared macOS installers (from Mac OS X Tiger 10.4 to macOS Sonoma 14) in an external hard drive and wanted to test these installers to see if they worked properly. I tried recent versions of macOS on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports OS X El Capitan 10.11 and above. I had an older machine (Core 2 Quad Kentsfield) but only managed to get as far as OS X Mountain Lion. I still wanted to test old Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel-based macOS releases on a single computer, it motivated me to do the same thing because I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here on the real fun starts, I needed to build a hackintosh capable of running all Intel-based macOS versions from Mac OS X Tiger 10.4.10 to macOS Sonoma 14.5 with **ONE** EFI folder allowing all Intel versions of macOS to be run on the same computer.
+I was inspired to create this project when I prepared macOS installers (from Mac OS X Tiger 10.4 to macOS Sequoia 15) in an external hard drive and wanted to test these installers to see if they worked properly. I tried recent versions of macOS on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports OS X El Capitan 10.11 and above. I had an older machine (Core 2 Quad Kentsfield) but only managed to get as far as OS X Mountain Lion. I still wanted to test old Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel-based macOS releases on a single computer, it motivated me to do the same thing because I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here on the real fun starts, I needed to build a hackintosh capable of running all Intel-based macOS versions from Mac OS X Tiger 10.4 to macOS Sequoia 15 with **ONE** EFI folder allowing all Intel versions of macOS to be run on the same computer.
 
 This hackintosh is one of the most powerful Mac OS X Tiger computers, since version 10.4.4 was released in 2006 (initial Intel release) way before this hardware (2013). I've noticed that Mac OS X versions 10.6 and earlier are very snappy and responsive, and I miss the feel of the old Mac OS X and the Aqua theme.
 
@@ -125,6 +126,7 @@ This is an overview of hardware compatibility list for all Intel-based macOS.
 
 | macOS | i7-4770 | AHCI SATA SSD | Quadro FX 5600 | RTL8151GH-CG | ALC221 | CSR8510 A10 4.0 |
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+| Sequoia | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
 | Sonoma | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
 | Ventura | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
 | Monterey | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
@@ -160,13 +162,13 @@ This is an overview of hardware compatibility list for all Intel-based macOS.
 
 ### i. Processor
 
-The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sonoma natively. However, you will need a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
+The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac OS X Tiger 10.4 and recent enough to run macOS Sequoia natively. However, you will need a custom kernel in Mac OS X Tiger 10.4, and spoof CPUID to Nehalem for Mac OS X Snow Leopard 10.6 and Lion 10.7.
 
 </br>
 
 ### ii. Graphic Card
 
-This was the trickiest part. I needed a GPU that is natively compatible with Tiger and could be patched with OCLP in Sonoma. I consulted Dortania GPU Buyers Guide, for both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/), and here's what I discovered:
+This was the trickiest part. I needed a GPU that is natively compatible with Tiger and could be patched with OCLP in Sequoia. I consulted Dortania GPU Buyers Guide, for both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/), and here's what I discovered:
 
 - For AMD, I found that the HD 2000 Series is natively supported from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposedly supported macOS versions, it turns out that legacy AMD GPUs are a hit or a miss even though they are officially supported by Apple, unlike Nvidia's legacy GPUs which should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
 
@@ -175,7 +177,7 @@ The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are 
 
 - **Please note that legacy GPUs need CSM/Legacy Boot to be enabled in the BIOS settings, otherwise you will get a blank screen when you boot the computer.**
 
-- If you don't want to buy an old GPU, you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up to macOS Monterey 12, and can be used on macOS Ventura and Sonoma with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine but without hardware acceleration (QE/CI).
+- If you don't want to buy an old GPU, you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up to macOS Monterey 12, and can be used on macOS Ventura through Sequoia with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine but without hardware acceleration (QE/CI).
 
 - **Fun fact:** If you install Mac OS X Tiger, Leopard, and/or Snow Leopard from another Mac OS X using "OSInstall.mpkg" you will get the welcome video intro without a compatible GPU (hardware acceleration).
 
@@ -289,11 +291,12 @@ It should work and your HP ProDesk 400 G1 should boot and operate correctly. **A
 
 | Component      | Version |
 | -------------- | ------- |
-| OpenCore | 1.0.0 |
-| OpenCore Legacy Patcher | 1.5.0 |
-| macOS Sonoma | 14.5 (23F79) |
-| macOS Ventura | 13.6.7 (22G720) |
-| macOS Monterey | 12.7.5 (21H1222) |
+| OpenCore | 1.0.2 |
+| OpenCore Legacy Patcher | 2.0.2 |
+| macOS Sequoia | 15.0.1 (24A348) |
+| macOS Sonoma | 14.7 (23H124) |
+| macOS Ventura | 13.7 (22H123) |
+| macOS Monterey | 12.7.6 (21H1320) |
 | macOS Big Sur | 11.7.10 (20G1427) |
 | macOS Catalina | 10.15.7 (19H15) |
 | macOS Mojave | 10.14.6 (18G103) |
@@ -332,22 +335,22 @@ Then we need to copy it to the USB installer, to the disk after installation, an
 
 | Kext                   | Version | Description |
 | ---------------------- | ------- | ------- |
-| Lilu | 1.6.7 | Used for arbitrary kext, library, and program patching on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
-| VirtualSMC | 1.3.2 | Used to emulate Apple SMC in the kernel on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
+| Lilu | 1.6.9 | Used for arbitrary kext, library, and program patching on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
+| VirtualSMC | 1.3.4 | Used to emulate Apple SMC in the kernel on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
 | FakeSMC-32 | 2.5 | Used to emulate Apple SMC on Mac OS X Tiger and Leopard (32-bit only kernels) |
 | NVinject | 0.0.10c | Used to enable graphics acceleration on Mac OS X Tiger |
-| WhateverGreen | 1.6.6 | Used to patch GPU on Mac OS X Snow Leopard and later |
+| WhateverGreen | 1.6.8 | Used to patch GPU on Mac OS X Snow Leopard and later |
 | VoodooHDA-FAT | - | Used to enable onboard audio on Mac OS X Snow Leopard and Lion |
-| AppleALC | 1.9.0 | Used to enable onboard audio on OS X Mountain Lion and later |
+| AppleALC | 1.9.2 | Used to enable onboard audio on OS X Mountain Lion and later |
 | RealtekR1000 | 1.0.4 | Used to enable ethernet on Mac OS X Tiger and Leopard |
 | RealtekRTL8111-SL | 1.2.3 | Used to enable ethernet on Mac OS X Snow Leopard through macOS High Sierra |
 | RealtekRTL8111 | 2.4.2 | Used to enable ethernet on macOS Mojave and later |
 | USBMap | - | Used to map USB ports on all macOS releases |
-| BlueToolFixup | 2.6.8 | Used to enable USB Bluetooth dongle support on macOS Monterey and later |
-| AMFIPass | 1.4.0 | Used to enable OpenCore Legacy Patcher on macOS Big Sur and later |
-| SMCSuperIO | 1.3.2 | Used to monitor fan speed on Mac OS X Snow Leopard and later |
-| SMCProcessor | 1.3.2 | Used to monitor Intel CPU temperature on Mac OS X Lion and later |
-| RestrictEvents | 1.1.3 | Used to patch various functions on macOS Big Sur and later |
+| BlueToolFixup | 2.6.9 | Used to enable USB Bluetooth dongle support on macOS Monterey and later |
+| AMFIPass | 1.4.1 | Used to enable OpenCore Legacy Patcher on macOS Big Sur and later |
+| SMCSuperIO | 1.3.4 | Used to monitor fan speed on Mac OS X Snow Leopard and later |
+| SMCProcessor | 1.3.4 | Used to monitor Intel CPU temperature on Mac OS X Lion and later |
+| RestrictEvents | 1.1.5 | Used to patch various functions on macOS Big Sur and later |
 
 </br>
 
@@ -355,13 +358,13 @@ Then we need to copy it to the USB installer, to the disk after installation, an
 
 |     Driver      | Version           | Description       |
 | --------------- | ----------------- | ----------------- |
-| OpenRuntime | OpenCorePkg 1.0.0 | Essentiel to patch boot.efi for NVRAM fixes |
-| AudioDxe | OpenCorePkg 1.0.0 | Enable Boot Chime |
-| OpenCanopy | OpenCorePkg 1.0.0 | Enable graphical boot picker |
-| OpenHfsPlus | OpenCorePkg 1.0.0 | Required to see HFS volumes (macOS Installers and Recovery partitions |
-| OpenPartitionDxe | OpenCorePkg 1.0.0 | Required to load installers and recovery on OS X Mavericks and earlier |
-| ResetNvramEntry | OpenCorePkg 1.0.0 | Allow to reset NVRAM from boot picker |
-| ToggleSipEntry | OpenCorePkg 1.0.0 | Allow to toggle SIP from boot picker |
+| OpenRuntime | OpenCorePkg 1.0.2 | Essentiel to patch boot.efi for NVRAM fixes |
+| AudioDxe | OpenCorePkg 1.0.2 | Enable Boot Chime |
+| OpenCanopy | OpenCorePkg 1.0.2 | Enable graphical boot picker |
+| OpenHfsPlus | OpenCorePkg 1.0.2 | Required to see HFS volumes (macOS Installers and Recovery partitions |
+| OpenPartitionDxe | OpenCorePkg 1.0.2 | Required to load installers and recovery on OS X Mavericks and earlier |
+| ResetNvramEntry | OpenCorePkg 1.0.2 | Allow to reset NVRAM from boot picker |
+| ToggleSipEntry | OpenCorePkg 1.0.2 | Allow to toggle SIP from boot picker |
 
 </br>
 
@@ -651,7 +654,7 @@ The following Quirks are used:
 <p float="center">
 	<img align="center" src="./Docs/Screenshots/OC-boot-picker-1.png" alt="OpenCore boot picker 1/2">
 	<img align="center" src="./Docs/Screenshots/OC-boot-picker-2.png" alt="OpenCore boot picker 2/2">
-	<img align="center" src="./Docs/Screenshots/Tiger-Sonoma.png" alt="Tiger-Sonoma">
+	<img align="center" src="./Docs/Screenshots/Tiger-Sequoia.png" alt="Tiger-Sequoia">
 </p>
 
 <details><summary><strong>Mac OS X Tiger</strong></summary>
@@ -814,7 +817,17 @@ The following Quirks are used:
 
 </details>
 
-### xiii. Other Repositories
+<details><summary><strong>macOS Sequoia</strong></summary>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/15/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/15/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/15/Picture-2.png" alt="About This Mac">
+</p>
+
+</details>
+
+### xiii. Relevant Repositories
 
 - **Haswell-Hackintosh-every-macOS repository:**
   - [b00t0x/MSI-Z97M-Hackintosh-every-macOS](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS)
@@ -1707,7 +1720,7 @@ As with Mojave and Catalina, we need to patch the GPU in order to have graphics 
 </details>
 
 <details>
-<summary><strong>macOS Monterey (12.7.5)</strong></summary>
+<summary><strong>macOS Monterey (12.7.6)</strong></summary>
 
 </br>
 
@@ -1758,7 +1771,7 @@ We need to patch the GPU to have graphics acceleration in macOS Monterey, we wil
 </details>
 
 <details>
-<summary><strong>macOS Ventura (13.6.7)</strong></summary>
+<summary><strong>macOS Ventura (13.7)</strong></summary>
 
 </br>
 
@@ -1809,7 +1822,7 @@ We need to patch the GPU to have graphics acceleration in macOS Ventura, we will
 </details>
 
 <details>
-<summary><strong>macOS Sonoma (14.5)</strong></summary>
+<summary><strong>macOS Sonoma (14.7)</strong></summary>
 
 </br>
 
@@ -1848,6 +1861,57 @@ If the installation fails, set the SMBIOS to `iMac19,1`. After the installation 
 - Install all available updates using "Software Update" in System Settings.
 
 Now we need to patch the GPU in order to have graphics acceleration in macOS Sonoma, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) for that.
+
+- Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
+
+- Open the `OpenCore-Patcher.app`
+
+- Click on `Post-Install Root Patch` and then click on `Start Root Patching`.
+
+- You should benefit from graphics acceleration after restarting your computer.
+
+</details>
+
+<details>
+<summary><strong>macOS Sequoia (15)</strong></summary>
+
+</br>
+
+The preparation of the installer and the installation of macOS Sequoia is similar to macOS Sonoma. You may need a compatible SMBIOS though, because `iMac15,1` is no longer supported by Apple.
+
+You will find below the steps on how to proceed.
+
+**References:**
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+- [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)
+
+#### Setting up the installer
+
+- Download the latest version of macOS Sequoia using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+
+- At least a 32 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Install the `InstallAssistant.pkg` package, it will put `Install macOS Sequoia.app` in your `/Applications` folder.
+
+- Create a bootable installer for macOS Sequoia using `createinstallmedia` tool.
+```
+sudo /Applications/Install\ macOS\ Sequoia.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+```
+Replace `MyVolume` with your USB drive name.
+
+#### Installation
+
+Install macOS Sequoia following normal procedure.
+
+If the installation fails, set the SMBIOS to `iMac19,1`. After the installation you can go back to `iMac15,1` SMBIOS.
+
+#### Post-Installation
+
+- Install all available updates using "Software Update" in System Settings.
+
+Now we need to patch the GPU in order to have graphics acceleration in macOS Sequoia, we will use [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/) for that.
 
 - Download the latest version of [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases).
 
