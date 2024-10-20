@@ -10,7 +10,7 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 [![Model](https://img.shields.io/badge/Model-ProDesk%20400%20G1-lightgrey)](https://support.hp.com/us-en/document/c04496994)
 
 [![macOS](https://img.shields.io/badge/macOS-Sequoia%2015.0.1-e49865.svg)](https://www.apple.com/macos/macos-sequoia/)
-[![macOS](https://img.shields.io/badge/macOS-Sonoma%2014.7-a5ca4b.svg)](https://www.apple.com/macos/sonoma/)
+[![macOS](https://img.shields.io/badge/macOS-Sonoma%2014.7-a5ca4b.svg)](https://web.archive.org/web/20230926190522/https://www.apple.com/macos/sonoma/)
 [![macOS](https://img.shields.io/badge/macOS-Ventura%2013.7-f58627.svg)](https://web.archive.org/web/20230925214840/https://www.apple.com/macos/ventura/)
 [![macOS](https://img.shields.io/badge/macOS-Monterey%2012.7.6-9a16d0.svg)](https://www.apple.com/by/macos/monterey/)
 [![macOS](https://img.shields.io/badge/macOS-Big%20Sur%2011.7.10-6d6835.svg)](https://web.archive.org/web/20211018064504/https://www.apple.com/macos/big-sur/)
