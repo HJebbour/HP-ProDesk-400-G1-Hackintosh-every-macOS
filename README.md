@@ -1,14 +1,15 @@
-# Running every Intel-based macOS releases (from Mac OS X Tiger 10.4 to macOS Sequoia 15) on HP ProDesk 400 G1 (Haswell)
+# Running every Intel-based macOS releases (from Mac OS X Tiger 10.4 to macOS Tahoe 26) on HP ProDesk 400 G1 (Haswell)
 
 OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 <img align="right" src="./Docs/HP-ProDesk-400-G1-MT.png" alt="HP ProDesk 400 G1" width="460">
 
 **Status: Fully Working | Stable**
 
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.2-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.2)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.7-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.7)
 
 [![Model](https://img.shields.io/badge/Model-ProDesk%20400%20G1-lightgrey)](https://support.hp.com/us-en/document/c04496994)
 
+[![macOS](https://img.shields.io/badge/macOS-Tahoe%2026.3.2-1a4c9f.svg)](https://www.apple.com/os/macos/)
 [![macOS](https://img.shields.io/badge/macOS-Sequoia%2015.0.1-e49865.svg)](https://www.apple.com/macos/macos-sequoia/)
 [![macOS](https://img.shields.io/badge/macOS-Sonoma%2014.7-a5ca4b.svg)](https://web.archive.org/web/20230926190522/https://www.apple.com/macos/sonoma/)
 [![macOS](https://img.shields.io/badge/macOS-Ventura%2013.7-f58627.svg)](https://web.archive.org/web/20230925214840/https://www.apple.com/macos/ventura/)
@@ -71,9 +72,17 @@ OpenCore-based EFI for HP ProDesk 400 G1 (Haswell)
 
 ## 1. Introduction
 
-I was inspired to create this project when I prepared macOS installers (from Mac OS X Tiger 10.4 to macOS Sequoia 15) in an external hard drive and wanted to test these installers to see if they worked properly. I tried recent versions of macOS on my daily hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but it only supports OS X El Capitan 10.11 and above. I had an older machine (Core 2 Quad Kentsfield) but only managed to get as far as OS X Mountain Lion. I still wanted to test old Mac OS X (Tiger-Lion), and then I found this [repo](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel-based macOS releases on a single computer, it motivated me to do the same thing because I thought of another computer I have, HP ProDesk 400 G1 (Haswell). From here on the real fun starts, I needed to build a hackintosh capable of running all Intel-based macOS versions from Mac OS X Tiger 10.4 to macOS Sequoia 15 with **ONE** EFI folder allowing all Intel versions of macOS to be run on the same computer.
+I was inspired to create this project while preparing macOS installers, from **Mac OS X Tiger 10.4** to **macOS Tahoe 26**, on an external hard drive. I wanted to test each installer and make sure they worked properly.
 
-This hackintosh is one of the most powerful Mac OS X Tiger computers, since version 10.4.4 was released in 2006 (initial Intel release) way before this hardware (2013). I've noticed that Mac OS X versions 10.6 and earlier are very snappy and responsive, and I miss the feel of the old Mac OS X and the Aqua theme.
+I first tested recent versions of macOS on my daily Hackintosh, the [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/), but that system only supports **OS X El Capitan 10.11 and newer**. I also had an older Core 2 Quad Kentsfield machine, but I only managed to get it running up to **OS X Mountain Lion 10.8**.
+
+I still wanted to test older Mac OS X versions, especially **Tiger through Lion**, and then I found this [repository](https://github.com/b00t0x/MSI-Z97M-Hackintosh-every-macOS/) about running all Intel-based macOS releases on a single computer. That project motivated me to try something similar, especially after realizing that I had another suitable machine available: an **HP ProDesk 400 G1** based on Haswell hardware.
+
+From that point, the real fun began. The goal was to build a Hackintosh capable of running every Intel-based Mac OS X and macOS version, from **Mac OS X Tiger 10.4** to **macOS Tahoe 26**, using **one single EFI folder** that allows all supported Intel macOS versions to boot on the same computer.
+
+Please note that **macOS Tahoe 26 support is currently limited**, especially regarding GPU acceleration. At the time of this update, **OpenCore Legacy Patcher has not yet been updated to fully support macOS Tahoe**, so graphics acceleration will not work until OCLP team release an update that supports macOS Tahoe.
+
+This Hackintosh is also one of the most powerful machines capable of running **Mac OS X Tiger**, especially considering that version **10.4.4**, the first Intel release, was introduced in 2006, long before this 2013-era hardware existed. I noticed that Mac OS X 10.6 and earlier feel especially snappy and responsive on this system, and using them again reminded me how much I miss the classic Mac OS X experience and the Aqua interface.
 
 </br>
 
@@ -122,10 +131,11 @@ These are relevant components on my machine that may differ from yours, so keep 
 </br>
 
 ### iii. HCL
-This is an overview of hardware compatibility list for all Intel-based macOS.
+This is an overview of the hardware compatibility status across all Intel-based Mac OS X and macOS versions, from **Mac OS X Tiger 10.4** to **macOS Tahoe 26**.
 
 | macOS | i7-4770 | AHCI SATA SSD | Quadro FX 5600 | RTL8151GH-CG | ALC221 | CSR8510 A10 4.0 |
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+| Tahoe | ✅ | ✅ | 7️⃣ | ✅ | ✅ | ✅ |
 | Sequoia | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
 | Sonoma | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
 | Ventura | ✅ | ✅ | 5️⃣ | ✅ | ✅ | ✅ |
@@ -156,6 +166,7 @@ This is an overview of hardware compatibility list for all Intel-based macOS.
 
 6️⃣ Use a USB DAC headset/speaker
 
+7️⃣ macOS Tahoe 26 boots, but GPU acceleration is not working yet. [OCLP Plus](https://github.com/YBronst/OCLP-Plus) was used to obtain proper display resolution, but full graphics acceleration is still unavailable.
 </br>
 
 ## 3. Build
@@ -168,19 +179,21 @@ The beauty of the Intel 4th Gen Core Series is that it is old enough to run Mac 
 
 ### ii. Graphic Card
 
-This was the trickiest part. I needed a GPU that is natively compatible with Tiger and could be patched with OCLP in Sequoia. I consulted Dortania GPU Buyers Guide, for both the [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy Nvidia](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/), and here's what I discovered:
+This was the trickiest part of the project. I needed a GPU that was natively compatible with Mac OS X Tiger, while also being patchable with OCLP on newer macOS versions, including Sequoia. I consulted the Dortania GPU Buyers Guide for both [Legacy AMD](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-amd.html#hd-6000-series-6xxx/) and [Legacy NVIDIA](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html/), and here is what I discovered:
 
-- For AMD, I found that the HD 2000 Series is natively supported from 10.4 to 10.13, I tested AMD Radeon HD 2400 XT but it didn't work with any of the supposedly supported macOS versions, it turns out that legacy AMD GPUs are a hit or a miss even though they are officially supported by Apple, unlike Nvidia's legacy GPUs which should work properly if you [patch](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) your GPU in DeviceProperties.
+- For AMD, I found that the HD 2000 Series is natively supported from Mac OS X Tiger 10.4 up to macOS High Sierra 10.13. I tested an AMD Radeon HD 2400 XT, but it did not work properly with any of the supposedly supported macOS versions. It turns out that legacy AMD GPUs can be hit or miss, even when they are officially supported by Apple. This is different from NVIDIA legacy GPUs, which usually work properly if the GPU is correctly [patched](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/nvidia-patching/) in `DeviceProperties`.
 
-- I bought an NVIDIA Quadro FX 5600 that is compatible with Mac OS X Leopard through macOS High Sierra according to [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) but, apparently, this GPU is also compatible with Mac OS X Tiger if you use `NVinject.kext`. In fact, after using this GPU with `NVinject.kext`, NVIDIA legacy patching, and OCLP, it worked with all versions of Intel-based macOS.
-The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are the best suited to this type of hackintosh, with GeForce 8800 GTS 320/640 and Quadro FX 5600 known to work.
+- I bought an NVIDIA Quadro FX 5600, which is listed by [Dortania](https://dortania.github.io/GPU-Buyers-Guide/legacy-gpus/legacy-nvidia.html#geforce-8-8xxx-series) as compatible from Mac OS X Leopard through macOS High Sierra. However, this GPU is also compatible with Mac OS X Tiger when using `NVinject.kext`. With `NVinject.kext`, NVIDIA legacy patching, and OpenCore Legacy Patcher, the Quadro FX 5600 works across all Intel-based Mac OS X and macOS versions up to macOS Sequoia.
 
-- **Please note that legacy GPUs need CSM/Legacy Boot to be enabled in the BIOS settings, otherwise you will get a blank screen when you boot the computer.**
+- For macOS Tahoe 26, the system can boot, and I had to use [OCLP Plus](https://github.com/YBronst/OCLP-Plus) to get proper display resolution. However, GPU acceleration is not working yet, as full legacy GPU patching support for macOS Tahoe is still unavailable.
 
-- If you don't want to buy an old GPU, you can use the iGPU (Intel HD 4600), which is supported from OS X Mountain Lion 10.8 up to macOS Monterey 12, and can be used on macOS Ventura through Sequoia with OCLP. On Mac OS X Lion 10.7 and earlier it runs fine but without hardware acceleration (QE/CI).
+- The [G80 NVIDIA Tesla GPUs](https://www.techpowerup.com/gpu-specs/?gpu=G80) are best suited for this type of Hackintosh. The GeForce 8800 GTS 320/640 and Quadro FX 5600 are known to work well.
 
-- **Fun fact:** If you install Mac OS X Tiger, Leopard, and/or Snow Leopard from another Mac OS X using "OSInstall.mpkg" you will get the welcome video intro without a compatible GPU (hardware acceleration).
+- **Please note that legacy GPUs require CSM/Legacy Boot to be enabled in the BIOS settings. Otherwise, you may get a blank screen when booting the computer.**
 
+- If you do not want to buy an old dedicated GPU, you can use the integrated Intel HD 4600 instead. It is supported from OS X Mountain Lion 10.8 up to macOS Monterey 12, and it can also be used on macOS Ventura through macOS Sequoia with OCLP. On Mac OS X Lion 10.7 and earlier, it runs fine but without hardware acceleration/QE/CI.
+
+- **Fun fact:** If you install Mac OS X Tiger, Leopard, and/or Snow Leopard from another Mac OS X installation using `OSInstall.mpkg`, you will still get the welcome video intro even without a compatible GPU or hardware acceleration.
 </br>
 
 ### iii. Storage
@@ -291,8 +304,10 @@ It should work and your HP ProDesk 400 G1 should boot and operate correctly. **A
 
 | Component      | Version |
 | -------------- | ------- |
-| OpenCore | 1.0.2 |
-| OpenCore Legacy Patcher | 2.0.2 |
+| OpenCore | 1.0.7 |
+| OpenCore Legacy Patcher | 2.4.1 |
+| OCLP-Plus (Tahoe Patch Set) | 3.2.1 |
+| macOS Tahoe | 26.3.2 (25D2140) |
 | macOS Sequoia | 15.0.1 (24A348) |
 | macOS Sonoma | 14.7 (23H124) |
 | macOS Ventura | 13.7 (22H123) |
@@ -335,22 +350,22 @@ Then we need to copy it to the USB installer, to the disk after installation, an
 
 | Kext                   | Version | Description |
 | ---------------------- | ------- | ------- |
-| Lilu | 1.6.9 | Used for arbitrary kext, library, and program patching on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
-| VirtualSMC | 1.3.4 | Used to emulate Apple SMC in the kernel on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
+| Lilu | 1.7.2 | Used for arbitrary kext, library, and program patching on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
+| VirtualSMC | 1.3.7 | Used to emulate Apple SMC in the kernel on Mac OS X Snow Leopard and later only, due to kernel panic on 32-bit only kernels |
 | FakeSMC-32 | 2.5 | Used to emulate Apple SMC on Mac OS X Tiger and Leopard (32-bit only kernels) |
 | NVinject | 0.0.10c | Used to enable graphics acceleration on Mac OS X Tiger |
-| WhateverGreen | 1.6.8 | Used to patch GPU on Mac OS X Snow Leopard and later |
+| WhateverGreen | 1.7.0 | Used to patch GPU on Mac OS X Snow Leopard and later |
 | VoodooHDA-FAT | - | Used to enable onboard audio on Mac OS X Snow Leopard and Lion |
-| AppleALC | 1.9.2 | Used to enable onboard audio on OS X Mountain Lion and later |
+| AppleALC | 1.9.7 | Used to enable onboard audio on OS X Mountain Lion and later |
 | RealtekR1000 | 1.0.4 | Used to enable ethernet on Mac OS X Tiger and Leopard |
 | RealtekRTL8111-SL | 1.2.3 | Used to enable ethernet on Mac OS X Snow Leopard through macOS High Sierra |
 | RealtekRTL8111 | 2.4.2 | Used to enable ethernet on macOS Mojave and later |
 | USBMap | - | Used to map USB ports on all macOS releases |
-| BlueToolFixup | 2.6.9 | Used to enable USB Bluetooth dongle support on macOS Monterey and later |
+| BlueToolFixup | 2.7.2 | Used to enable USB Bluetooth dongle support on macOS Monterey and later |
 | AMFIPass | 1.4.1 | Used to enable OpenCore Legacy Patcher on macOS Big Sur and later |
-| SMCSuperIO | 1.3.4 | Used to monitor fan speed on Mac OS X Snow Leopard and later |
-| SMCProcessor | 1.3.4 | Used to monitor Intel CPU temperature on Mac OS X Lion and later |
-| RestrictEvents | 1.1.5 | Used to patch various functions on macOS Big Sur and later |
+| SMCSuperIO | 1.3.7 | Used to monitor fan speed on Mac OS X Snow Leopard and later |
+| SMCProcessor | 1.3.7 | Used to monitor Intel CPU temperature on Mac OS X Lion and later |
+| RestrictEvents | 1.1.6 | Used to patch various functions on macOS Big Sur and later |
 
 </br>
 
@@ -358,13 +373,13 @@ Then we need to copy it to the USB installer, to the disk after installation, an
 
 |     Driver      | Version           | Description       |
 | --------------- | ----------------- | ----------------- |
-| OpenRuntime | OpenCorePkg 1.0.2 | Essentiel to patch boot.efi for NVRAM fixes |
-| AudioDxe | OpenCorePkg 1.0.2 | Enable Boot Chime |
-| OpenCanopy | OpenCorePkg 1.0.2 | Enable graphical boot picker |
-| OpenHfsPlus | OpenCorePkg 1.0.2 | Required to see HFS volumes (macOS Installers and Recovery partitions |
-| OpenPartitionDxe | OpenCorePkg 1.0.2 | Required to load installers and recovery on OS X Mavericks and earlier |
-| ResetNvramEntry | OpenCorePkg 1.0.2 | Allow to reset NVRAM from boot picker |
-| ToggleSipEntry | OpenCorePkg 1.0.2 | Allow to toggle SIP from boot picker |
+| OpenRuntime | OpenCorePkg 1.0.7 | Essentiel to patch boot.efi for NVRAM fixes |
+| AudioDxe | OpenCorePkg 1.0.7 | Enable Boot Chime |
+| OpenCanopy | OpenCorePkg 1.0.7 | Enable graphical boot picker |
+| OpenHfsPlus | OpenCorePkg 1.0.7 | Required to see HFS volumes (macOS Installers and Recovery partitions |
+| OpenPartitionDxe | OpenCorePkg 1.0.7 | Required to load installers and recovery on OS X Mavericks and earlier |
+| ResetNvramEntry | OpenCorePkg 1.0.7 | Allow to reset NVRAM from boot picker |
+| ToggleSipEntry | OpenCorePkg 1.0.7 | Allow to toggle SIP from boot picker |
 
 </br>
 
@@ -654,7 +669,7 @@ The following Quirks are used:
 <p float="center">
 	<img align="center" src="./Docs/Screenshots/OC-boot-picker-1.png" alt="OpenCore boot picker 1/2">
 	<img align="center" src="./Docs/Screenshots/OC-boot-picker-2.png" alt="OpenCore boot picker 2/2">
-	<img align="center" src="./Docs/Screenshots/Tiger-Sequoia.png" alt="Tiger-Sequoia">
+	<img align="center" src="./Docs/Screenshots/Tiger-Tahoe.png" alt="Tiger-Tahoe">
 </p>
 
 <details><summary><strong>Mac OS X Tiger</strong></summary>
@@ -823,6 +838,14 @@ The following Quirks are used:
 	<img align="center" src="./Docs/Screenshots/15/Picture-1.png" alt="Desktop">
 	<img align="center" src="./Docs/Screenshots/15/Picture-3.png" alt="System Information & About This Mac">
 	<img align="center" src="./Docs/Screenshots/15/Picture-2.png" alt="About This Mac">
+</p>
+
+<details><summary><strong>macOS Tahoe</strong></summary>
+<br>
+<p float="center">
+	<img align="center" src="./Docs/Screenshots/26/Picture-1.png" alt="Desktop">
+	<img align="center" src="./Docs/Screenshots/26/Picture-3.png" alt="System Information & About This Mac">
+	<img align="center" src="./Docs/Screenshots/26/Picture-2.png" alt="About This Mac">
 </p>
 
 </details>
@@ -1923,10 +1946,59 @@ Now we need to patch the GPU in order to have graphics acceleration in macOS Seq
 
 </details>
 
+<details>
+<summary><strong>macOS Tahoe (26)</strong></summary>
+
+</br>
+
+The preparation of the installer and the installation of macOS Tahoe is similar to macOS Sequoia. You may need a compatible SMBIOS though, because `iMac15,1` is no longer supported by Apple.
+
+You will find below the steps on how to proceed.
+
+**References:**
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS)
+- [Create a bootable installer for macOS](https://support.apple.com/en-us/101578) provided by Apple.
+- [OCLP-Plus (Tahoe Patch Set)](https://github.com/YBronst/OCLP-Plus)
+
+#### Setting up the installer
+
+- Download the latest version of macOS Tahoe using [gibMacOS](https://github.com/corpnewt/gibMacOS).
+
+- At least a 32 GB USB drive with HFS+ file system partition and GPT partition scheme is required.
+
+- Install the `InstallAssistant.pkg` package, it will put `Install macOS Sequoia.app` in your `/Applications` folder.
+
+- Create a bootable installer for macOS Tahoe using `createinstallmedia` tool.
+```
+sudo /Applications/Install\ macOS\ Tahoe.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+```
+Replace `MyVolume` with your USB drive name.
+
+#### Installation
+
+Install macOS Tahoe following normal procedure.
+
+If the installation fails, set the SMBIOS to `iMac19,1`. After the installation you can go back to `iMac15,1` SMBIOS.
+
+#### Post-Installation
+
+- Install all available updates using "Software Update" in System Settings.
+
+GPU acceleration is not available yet. Install [OCLP Plus](https://github.com/YBronst/OCLP-Plus) to get proper display resolution.
+
+</details>
+
 </br>
 
 ## 6. Conclusion
 
-This project took me exactly one month, between searching for the perfect GPU, testing on candidate computers (Kenstfield & Haswell-E), and fine-tuning the designated computer (Haswell). I built this project just to have fun and take on a new challenge in the hackintosh world. I was lucky enough to have the right hardware for this project (except for the graphics card, which I had to buy). I wouldn't recommend this project to those who have no patience and can't afford to damage anything, in fact, I damaged my oldest Hackintosh (from the Leopard era) while installing a GPU and Bluetooth functionality on my T919 from my daily Hackintosh [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/).
+## Conclusion
 
-Finally, when I finished this project and succeeded, I was very happy with the result and I don't regret the damage I did, nor the time I spent on it.
+This project took exactly one month to complete. During that time, I searched for the right GPU, tested multiple candidate machines, including a Core 2 Quad Kentsfield system and a Haswell-E system, and finally fine-tuned the chosen Haswell-based computer until it could boot and run every Intel-based Mac OS X and macOS version from **Mac OS X Tiger 10.4** to **macOS Tahoe 26**.
+
+The main goal of this project was not practicality, but curiosity, experimentation, and fun. I wanted to take on a new challenge in the Hackintosh world and see how far I could push a single machine with one EFI folder. I was lucky to already have most of the required hardware available, except for the graphics card, which I had to buy specifically for this project. Finding the right GPU was one of the most important and difficult parts of the build, especially because it needed to support very old Mac OS X versions while still being usable on newer macOS releases with patching.
+
+This is not a project I would recommend to everyone. It requires patience, a lot of trial and error, and the willingness to troubleshoot unusual issues across many different macOS generations. It also comes with some risk. In my case, I unfortunately damaged my oldest Hackintosh from the Leopard era while experimenting with GPU installation, and I also damaged the Bluetooth functionality of the T919 card from my daily Hackintosh, the [HP Z640](https://github.com/HJebbour/HP-Z640-Hackintosh/).
+
+Despite that, completing this project was extremely satisfying. Seeing one machine successfully run every Intel-based versions of Mac OS X and macOS made all the effort worth it. In the end, I am very happy with the result, and I do not regret the time, effort, or even the hardware issues I faced along the way. This project was built for the challenge, the learning experience, and the enjoyment of exploring the history of macOS on real hardware.
