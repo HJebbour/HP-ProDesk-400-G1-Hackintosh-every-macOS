@@ -840,6 +840,8 @@ The following Quirks are used:
 	<img align="center" src="./Docs/Screenshots/15/Picture-2.png" alt="About This Mac">
 </p>
 
+</details>
+
 <details><summary><strong>macOS Tahoe</strong></summary>
 <br>
 <p float="center">
